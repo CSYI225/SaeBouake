@@ -145,7 +145,7 @@ export default function SponsorPartenaire() {
                   onChange={handleChange}
                 />
               </div>
-              <div className="row">
+              <div className="row2">
                 <input
                   type="text"
                   name="nomRepresentant"
@@ -163,7 +163,7 @@ export default function SponsorPartenaire() {
                   required
                 />
               </div>
-              <div className="row">
+              <div className="row2">
                 <input
                   type="text"
                   name="statut"
@@ -181,7 +181,7 @@ export default function SponsorPartenaire() {
                   required
                 />
               </div>
-              <div className="row">
+              <div className="row2">
                 <input
                   type="text"
                   name="RCCM"

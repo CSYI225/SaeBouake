@@ -39,6 +39,9 @@ const Actu=()=>{
   }, []);
     const navigate=useNavigate();
 
+const [menu, setMenu] = useState(false);    
+  const [affichermenurejoindre, setAffichermenurejoindre] = useState(false);
+
     return (
       <>
 
@@ -46,6 +49,30 @@ const Actu=()=>{
       <nav className={`navbar-container ${scrolled ? "scrolled" : ""}`}>
         <div className="navbar" ref={menuRef}>
             <img onClick={()=>navigate('/')} className="logo" src={LogoSAE} alt="SAE Logo" />
+
+           <button className="menu-tel" onClick={() => setMenu(!menu)}> ☰ </button>
+          {menu && (
+        <div className="menu-deroulant-tel">
+            <div className="tel-close" onClick={() => setMenu(false)}>✕</div>
+            <div className="tel-links">
+              <Link to= "/" className="liens-tel-header">Accueil</Link>
+              <Link to= "/Sponsoring" className="liens-tel-header">Sponsoring & Partenariat</Link>
+              <Link to= "/Programme" className="liens-tel-header">Programme</Link>
+              <Link to= "/Actualites"className="lien-tel-actif">Actualités</Link>
+            </div>
+            <button className="btn-rejoindre"  onClick={() => setAffichermenurejoindre(!affichermenurejoindre)}>Rejoingnez nous</button>
+              {affichermenurejoindre && (
+                <div className="menu-rejoindre-tel">
+                  <div className="menu-rejoindre-tel-item">Exposant</div>
+                  <div onClick={()=>navigate('/Visiteur')} className="menu-rejoindre-tel-item">Visiteur</div>
+                  <div onClick={()=>navigate('/Delegation')} className="menu-rejoindre-tel-item">Délégation</div>
+                  <div onClick={()=>navigate('/MediaPresse')}className="menu-rejoindre-tel-item">Média/Presse</div>
+                </div>
+              )}
+        </div>
+      )}
+
+
           <ul className="nav-links">
             <Link to= "/" className="liens-header">Accueil</Link>
             <Link to= "/Sponsoring" className="liens-header">Sponsoring & Partenariat</Link>
@@ -232,7 +259,7 @@ const Actu=()=>{
               <div className="coordonees">
                 <div className="tel">
                   <img className="phone-icon" src={Phone} alt="tel" />
-                  <div>+225 07 02 04 07 <br />+225 07 02 04 07</div>
+                  <div>+225 07 02 04 07 <br/>+225 07 02 04 07</div>
                 </div>
                 <div className="email">
                   <img className="email-icon" src={Email} alt="email" />

@@ -31,7 +31,7 @@ const MediaPresse=()=>{
               <option value="Energie">Live Streaming</option>
             </select>
             </div>
-            <div className="row">
+            <div className="row2">
               <input type="text" placeholder="Téléphone" />
               <input type="text" placeholder="Email" />
             </div>

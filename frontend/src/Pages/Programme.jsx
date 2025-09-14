@@ -41,7 +41,8 @@ const Programme=()=>{
     };
   }, []);
     const navigate=useNavigate();
-
+const [menu, setMenu] = useState(false);    
+  const [affichermenurejoindre, setAffichermenurejoindre] = useState(false);
 
     return (
     <>
@@ -49,6 +50,30 @@ const Programme=()=>{
       <nav className={`navbar-container ${scrolled ? "scrolled" : ""}`}>
         <div className="navbar" ref={menuRef}>
             <img onClick={()=>navigate('/')} className="logo" src={LogoSAE} alt="SAE Logo" />
+
+           <button className="menu-tel" onClick={() => setMenu(!menu)}> ☰ </button>
+          {menu && (
+        <div className="menu-deroulant-tel">
+            <div className="tel-close" onClick={() => setMenu(false)}>✕</div>
+            <div className="tel-links">
+              <Link to= "/" className="liens-tel-header">Accueil</Link>
+              <Link to= "/Sponsoring" className="liens-tel-header">Sponsoring & Partenariat</Link>
+              <Link to= "/Programme" className="lien-tel-actif">Programme</Link>
+              <Link to= "/Actualites"className="liens-tel-header">Actualités</Link>
+            </div>
+            <button className="btn-rejoindre"  onClick={() => setAffichermenurejoindre(!affichermenurejoindre)}>Rejoingnez nous</button>
+              {affichermenurejoindre && (
+                <div className="menu-rejoindre-tel">
+                  <div className="menu-rejoindre-tel-item">Exposant</div>
+                  <div onClick={()=>navigate('/Visiteur')} className="menu-rejoindre-tel-item">Visiteur</div>
+                  <div onClick={()=>navigate('/Delegation')} className="menu-rejoindre-tel-item">Délégation</div>
+                  <div onClick={()=>navigate('/MediaPresse')}className="menu-rejoindre-tel-item">Média/Presse</div>
+                </div>
+              )}
+        </div>
+      )}
+
+
           <ul className="nav-links">
             <Link to= "/" className="liens-header">Accueil</Link>
             <Link to= "/Sponsoring" className="liens-header">Sponsoring & Partenariat</Link>

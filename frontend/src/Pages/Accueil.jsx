@@ -94,6 +94,29 @@ const slides = [
   }
 ];
 
+const sponsorsMobile = [
+  {
+    id: 1,
+    nom: "JEAN",
+    prenoms: "MICHEL DOYIRI",
+    fonction: "Ingénieur agronomme",
+    images: [Speaker1]
+  },
+  {
+    id: 2,
+    nom: "JEAN",
+    prenoms: "MICHEL DOYIRI",
+    fonction: "Ingénieur agronomme",
+    images: [Speaker2]
+  },
+  {
+    id: 3,
+    nom: "JEAN",
+    prenoms: "MICHEL DOYIRI",
+    fonction: "Ingénieur agronomme",
+    images: [Speaker3]
+  }
+];
 
 
 export default function Accueil() {
@@ -109,7 +132,12 @@ export default function Accueil() {
   
     const nextSlide = () => setIndex((prev) => (prev + 1) % slides.length);
     const prevSlide = () => setIndex((prev) => (prev - 1 + slides.length) % slides.length);
-  
+
+    const [index2, setIndex2] = useState(0);
+
+    const nextSlide2 = () => setIndex2((prev) => (prev + 1) % sponsorsMobile.length);
+    const prevSlide2 = () => setIndex2((prev) => (prev - 1 + sponsorsMobile.length) % sponsorsMobile.length);
+    
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const itemsPerSlide = 6;
@@ -142,6 +170,26 @@ export default function Accueil() {
     };
   }, []);
     const navigate=useNavigate();
+const [menu, setMenu] = useState(false);    
+  const [affichermenurejoindre, setAffichermenurejoindre] = useState(false);
+
+  const [currentIndexMobile, setCurrentIndexMobile] = useState(0);
+  const itemsPerSlideMobile = 3;
+  const totalSlidesMobile = Math.ceil(sponsors.length / itemsPerSlideMobile);
+
+  const svtSlideMobile = () => {
+    setCurrentIndexMobile((prev) => (prev + 1) % totalSlidesMobile);
+  };
+
+  const precSlideMobile = () => {
+    setCurrentIndexMobile((prev) => (prev - 1 + totalSlidesMobile) % totalSlidesMobile);
+  };
+
+  const startIndexMobile = currentIndexMobile * itemsPerSlideMobile;
+  const visibleSponsorsMobile = sponsors.slice(startIndexMobile, startIndexMobile + itemsPerSlideMobile);
+
+
+
 
   return (
     <>
@@ -150,6 +198,29 @@ export default function Accueil() {
       <nav className={`navbar-container ${scrolled ? "scrolled" : ""}`}>
         <div className="navbar" ref={menuRef}>
             <img onClick={()=>navigate('/')} className="logo" src={LogoSAE} alt="SAE Logo" />
+
+           <button className="menu-tel" onClick={() => setMenu(!menu)}> ☰ </button>
+          {menu && (
+        <div className="menu-deroulant-tel">
+            <div className="tel-close" onClick={() => setMenu(false)}>✕</div>
+            <div className="tel-links">
+              <Link to= "/" className="lien-tel-actif">Accueil</Link>
+              <Link to= "/Sponsoring" className="liens-tel-header">Sponsoring & Partenariat</Link>
+              <Link to= "/Programme" className="liens-tel-header">Programme</Link>
+              <Link to= "/Actualites"className="liens-tel-header">Actualités</Link>
+            </div>
+            <button className="btn-rejoindre"  onClick={() => setAffichermenurejoindre(!affichermenurejoindre)}>Rejoingnez nous</button>
+              {affichermenurejoindre && (
+                <div className="menu-rejoindre-tel">
+                  <div className="menu-rejoindre-tel-item">Exposant</div>
+                  <div onClick={()=>navigate('/Visiteur')} className="menu-rejoindre-tel-item">Visiteur</div>
+                  <div onClick={()=>navigate('/Delegation')} className="menu-rejoindre-tel-item">Délégation</div>
+                  <div onClick={()=>navigate('/MediaPresse')}className="menu-rejoindre-tel-item">Média/Presse</div>
+                </div>
+              )}
+        </div>
+      )}
+            
           <ul className="nav-links">
             <Link to= "/" className="lien-actif">Accueil</Link>
             <Link to= "/Sponsoring" className="liens-header">Sponsoring & Partenariat</Link>
@@ -298,8 +369,8 @@ export default function Accueil() {
             </div>
           </div>
         </div>
-        <div className="pourquoi-range">
-          <div className="pourquoi-range-box">
+        <div className="pourquoi-range2">
+          <div className="pourquoi-range-box2">
             <img className="carte-icon" src={Carte} alt="" />
             <div className="pourquoi-description">
               <span className="pourquoi-description-titre">Une opportunité unique de</span>
@@ -332,17 +403,17 @@ export default function Accueil() {
       </div>
       <div className="slider-images">
         {slides[index].images.map((src, i) => (
-          <motion.img
-            key={i}
-            src={src}
-            alt={`slide-${i}`}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: i * 0.1 }}
-          />
+          <motion.img key={i} src={src} alt={`slide-${i}`} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: i * 0.1 }}/>
         ))}
       </div>
     </section>
+
+      <div className="ticket-container">
+        <div className="ticket">Ticket maquis géant</div>
+      </div>
+
+
+
     <section className="actus">
       <div className="actus-container">
         <div className="actus-top">
@@ -484,10 +555,31 @@ export default function Accueil() {
         <img className="speakers-courbes-right" src={Courbes1} alt="" />
       </div>
     </section>
+
+      <div className="speakers-mobile">
+        <div className="speakers-title">Speakers</div>
+        <div className="speakers-bottom">
+          <div className="speakers-arrow" onClick={prevSlide2}>&#8249;</div>
+          <div className="speakers-box-mobile">
+            <div className="speaker-photo">
+              {sponsorsMobile[index2].images.map((src, i) => (
+                <motion.img key={i} src={src} alt={`slide-${i}`} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: i * 0.1 }}/>
+              ))}
+            </div>
+          <motion.div className="speaker-description-mobile" key={sponsorsMobile[index2].id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.8 }}>
+              <div className="nompeaker">{sponsorsMobile[index2].nom}</div>
+              <div className="prenomspeaker">{sponsorsMobile[index2].prenoms}</div>
+              <div className="fonctionspeaker">{sponsorsMobile[index2].fonction}</div>
+          </motion.div>
+          </div>
+          <div className="speakers-arrow" onClick={nextSlide2}>&#8250;</div>
+        </div>
+      </div>
+
     <section className="sponsors-section">
       <div className="titre">Sponsors & Partenaires</div>
       <div className="sponsors-slider">
-        <button className="arrow left" onClick={precSlide}>&#8249;</button>
+        <button className="arrow" onClick={precSlide}>&#8249;</button>
         <div className="sponsors-track-wrapper">
           <AnimatePresence mode="wait">
             <motion.div key={currentIndex} className="sponsors-track" initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -50 }} transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}>
@@ -499,7 +591,7 @@ export default function Accueil() {
             </motion.div>
           </AnimatePresence>
         </div>
-        <button className="arrow right" onClick={svtSlide}>&#8250;</button>
+        <button className="arrow" onClick={svtSlide}>&#8250;</button>
       </div>
 <div className="position">
     {Array.from({ length: totalSlides }).map((_, index) => (
@@ -507,6 +599,33 @@ export default function Accueil() {
         key={index}
         className={`cercle ${index === currentIndex ? "active" : ""}`}
         onClick={() => setCurrentIndex(index)}
+      ></div>
+    ))}
+  </div>
+  </section>
+            <section className="mobile-sponsors-section">
+      <div className="titre">Sponsors & Partenaires</div>
+      <div className="mobile-sponsors-slider">
+        <button className="mobile-arrow-left" onClick={precSlideMobile}>&#8249;</button>
+        <div className="mobile-sponsors-track-wrapper">
+          <AnimatePresence mode="wait">
+            <motion.div key={currentIndexMobile} className="mobile-sponsors-track" initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -50 }} transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}>
+              {visibleSponsorsMobile.map((sponsor) => (
+                <div className="sponsor-card" key={sponsor.id}>
+                  <img src={sponsor.logo} alt={sponsor.name} />
+                </div>
+              ))}
+            </motion.div>
+          </AnimatePresence>
+        </div>
+        <button className="mobile-arrow-right" onClick={svtSlideMobile}>&#8250;</button>
+      </div>
+<div className="position">
+    {Array.from({ length: totalSlidesMobile }).map((_, index) => (
+      <div
+        key={index}
+        className={`cercle ${index === currentIndexMobile ? "active" : ""}`}
+        onClick={() => setCurrentIndexMobile(index)}
       ></div>
     ))}
   </div>

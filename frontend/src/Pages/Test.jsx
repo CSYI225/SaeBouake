@@ -1,400 +1,325 @@
-// import { useState } from "react";
-// import Volaye from "../Images/volaye.jpg"
-
-// export default function Test() {
-//   const [isOpen, setIsOpen] = useState(false);
-
-//   const openPopup = () => setIsOpen(true);
-//   const closePopup = () => setIsOpen(false);
-
-//   return (
-//     <div className="actus-box">
-//       <div className="actus-img"></div>
-//       <div className="actus-description">
-//         <div className="actus-texte">
-//           <span className="actus-texte-titre">Actualités</span>
-//           Le SAE 2026 propose panels, ateliers et un espace startups autour
-//           du financement vert, de l’agrotechnologie et des énergies
-//           renouvelables, réunissant experts et dirigeants pour inspirer, former
-//           et connecter les participants en vue de projets concrets.
-//         </div>
-//         <button className="actus-details-btn" onClick={openPopup}>
-//           Détails
-//         </button>
-//       </div>
-
-//       {/* POPUP */}
-// {isOpen && (
-//   <div className="popup-container">
-//   <div className="popup">
-//     <button className="close-btn" onClick={closePopup}>×</button>
-
-//     <div className="popup-content">
-//       <div className="popup-text">
-//         {/* L'image est dans le texte et flotte à gauche */}
-//         <img src={Volaye} alt="actualité" className="wrap-img"/>
-//         <h2>Actualités</h2>
-//         <p>
-//           Pour la première fois, le SAE intégrera un maquis géant, véritable lieu de vie où les
-//           participants pourront…
-//         </p>
-//         <p>
-//           Cette initiative vise à démocratiser l’accès à l’événement tout en mettant en valeur
-//           le patrimoine culinaire ivoirien…
-//           Cette initiative vise à démocratiser l’accès à l’événement tout en mettant en valeur
-//           le patrimoine culinaire ivoirien…
-//           Cette initiative vise à démocratiser l’accès à l’événement tout en mettant en valeur
-//           le patrimoine culinaire ivoirien…
-//           Cette initiative vise à démocratiser l’accès à l’événement tout en mettant en valeur
-//           le patrimoine culinaire ivoirien…
-//           Cette initiative vise à démocratiser l’accès à l’événement tout en mettant en valeur
-//           le patrimoine culinaire ivoirien…
-//         </p>
-//         <p>
-//           (ajoute autant de texte que nécessaire pour voir l’effet d’enrobage autour de l’image)
-//         </p>
-//       </div>
-//     </div>
-//   </div>
-//   </div>
-// )}    </div>
-//   );
-// }
+// import { useState, useEffect,useRef } from "react";
+// import Diamant from "../Images/diamant.png"
+// import Or from "../Images/or.png"
+// import Argent from "../Images/argent.png"
+// import Bronze from "../Images/bronze.png"
+// import Plante from "../Images/plante.png"
+// import Plante2 from "../Images/planteJaune.png"
 
 
-// import { useState } from "react";
-// import Baniere from "../Images/baniere.png";
 
-// export default function Test() {
-//   const [step, setStep] = useState(1);
-//   const [formData, setFormData] = useState({
-//     // Étape 1
-//     choix: "",
-//     typeSponsoring: "",
-//     typePartenariat: "",
-//     objectifs: "",
-//     contribution: "",
-//     pack: "",
 
-//     // Étape 2
-//     nomEntreprise: "",
-//     presentation: "",
-//     nomRepresentant: "",
-//     fonctionRepresentant: "",
-//     statut: "",
-//     creation: "",
-//     RCCM: "",
-//     numContribuable: "",
+// const Test=()=>{
+//   const [openPropositions, setOpenPropositions] = useState("diamond");
 
-//     // Étape 3
-//     pays: "",
-//     adresse: "",
-//     ville: "",
-//     telephone: "",
-//     email: "",
-//     web: "",
-//   });
-
-//   const handleChange = (e) => {
-//     const { name, value } = e.target;
-//     setFormData({ ...formData, [name]: value });
+//   const togglePropositions = (PropositionsName) => {
+//     setOpenPropositions(openPropositions === PropositionsName ? null : PropositionsName);
 //   };
+//   return(
+//   <>
+// <section className="propositions">
+//     <div className="propositions-titre">Nos packs sponsoring exclusifs</div>
+//     <div className="propositions-container">
+//         <div className="proposition-header">
+//             <div className="onglet" onClick={() => togglePropositions("diamond")}>
+//                 <div className="img-box"><img className="icon-diamond" src={Diamant} alt="" /></div>
+//                 <div className="onglet-title">PACK DIAMOND 10.000.000</div>
+//             </div>
+// {openPropositions === "diamond" && (
+//         <div className="propositions-body">
+//             <div className="proposition-box1">
+//                 <div className="propositions-title">Avant</div>
+//                 <div className="propositions-content">
+//                     <div className="propositions-content-box">
+//                         <div className="item">
+//                             <img className="plante-sponsoring" src={Plante2} alt="" />
+//                             <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+//                         </div>
+//                         <div className="item">
+//                             <img className="plante-sponsoring" src={Plante2} alt="" />
+//                             <div className="decript-sponsoring">Votre logo en tête d'affiche et de banderole</div>
+//                         </div>
+//                         <div className="item">
+//                             <img className="plante-sponsoring" src={Plante2} alt="" />
+//                             <div className="decript-sponsoring">Votre logo dans les vidéos promotionnels de l'évenement</div>
+//                         </div>
+//                     </div>
 
-//   const nextStep = () => {
-//     if (step < 3) setStep(step + 1);
-//   };
-
-//   const prevStep = () => {
-//     if (step > 1) setStep(step - 1);
-//   };
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     console.log("Données envoyées :", formData);
-//     alert("Formulaire soumis avec succès !");
-//   };
-
-//   return (
-//     <div className="formulaires">
-//       <div className="container-formulaires">
-//         <div className="form-header">
-//           <div className="form-title">FORMULAIRE MEDIA / PRESSE</div>
-//           <img className="baniere" src={Baniere} alt="" />
-//         </div>
-
-//         <form className="form-body" onSubmit={handleSubmit}>
-//           {step === 1 && (
-//             <div className="form-step">
-//               <h2 className="sous-titre-form">INFORMATION SUR VOTRE PACK</h2>
-
-//               <div className="row">
-//                 <select
-//                   name="choix"
-//                   value={formData.choix}
-//                   onChange={handleChange}
-//                   required
-//                 >
-//                   <option value="">Devenir sponsor / partenaire</option>
-//                   <option value="sponsor">Sponsor</option>
-//                   <option value="partenaire">Partenaire</option>
-//                 </select>
-//               </div>
-
-//               {/* Champs spécifiques selon sponsor / partenaire */}
-//               {formData.choix === "sponsor" && (
-//                 <div className="row-colomn">
-//                   <select
-//                     name="typeSponsoring"
-//                     value={formData.typeSponsoring}
-//                     onChange={handleChange}
-//                   >
-//                     <option value="">Type de sponsoring</option>
-//                     <option value="SFinancier">Sponsor Financier</option>
-//                     <option value="STechnique">Sponsor Technique</option>
-//                     <option value="SMedia">Sponsor Média</option>
-//                     <option value="SPrestataire">Sponsor Prestataire</option>
-//                     <option value="SAutres">Autres</option>
-//                   </select>
-//                   <textarea
-//                     name="objectifs"
-//                     className="form-description"
-//                     placeholder="Vos objectifs en tant que sponsor"
-//                     value={formData.objectifs}
-//                     onChange={handleChange}
-//                   />
-//                   <textarea
-//                     name="contribution"
-//                     className="form-description"
-//                     placeholder="Votre contribution à l'évènement"
-//                     value={formData.contribution}
-//                     onChange={handleChange}
-//                   />
-//                   <select
-//                     name="pack"
-//                     value={formData.pack}
-//                     onChange={handleChange}
-//                   >
-//                     <option value="">Sélectionnez votre pack</option>
-//                     <option value="Diamant">Pack Diamant</option>
-//                     <option value="Or">Pack Or</option>
-//                     <option value="Argent">Pack Argent</option>
-//                     <option value="Bronze">Pack Bronze</option>
-//                     <option value="Technique">Pack Technique</option>
-//                   </select>
+//                     <div className="propositions-content-box">
+//                         <div className="item">
+//                             <img className="plante-sponsoring" src={Plante2} alt="" />
+//                             <div className="decript-sponsoring">Votre logo sur tous les contenus diffusés sur les réseaux sociaux</div>
+//                         </div>
+//                         <div className="item">
+//                             <img className="plante-sponsoring" src={Plante2} alt="" />
+//                             <div className="decript-sponsoring">Distribution de vos gadgets pendant les activations terrains à Bouaké et villes environnantes</div>
+//                         </div>
+//                     </div>
 //                 </div>
-//               )}
-
-//               {formData.choix === "partenaire" && (
-//                 <div className="row-colomn">
-//                   <select
-//                     name="typePartenariat"
-//                     value={formData.typeSponsoring}
-//                     onChange={handleChange}
-//                   >
-//                     <option value="">Type de Partenariat</option>
-//                     <option value="PFinancier">Sponsor Financier</option>
-//                     <option value="PTechnique">Sponsor Technique</option>
-//                     <option value="PMedia">Sponsor Média</option>
-//                     <option value="PPrestataire">Sponsor Prestataire</option>
-//                     <option value="PAutres">Autres</option>
-//                   </select>
-//                   <textarea
-//                     name="objectifs"
-//                     className="form-description"
-//                     placeholder="Vos objectifs en tant que partenaire"
-//                     value={formData.objectifs}
-//                     onChange={handleChange}
-//                   />
-//                   <textarea
-//                     name="contribution"
-//                     className="form-description"
-//                     placeholder="Votre contribution à l'évènement"
-//                     value={formData.contribution}
-//                     onChange={handleChange}
-//                   />
-//                   <select
-//                     name="pack"
-//                     value={formData.pack}
-//                     onChange={handleChange}
-//                   >
-//                     <option value="">Sélectionnez votre pack</option>
-//                     <option value="Diamant">Pack Diamant</option>
-//                     <option value="Or">Pack Or</option>
-//                     <option value="Argent">Pack Argent</option>
-//                     <option value="Bronze">Pack Bronze</option>
-//                     <option value="Technique">Pack Technique</option>
-//                   </select>
+//             </div>
+//             <div className="proposition-box2">
+//                 <div className="propositions-title">Pendant</div>
+//                 <div className="propositions-content">
+//                     <div className="propositions-content-box">
+//                         <div className="item">
+//                             <img className="plante-sponsoring" src={Plante} alt="" />
+//                             <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+//                         </div>
+//                         <div className="item">
+//                             <img className="plante-sponsoring" src={Plante} alt="" />
+//                             <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+//                         </div>
+//                         <div className="item">
+//                             <img className="plante-sponsoring" src={Plante} alt="" />
+//                             <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+//                         </div>
+//                     </div>
+                    
+//                     <div className="propositions-content-box">
+//                         <div className="item">
+//                             <img className="plante-sponsoring" src={Plante} alt="" />
+//                             <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+//                         </div>
+//                         <div className="item">
+//                             <img className="plante-sponsoring" src={Plante} alt="" />
+//                             <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+//                         </div>
+//                         <div className="item">
+//                             <img className="plante-sponsoring" src={Plante} alt="" />
+//                             <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+//                         </div>
+//                     </div>
 //                 </div>
-//               )}
-//               <div className="btn-group">
-//               <button type="button" className="btn" onClick={nextStep}>
-//                 Suivant →
-//               </button>
-//               </div>
 //             </div>
+//             <div className="proposition-box1">
+//                 <div className="propositions-title">Après</div>
+//                 <div className="propositions-content">
+//                     <div className="propositions-content-box">
+//                         <div className="item">
+//                             <img className="plante-sponsoring" src={Plante2} alt="" />
+//                             <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+//                         </div>
+//                         <div className="item">
+//                             <img className="plante-sponsoring" src={Plante2} alt="" />
+//                             <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+//                         </div>
+//                         <div className="item">
+//                             <img className="plante-sponsoring" src={Plante2} alt="" />
+//                             <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+//                         </div>
+//                     </div>
+                    
+//                     <div className="propositions-content-box">
+//                         <div className="item">
+//                             <img className="plante-sponsoring" src={Plante2} alt="" />
+//                             <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+//                         </div>
+//                         <div className="item">
+//                             <img className="plante-sponsoring" src={Plante2} alt="" />
+//                             <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+//                         </div>
+//                         <div className="item">
+//                             <img className="plante-sponsoring" src={Plante2} alt="" />
+//                             <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+//                         </div>
+//                     </div>
+//                 </div>
+//             </div>
+//         </div>
 //           )}
+//             <div className="onglet" onClick={() => togglePropositions("gold")}>
+//                 <div className="img-box"><img className="icon-pieces" src={Or} alt="" /></div>
+//                 <div className="onglet-title">PACK GOLD 7.000.000</div>
+//             </div>
+// {openPropositions === "gold" && (
+//         <div className="propositions-body">
+//             <div className="proposition-box1">
+//                 <div className="propositions-title">Avant</div>
+//                 <div className="propositions-content">
+//                     <div className="propositions-content-box">
+//                         <div className="item">
+//                             <img className="plante-sponsoring" src={Plante2} alt="" />
+//                             <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+//                         </div>
+//                         <div className="item">
+//                             <img className="plante-sponsoring" src={Plante2} alt="" />
+//                             <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+//                         </div>
+//                         <div className="item">
+//                             <img className="plante-sponsoring" src={Plante2} alt="" />
+//                             <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+//                         </div>
+//                     </div>
 
-//           {step === 2 && (
-//             <div className="form-step">
-//               <h2 className="sous-titre-form">INFORMATION VOTRE ENTREPRISE</h2>
-//               <div className="row">
-//                 <input
-//                   type="text"
-//                   name="nomEntreprise"
-//                   placeholder="Nom de l'entreprise"
-//                   value={formData.nomEntreprise}
-//                   onChange={handleChange}
-//                   required
-//                 />
-//               </div>
-//               <div className="row">
-//                 <textarea
-//                   name="presentation"
-//                   className="form-description"
-//                   placeholder="Présentation de l'entreprise"
-//                   value={formData.presentation}
-//                   onChange={handleChange}
-//                 />
-//               </div>
-//               <div className="row">
-//                 <input
-//                   type="text"
-//                   name="nomRepresentant"
-//                   placeholder="Nom du représentant légal"
-//                   value={formData.nomRepresentant}
-//                   onChange={handleChange}
-//                   required
-//                 />
-//                 <input
-//                   type="text"
-//                   name="fonctionRepresentant"
-//                   placeholder="Fonction du représentant"
-//                   value={formData.fonctionRepresentant}
-//                   onChange={handleChange}
-//                   required
-//                 />
-//               </div>
-//               <div className="row">
-//                 <input
-//                   type="text"
-//                   name="statut"
-//                   placeholder="Statut juridique"
-//                   value={formData.statut}
-//                   onChange={handleChange}
-//                   required
-//                 />
-//                 <input
-//                   type="text"
-//                   name="creation"
-//                   placeholder="Date création"
-//                   value={formData.creation}
-//                   onChange={handleChange}
-//                   required
-//                 />
-//               </div>
-//               <div className="row">
-//                 <input
-//                   type="text"
-//                   name="RCCM"
-//                   placeholder="Numéro RCCM"
-//                   value={formData.RCCM}
-//                   onChange={handleChange}
-//                   required
-//                 />
-//                 <input
-//                   type="text"
-//                   name="numContribuable"
-//                   placeholder="Numéro de contribuable"
-//                   value={formData.numContribuable}
-//                   onChange={handleChange}
-//                   required
-//                 />
-//               </div>
-//               <div className="btn-group">
-//                 <button type="button" className="btn prev" onClick={prevStep}>
-//                   ← Précédent
-//                 </button>
-//                 <button type="button" className="btn" onClick={nextStep}>
-//                   Suivant →
-//                 </button>
-//               </div>
+//                     <div className="propositions-content-box">
+//                         <div className="item">
+//                             <img className="plante-sponsoring" src={Plante2} alt="" />
+//                             <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+//                         </div>
+//                         <div className="item">
+//                             <img className="plante-sponsoring" src={Plante2} alt="" />
+//                             <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+//                         </div>
+//                         <div className="item">
+//                             <img className="plante-sponsoring" src={Plante2} alt="" />
+//                             <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+//                         </div>
+//                     </div>
+//                 </div>
 //             </div>
-//           )}
-
-//           {step === 3 && (
-//             <div className="form-step">
-//               <h2 className="sous-titre-form">INFORMATION VOTRE ENTREPRISE</h2>
-//               <div className="row">
-//                 <input
-//                   type="text"
-//                   name="pays"
-//                   placeholder="Pays"
-//                   value={formData.pays}
-//                   onChange={handleChange}
-//                   required
-//                 />
-//               </div>
-//               <div className="row">
-//                 <input
-//                   type="text"
-//                   name="adresse"
-//                   placeholder="Adresse du siège social"
-//                   value={formData.adresse}
-//                   onChange={handleChange}
-//                   required
-//                 />
-//               </div>
-//               <div className="row">
-//                 <input
-//                   type="text"
-//                   name="ville"
-//                   placeholder="Ville"
-//                   value={formData.ville}
-//                   onChange={handleChange}
-//                   required
-//                 />
-//               </div>
-//               <div className="row">
-//                 <input
-//                   type="tel"
-//                   name="telephone"
-//                   placeholder="Téléphone"
-//                   value={formData.telephone}
-//                   onChange={handleChange}
-//                   required
-//                 />
-//               </div>
-//               <div className="row">
-//                 <input
-//                   type="email"
-//                   name="email"
-//                   placeholder="Email"
-//                   value={formData.email}
-//                   onChange={handleChange}
-//                   required
-//                 />
-//               </div>
-//               <div className="row">
-//                 <input
-//                   type="text"
-//                   name="web"
-//                   placeholder="Site web"
-//                   value={formData.web}
-//                   onChange={handleChange}
-//                 />
-//               </div>
-//               <div className="btn-group">
-//                 <button type="button" className="btn prev" onClick={prevStep}>
-//                   ← Précédent
-//                 </button>
-//                 <button type="submit" className="btn submit">
-//                   Soumettre
-//                 </button>
-//               </div>
+//             <div className="proposition-box2">
+//                 <div className="propositions-title">Pendant</div>
+//                 <div className="propositions-content">
+//                     <div className="propositions-content-box">
+//                         <div className="item">
+//                             <img className="plante-sponsoring" src={Plante} alt="" />
+//                             <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+//                         </div>
+//                         <div className="item">
+//                             <img className="plante-sponsoring" src={Plante} alt="" />
+//                             <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+//                         </div>
+//                         <div className="item">
+//                             <img className="plante-sponsoring" src={Plante} alt="" />
+//                             <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+//                         </div>
+//                     </div>
+                    
+//                     <div className="propositions-content-box">
+//                         <div className="item">
+//                             <img className="plante-sponsoring" src={Plante} alt="" />
+//                             <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+//                         </div>
+//                         <div className="item">
+//                             <img className="plante-sponsoring" src={Plante} alt="" />
+//                             <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+//                         </div>
+//                         <div className="item">
+//                             <img className="plante-sponsoring" src={Plante} alt="" />
+//                             <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+//                         </div>
+//                     </div>
+//                 </div>
 //             </div>
+//             <div className="proposition-box1">
+//                 <div className="propositions-title">Après</div>
+//                 <div className="propositions-content">
+//                     <div className="propositions-content-box">
+//                         <div className="item">
+//                             <img className="plante-sponsoring" src={Plante2} alt="" />
+//                             <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+//                         </div>
+//                         <div className="item">
+//                             <img className="plante-sponsoring" src={Plante2} alt="" />
+//                             <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+//                         </div>
+//                         <div className="item">
+//                             <img className="plante-sponsoring" src={Plante2} alt="" />
+//                             <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+//                         </div>
+//                     </div>
+                    
+//                     <div className="propositions-content-box">
+//                         <div className="item">
+//                             <img className="plante-sponsoring" src={Plante2} alt="" />
+//                             <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+//                         </div>
+//                         <div className="item">
+//                             <img className="plante-sponsoring" src={Plante2} alt="" />
+//                             <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+//                         </div>
+//                         <div className="item">
+//                             <img className="plante-sponsoring" src={Plante2} alt="" />
+//                             <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+//                         </div>
+//                     </div>
+//                 </div>
+//             </div>
+//         </div>
 //           )}
-//         </form>
-//       </div>
+//             <div className="onglet" onClick={() => togglePropositions("silver")}>
+//                 <div className="img-box"><img className="icon-pieces" src={Argent} alt="" /></div>
+//                 <div className="onglet-title">PACK SILVER 5.000.000</div>
+//             </div>
+//             <div className="onglet" onClick={() => togglePropositions("bronze")}>
+//                 <div className="img-box"><img className="icon-piece-bronze" src={Bronze} alt="" /></div>
+//                 <div className="onglet-title">PACK BRONZE 3.000.000</div>
+//             </div>
+//             <div className="onglet" onClick={() => togglePropositions("gold")}>
+//                 <div className="onglet-title">PACK INSTITUTIONEL / TECHNIQUE </div>
+//             </div>
+//         </div>
 //     </div>
-//   );
+//     </section>
+//     </>
+//     )
 // }
+// export default Test
+
+import { useState,useEffect } from "react";
+import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+import { motion, AnimatePresence } from "framer-motion";
+import Speaker1 from "../Images/speaker1.png"
+import Speaker2 from "../Images/speaker2.png"
+import Speaker3 from "../Images/speaker3.png"
+
+
+const sponsorsMobile = [
+  {
+    id: 1,
+    nom: "JEAN",
+    prenoms: "MICHEL DOYIRI",
+    fonction: "Ingénieur agronomme",
+    images: [Speaker1]
+  },
+  {
+    id: 2,
+    nom: "JEAN",
+    prenoms: "MICHEL DOYIRI",
+    fonction: "Ingénieur agronomme",
+    images: [Speaker2]
+  },
+  {
+    id: 3,
+    nom: "JEAN",
+    prenoms: "MICHEL DOYIRI",
+    fonction: "Ingénieur agronomme",
+    images: [Speaker3]
+  }
+];
+
+
+const Test=()=>{
+
+    const [index, setIndex] = useState(0);
+  
+    const nextSlide2 = () => setIndex((prev) => (prev + 1) % sponsorsMobile.length);
+    const prevSlide2 = () => setIndex((prev) => (prev - 1 + sponsorsMobile.length) % sponsorsMobile.length);
+
+  return (
+    <>
+      <div className="speakers-mobile">
+        <div className="speakers-title">Speakers</div>
+        <div className="speakers-bottom">
+          <div className="speakers-arrow" onClick={prevSlide2}>&#8249;</div>
+          <div className="speakers-box-mobile">
+            <div className="speaker-photo">
+              {sponsorsMobile[index].images.map((src, i) => (
+                <motion.img key={i} src={src} alt={`slide-${i}`} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: i * 0.1 }}/>
+              ))}
+            </div>
+          <motion.div className="speaker-description-mobile" key={sponsorsMobile[index].id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.8 }}>
+              <div className="nompeaker">{sponsorsMobile[index].nom}</div>
+              <div className="prenomspeaker">{sponsorsMobile[index].prenoms}</div>
+              <div className="fonctionspeaker">{sponsorsMobile[index].fonction}</div>
+          </motion.div>
+          </div>
+          <div className="speakers-arrow" onClick={nextSlide2}>&#8250;</div>
+        </div>
+      </div>
+
+    </>
+    )
+}
+export default Test

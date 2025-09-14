@@ -20,6 +20,9 @@ import Cemoi from "../Images/cemoi.png"
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
+import Plante from "../Images/plante.png"
+
+import Plante2 from "../Images/planteJaune.png"
 
 const Sponsoring=()=>{
     const [scrolled, setScrolled] = useState(false);
@@ -45,6 +48,15 @@ const Sponsoring=()=>{
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
+  const [openPropositions, setOpenPropositions] = useState("diamond");
+
+  const togglePropositions = (PropositionsName) => {
+    setOpenPropositions(PropositionsName);
+  };
+
+const [menu, setMenu] = useState(false);    
+const [affichermenurejoindre, setAffichermenurejoindre] = useState(false);
   
   return (
     <>
@@ -53,6 +65,30 @@ const Sponsoring=()=>{
       <nav className={`navbar-container ${scrolled ? "scrolled" : ""}`}>
         <div className="navbar" ref={menuRef}>
             <img onClick={()=>navigate('/')} className="logo" src={LogoSAE} alt="SAE Logo" />
+
+           <button className="menu-tel" onClick={() => setMenu(!menu)}> ☰ </button>
+          {menu && (
+        <div className="menu-deroulant-tel">
+            <div className="tel-close" onClick={() => setMenu(false)}>✕</div>
+            <div className="tel-links">
+              <Link to= "/" className="liens-tel-header">Accueil</Link>
+              <Link to= "/Sponsoring" className="lien-tel-actif">Sponsoring & Partenariat</Link>
+              <Link to= "/Programme" className="liens-tel-header">Programme</Link>
+              <Link to= "/Actualites"className="liens-tel-header">Actualités</Link>
+            </div>
+            <button className="btn-rejoindre"  onClick={() => setAffichermenurejoindre(!affichermenurejoindre)}>Rejoingnez nous</button>
+              {affichermenurejoindre && (
+                <div className="menu-rejoindre-tel">
+                  <div className="menu-rejoindre-tel-item">Exposant</div>
+                  <div onClick={()=>navigate('/Visiteur')} className="menu-rejoindre-tel-item">Visiteur</div>
+                  <div onClick={()=>navigate('/Delegation')} className="menu-rejoindre-tel-item">Délégation</div>
+                  <div onClick={()=>navigate('/MediaPresse')}className="menu-rejoindre-tel-item">Média/Presse</div>
+                </div>
+              )}
+        </div>
+      )}
+
+
           <ul className="nav-links">
             <Link to= "/" className="liens-header">Accueil</Link>
             <Link to= "/Sponsoring" className="lien-actif">Sponsoring & Partenariat</Link>
@@ -81,101 +117,561 @@ const Sponsoring=()=>{
       </div>
     </section>
 
-    <section className="propositions">
-      <div className="propositions-titre">Nos packs sponsoring exclusifs</div>
-      <div className="propositions-container">
-        <div className="propositions-range">
-          <div className="propositions-range-left">
-            <img className="diamant-img" src={Diamant} alt="" />
-            <div className="packs">PACK DIAMANT</div>
-            <div className="tarifs">15 000 000</div>
-          </div>
-            <nav className="propositions-range-right">
-              <ul>
-                <li> <span className="propositions-gras">- Logo en tête d’affiche</span> sur tous les supports (affiches, banderoles, site  web)</li>
-                <li><span className="propositions-gras">- Prise de parole</span>  lors de la cérémonie d’ouverture</li>
-                <li><span className="propositions-gras">- Stand premium</span>  de 20m² en position stratgique</li>
-                <li><span className="propositions-gras">- Interview média exclusive</span> pour mettre en lumière votre engagement</li>
-                <li><span className="propositions-gras">- 10 passes VIP</span>  pour les cocktails privés avec les personnalités présentes</li>
-              </ul>
-            </nav>
-        </div>
-        <div className="propositions-range">
-          <div className="propositions-range-left">
-            <img className="pieces-img" src={Or} alt="" />
-            <div className="packs">PACK OR</div>
-            <div className="tarifs">9 500 000</div>
-          </div>
-            <nav className="propositions-range-right">
-              <ul>
-                <li> <span className="propositions-gras">- Logo sur les bâches et supports digitaux </span></li>
-                <li><span className="propositions-gras">- Animation d’un atelier thématique</span>  pour présenter vos solutions</li>
-                <li><span className="propositions-gras">- Stand de 15m²</span></li>
-                <li><span className="propositions-gras">- 5 passes VIP</span>  pour des rencontres privilégiées</li>
-              </ul>
-            </nav>
-        </div>
-        <div className="propositions-range">
-          <div className="propositions-range-left">
-            <img className="pieces-img" src={Argent} alt="" />
-            <div className="packs">PACK ARGENT</div>
-            <div className="tarifs">6 000 000</div>
-          </div>
-            <nav className="propositions-range-right">
-              <ul>
-                <li> <span className="propositions-gras">- Visibilité sur les réseaux sociaux</span> et dans le catalogue officiel</li>
-                <li><span className="propositions-gras">- Stand de 10m²</span></li>
-                <li><span className="propositions-gras">- 3 passes VIP</span>  pour accéder aux conférence</li>
-              </ul>
-            </nav>
-        </div>
-        <div className="propositions-range">
-          <div className="propositions-range-left">
-            <img className="pieces-img" src={Bronze} alt="" />
-            <div className="packs">PACK BRONZE</div>
-            <div className="tarifs">3 000 000</div>
-          </div>
-            <nav className="propositions-range-right">
-              <ul>
-                <li> <span className="propositions-gras">- Logo dans le catalogue officiel</span></li>
-                <li><span className="propositions-gras">- 2 invitations</span>pour les conférences</li>
-                <li><span className="propositions-gras">- Stand de 6m²</span></li>
-              </ul>
-            </nav>
-        </div>
-        <div className="packs-institutionnel">
-          <div className="packs-institutionnel-top">
-          <div className="propositions-range-left">
-            <img className="intitutionnel-img" src={Bronze} alt="" />
-          </div>
-            <nav className="propositions-range-right">
-              <ul>
-                <li> <span className="propositions-gras">- Logo dans le catalogue officiel</span></li>
-                <li><span className="propositions-gras">- 2 invitations</span>pour les conférences</li>
-                <li><span className="propositions-gras">- Stand de 6m²</span></li>
-              </ul>
-            </nav>
-          </div>
-          <div className="packs-institutionnel-bottom">
-            <div className="packs-texte"> PARTENARIAT INSTITUTIONNEL / TECHNIQUE</div>
-            <div className="contreparties">
-              <div className="contreparties-texte">• Salle de Conference</div>
-              <div className="contreparties-texte">• Appui logistique ou technique</div>
-              <div className="contreparties-texte">• Hébergement ou transport VIP</div>
-              <div className="contreparties-texte">• Appui financier</div>
-              <div className="contreparties-texte">• Diffusion média (TV / radio / presse écrite)</div>
+<section className="propositions">
+    <div className="propositions-titre">Nos packs sponsoring exclusifs</div>
+    <div className="propositions-container">
+        <div className="proposition-header">
+            <div className={`onglet ${openPropositions === "diamond" ? "onglet-active" : ""}`} onClick={() => togglePropositions("diamond")}>
+                <div className="img-box"><img className="icon-diamond" src={Diamant} alt="" /></div>
+                <div className="onglet-title">PACK DIAMOND 10.000.000</div>
             </div>
-            <div className="contreparties">
-              <div className="contreparties-texte">• Salle de Conference</div>
+{openPropositions === "diamond" && (
+        <div className="propositions-body">
+            <div className="proposition-box1">
+                <div className="propositions-title">Avant</div>
+                <div className="propositions-content">
+                    <div className="propositions-content-box">
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo en tête d'affiche et de banderole</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo dans les vidéos promotionnels de l'évenement</div>
+                        </div>
+                    </div>
+
+                    <div className="propositions-content-box">
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo sur tous les contenus diffusés sur les réseaux sociaux</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Distribution de vos gadgets pendant les activations terrains à Bouaké et villes environnantes</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
+            <div className="proposition-box2">
+                <div className="propositions-title">Pendant</div>
+                <div className="propositions-content">
+                    <div className="propositions-content-box">
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                    </div>
+                    
+                    <div className="propositions-content-box">
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="proposition-box1">
+                <div className="propositions-title">Après</div>
+                <div className="propositions-content">
+                    <div className="propositions-content-box">
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                    </div>
+                    
+                    <div className="propositions-content-box">
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+          )}
+            <div className={`onglet ${openPropositions === "gold" ? "onglet-active" : ""}`} onClick={() => togglePropositions("gold")}>
+                <div className="img-box"><img className="icon-pieces" src={Or} alt="" /></div>
+                <div className="onglet-title">PACK GOLD 7.000.000</div>
+            </div>
+{openPropositions === "gold" && (
+        <div className="propositions-body">
+            <div className="proposition-box1">
+                <div className="propositions-title">Avant</div>
+                <div className="propositions-content">
+                    <div className="propositions-content-box">
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                    </div>
+
+                    <div className="propositions-content-box">
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="proposition-box2">
+                <div className="propositions-title">Pendant</div>
+                <div className="propositions-content">
+                    <div className="propositions-content-box">
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                    </div>
+                    
+                    <div className="propositions-content-box">
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="proposition-box1">
+                <div className="propositions-title">Après</div>
+                <div className="propositions-content">
+                    <div className="propositions-content-box">
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                    </div>
+                    
+                    <div className="propositions-content-box">
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+          )}
+            <div className={`onglet ${openPropositions === "silver" ? "onglet-active" : ""}`} onClick={() => togglePropositions("silver")}>
+                <div className="img-box"><img className="icon-pieces" src={Argent} alt="" /></div>
+                <div className="onglet-title">PACK SILVER 5.000.000</div>
+            </div>
+{openPropositions === "silver" && (
+        <div className="propositions-body">
+            <div className="proposition-box1">
+                <div className="propositions-title">Avant</div>
+                <div className="propositions-content">
+                    <div className="propositions-content-box">
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                    </div>
+
+                    <div className="propositions-content-box">
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="proposition-box2">
+                <div className="propositions-title">Pendant</div>
+                <div className="propositions-content">
+                    <div className="propositions-content-box">
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                    </div>
+                    
+                    <div className="propositions-content-box">
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="proposition-box1">
+                <div className="propositions-title">Après</div>
+                <div className="propositions-content">
+                    <div className="propositions-content-box">
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                    </div>
+                    
+                    <div className="propositions-content-box">
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+          )}
+            <div className={`onglet ${openPropositions === "bronze" ? "onglet-active" : ""}`} onClick={() => togglePropositions("bronze")}>
+                <div className="img-box"><img className="icon-piece-bronze" src={Bronze} alt="" /></div>
+                <div className="onglet-title">PACK BRONZE 3.000.000</div>
+            </div>
+{openPropositions === "bronze" && (
+        <div className="propositions-body">
+            <div className="proposition-box1">
+                <div className="propositions-title">Avant</div>
+                <div className="propositions-content">
+                    <div className="propositions-content-box">
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                    </div>
+
+                    <div className="propositions-content-box">
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="proposition-box2">
+                <div className="propositions-title">Pendant</div>
+                <div className="propositions-content">
+                    <div className="propositions-content-box">
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                    </div>
+                    
+                    <div className="propositions-content-box">
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="proposition-box1">
+                <div className="propositions-title">Après</div>
+                <div className="propositions-content">
+                    <div className="propositions-content-box">
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                    </div>
+                    
+                    <div className="propositions-content-box">
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+          )}
+            <div className={`onglet ${openPropositions === "institutionnel" ? "onglet-active" : ""}`} onClick={() => togglePropositions("institutionnel")}>
+                <div className="onglet-title">PACK INSTITUTIONEL / TECHNIQUE </div>
+            </div>
+{openPropositions === "institutionnel" && (
+        <div className="propositions-body">
+            <div className="proposition-box1">
+                <div className="propositions-title">Avant</div>
+                <div className="propositions-content">
+                    <div className="propositions-content-box">
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                    </div>
+
+                    <div className="propositions-content-box">
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="proposition-box2">
+                <div className="propositions-title">Pendant</div>
+                <div className="propositions-content">
+                    <div className="propositions-content-box">
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                    </div>
+                    
+                    <div className="propositions-content-box">
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="proposition-box1">
+                <div className="propositions-title">Après</div>
+                <div className="propositions-content">
+                    <div className="propositions-content-box">
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                    </div>
+                    
+                    <div className="propositions-content-box">
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                        <div className="item">
+                            <img className="plante-sponsoring" src={Plante2} alt="" />
+                            <div className="decript-sponsoring">Votre logo inséré sur le site officiel de l’évènement pendant 1an</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+          )}
+        </div>
+    </div>
     </section>
     <section className="sponsors">
       <div className="titre">Sponsors & Partenaires</div>
       <div className="sponsors-container">
-        <div className="sponsors-range">
           <div className="sponsor">
             <img src={Nestle} alt="" />
           </div>
@@ -194,8 +690,6 @@ const Sponsoring=()=>{
           <div className="sponsor">
             <img src={BanqueAtlantique} alt="" />
           </div>
-        </div>
-        <div className="sponsors-range">
           <div className="sponsor">
             <img src={Nestle} alt="" />
           </div>
@@ -214,8 +708,6 @@ const Sponsoring=()=>{
           <div className="sponsor">
             <img src={BanqueAtlantique} alt="" />
           </div>
-        </div>
-        <div className="sponsors-range">
           <div className="sponsor">
             <img src={Nestle} alt="" />
           </div>
@@ -234,7 +726,6 @@ const Sponsoring=()=>{
           <div className="sponsor">
             <img src={BanqueAtlantique} alt="" />
           </div>
-        </div>
       </div>
       <button className="btn-sponsors" onClick={()=>navigate('/SponsorPartenaire')}>Devenir Sponsor / Partenaire</button>
     </section>
