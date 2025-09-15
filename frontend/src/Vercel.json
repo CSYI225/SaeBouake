@@ -3,14 +3,6 @@
   "outputDirectory": "build",
   "framework": null,
   "routes": [
-    { 
-      "source": "/",
-      "destination": "/" 
-    },
-    { 
-      "source": "/test",
-      "destination": "/" 
-    }
+    { "source": "/(.*)", "destination": "/" }
   ]
 }
-
