@@ -1,7 +1,5 @@
 import { useState, useEffect,useRef } from "react";
-import "../Styles/Programme.css"
-import { motion} from "framer-motion";
-import { Link } from "react-router-dom"
+import "../Styles/Exposant.css"
 import LogoSAE from "../Images/logoSAE.png"
 import LogoSAE2 from "../Images/logoSAEFooter.png"
 import Phone from "../Images/phone.png"
@@ -10,23 +8,23 @@ import Map from "../Images/carte.jpg"
 import Fb from "../Images/facebook.png"
 import Insta from "../Images/insta.png"
 import In from "../Images/linkedin.png"
+import { motion} from "framer-motion";
+import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 
 
 
+export default function Exposant() {
 
-const Programme=()=>{
+  const [scrolled, setScrolled] = useState(false);
 
-    const [scrolled, setScrolled] = useState(false);
-  
-    useEffect(() => {
-      const handleScroll = () => setScrolled(window.scrollY > 50);
-      window.addEventListener("scroll", handleScroll);
-      return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-    
-  const [affichermenu, setAffichermenu] = useState(false);
+    const [affichermenu, setAffichermenu] = useState(false);
   const menuRef = useRef(null);
 
   // Fermer le menu quand on clique à l'extérieur
@@ -45,9 +43,9 @@ const Programme=()=>{
 const [menu, setMenu] = useState(false);    
   const [affichermenurejoindre, setAffichermenurejoindre] = useState(false);
 
-    return (
+
+  return(
     <>
-    {/* Navbar */}
     <nav className={`navbar-container ${scrolled ? "scrolled" : ""}`}>
         <div className="navbar" ref={menuRef}>
             <img onClick={()=>navigate('/')} className="logo" src={LogoSAE} alt="SAE Logo" />
@@ -57,9 +55,9 @@ const [menu, setMenu] = useState(false);
         <div className="menu-deroulant-tel">
             <div className="tel-close" onClick={() => setMenu(false)}>✕</div>
             <div className="tel-links">
-              <Link to= "/" className="liens-tel-header">Accueil</Link>
+              <Link to= "/" className="lien-tel-actif">Accueil</Link>
               <Link to= "/Sponsoring" className="liens-tel-header">Sponsoring & Partenariat</Link>
-              <Link to= "/Programme" className="lien-tel-actif">Programme</Link>
+              <Link to= "/Programme" className="liens-tel-header">Programme</Link>
               <Link to= "/Actualites"className="liens-tel-header">Actualités</Link>
             </div>
             <button className="btn-rejoindre"  onClick={() => setAffichermenurejoindre(!affichermenurejoindre)}>Rejoingnez nous</button>
@@ -73,13 +71,12 @@ const [menu, setMenu] = useState(false);
               )}
         </div>
       )}
-
-
+            
           <ul className="nav-links">
             <Link to= "/" className="liens-header">Accueil</Link>
             <Link to= "/Sponsoring" className="liens-header">Sponsoring & Partenariat</Link>
-            <Link to= "/Programme" className="lien-actif">Programme</Link>
-            <Link to= "/Exposant" className="liens-header">Exposants</Link>
+            <Link to= "/Programme" className="liens-header">Programme</Link>
+            <Link to= "/Exposant" className="lien-actif">Exposants</Link>
             <Link to= "/Actualites"className="liens-header">Actualités</Link>
             <Link to= "/Info" className="liens-header">Plus d'infos</Link>
           </ul>
@@ -96,91 +93,54 @@ const [menu, setMenu] = useState(false);
         </div>
     </nav>
 
-    <section className="programme-bg">
+    <section className="header-bg">
       <div className="overlay">
       </div>
     </section>
-    <section className="programme">
-      <div className="programme-range">
-        <div className="programme-range-top">
-          <div className="titre">JOUR 1</div>
-          <div className="date">Lundi 22 Septembre 2025</div>
+    <motion.section initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.4 }} variants={containerVariants} className="Exposant">
+        <motion.div variants={apparition} className="Exposant-titre">Pourquoi exposer au SAE</motion.div>
+        <div className="Pourquoi-exposer">
+            <motion.div variants={vershaut} className="exposer-box">
+                <div className="exposer-box-top">
+                    <div className="exposer-box-top-cercle"><img src="" alt="" /></div>
+                    <motion.div variants={left} className="exposer-box-titre">Raison 1</motion.div>
+                </div>
+                <motion.div variants={vershaut} className="exposer-box-bottom">
+                    Le SAE 2026 à Bouaké accueillera 50 000 visiteurs et favorisera des
+                    partenariats Afrique de l’Ouest–Égypte dans les secteurs agricole,
+                    agro-pastoral et énergétique, grâce à la position stratégique de
+                    la ville et à son fort potentiel économique.
+                </motion.div>
+            </motion.div>
+            <motion.div variants={vershaut} className="exposer-box">
+                <div className="exposer-box-top">
+                    <div className="exposer-box-top-cercle"><img src="" alt="" /></div>
+                    <motion.div variants={left} className="exposer-box-titre">Raison 2</motion.div>
+                </div>
+                <motion.div variants={vershaut} className="exposer-box-bottom">
+                    Le SAE 2026 à Bouaké accueillera 50 000 visiteurs et favorisera des
+                    partenariats Afrique de l’Ouest–Égypte dans les secteurs agricole,
+                    agro-pastoral et énergétique, grâce à la position stratégique de
+                    la ville et à son fort potentiel économique.
+                </motion.div>
+            </motion.div>
+            <motion.div variants={vershaut} className="exposer-box">
+                <div className="exposer-box-top">
+                    <div className="exposer-box-top-cercle"><img src="" alt="" /></div>
+                    <motion.div variants={left} className="exposer-box-titre">Raison 3</motion.div>
+                </div>
+                <motion.div variants={vershaut} className="exposer-box-bottom">
+                    Le SAE 2026 à Bouaké accueillera 50 000 visiteurs et favorisera des
+                    partenariats Afrique de l’Ouest–Égypte dans les secteurs agricole,
+                    agro-pastoral et énergétique, grâce à la position stratégique de
+                    la ville et à son fort potentiel économique.
+                </motion.div>
+            </motion.div>
         </div>
-        <div className="programme-range-bottom">
-          <div className="activites-programme1">
-            <div className="actuvites-programme-left">8h-12h</div>
-            <div className="actuvites-programme-right">
-              <div className="actuvites-programme-titre">Session d’ouverture</div>
-              <div className="actuvites-programme-description">Discours des ministres, des sponsors et partenaires</div>
-            </div>
-          </div>
-          <div className="activites-programme2">
-            <div className="actuvites-programme-left">8h-12h</div>
-            <div className="actuvites-programme-right">
-              <div className="actuvites-programme-titre">Session d’ouverture</div>
-              <div className="actuvites-programme-description">Discours des ministres, des sponsors et partenaires</div>
-            </div>
-          </div>
-          
-        </div>
-      </div>
-      <div className="programme-range">
-        <div className="programme-range-top">
-          <div className="titre">JOUR 2</div>
-          <div className="date">Mardi 23 Septembre 2025</div>
-        </div>
-        <div className="programme-range-bottom">
-          <div className="activites-programme1">
-            <div className="actuvites-programme-left">8h-12h</div>
-            <div className="actuvites-programme-right">
-              <div className="actuvites-programme-titre">Session d’ouverture</div>
-              <div className="actuvites-programme-description">Discours des ministres, des sponsors et partenaires</div>
-            </div>
-          </div>
-          <div className="activites-programme2">
-            <div className="actuvites-programme-left">8h-12h</div>
-            <div className="actuvites-programme-right">
-              <div className="actuvites-programme-titre">Session d’ouverture</div>
-              <div className="actuvites-programme-description">Discours des ministres, des sponsors et partenaires</div>
-            </div>
-          </div>
-          <div className="activites-programme1">
-            <div className="actuvites-programme-left">8h-12h</div>
-            <div className="actuvites-programme-right">
-              <div className="actuvites-programme-titre">Session d’ouverture</div>
-              <div className="actuvites-programme-description">Discours des ministres, des sponsors et partenaires</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="programme-range">
-        <div className="programme-range-top">
-          <div className="titre">JOUR 3</div>
-          <div className="date">Mercredi 24 Septembre 2025</div>
-        </div>
-        <div className="programme-range-bottom">
-          <div className="activites-programme1">
-            <div className="actuvites-programme-left">8h-12h</div>
-            <div className="actuvites-programme-right">
-              <div className="actuvites-programme-titre">Session d’ouverture</div>
-              <div className="actuvites-programme-description">Discours des ministres, des sponsors et partenaires</div>
-            </div>
-          </div>
-          <div className="activites-programme2">
-            <div className="actuvites-programme-left">8h-12h</div>
-            <div className="actuvites-programme-right">
-              <div className="actuvites-programme-titre">Session d’ouverture</div>
-              <div className="actuvites-programme-description">Discours des ministres, des sponsors et partenaires</div>
-            </div>
-          </div>
-          
-        </div>
-      </div>
-    </section>
-
-
-      <section className="newsletter">
-      <div className="newsletter-container">
+        <motion.button variants={zoom} className="btn-doc-sponsoring">Réservez votre stand</motion.button>
+    </motion.section>
+    <motion.section initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.4 }} variants={containerVariants} className="newsletter">
+      <motion.div variants={zoom} className="newsletter-container">
         <h3 className="newsletter-title">Newsletters</h3>
         <div className="newsletter-text">
           Abonnez-vous à notre newsletter pour être parmi les premiers à recevoir
@@ -193,7 +153,7 @@ const [menu, setMenu] = useState(false);
             placeholder="Nom & prénoms"
           />
         </div>
-                <div className="newsletter-input">
+          <div className="newsletter-input">
           <input
             type="tel"
             placeholder="Numéro de téléphone"
@@ -209,9 +169,9 @@ const [menu, setMenu] = useState(false);
         <button className="newsletter-btn">Envoyer</button>
 
 
-      </div>
-      </section>
-      <section className="footer">
+      </motion.div>
+    </motion.section>
+    <section className="footer">
         <div className="footer-container">
           <div className="footer-left">
             <div className="footer-left-top">
@@ -261,13 +221,11 @@ const [menu, setMenu] = useState(false);
           </div>
 
         </div>
-      </section>
-  </>
-  );
+    </section>
+    </>
+  )
 
 }
-export default Programme
-
 const containerVariants = {
   hidden: {},
   visible: {
@@ -284,10 +242,6 @@ const left = {
   hidden: { opacity: 0, x: -100 },
   visible: { opacity: 1, x: 0, transition: { duration: 1, ease: "easeOut" } },
 };
-const right = {
-  hidden: { opacity: 0, x: 100 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" } },
-};
 const zoom = {
   hidden: { opacity: 0, scale: 0.5 },
   visible: {
@@ -299,3 +253,9 @@ const zoom = {
     },
   },
 };
+const vershaut = {
+  hidden: { opacity: 0, y: 150 },
+  visible: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeOut" } },
+};
+
+    

@@ -1,5 +1,6 @@
 import { useState, useEffect,useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import "../Styles/Actualites.css"
+import { motion} from "framer-motion";
 import { Link } from "react-router-dom"
 import LogoSAE from "../Images/logoSAE.png"
 import LogoSAE2 from "../Images/logoSAEFooter.png"
@@ -77,7 +78,9 @@ const [menu, setMenu] = useState(false);
             <Link to= "/" className="liens-header">Accueil</Link>
             <Link to= "/Sponsoring" className="liens-header">Sponsoring & Partenariat</Link>
             <Link to= "/Programme" className="liens-header">Programme</Link>
+            <Link to= "/Exposant" className="liens-header">Exposants</Link>
             <Link to= "/Actualites"className="lien-actif">Actualités</Link>
+            <Link to= "/Info" className="liens-header">Plus d'infos</Link>
           </ul>
           <button className="btn-ticket"  onClick={() => setAffichermenu(!affichermenu)}>Rejoingnez nous</button>
           {affichermenu && (
@@ -94,17 +97,13 @@ const [menu, setMenu] = useState(false);
 
     <section className="header-bg">
       <div className="overlay">
-        <div className="baniere-actus">
-          <div className="titre-baniere-actus">ACTUALITES</div>
-          <div className="description-baniere-actus">Suivez les temps forts et les dernières nouvelles du SAE Bouaké</div>
-        </div>
       </div>
     </section>
-    <section className="actualites">
-      <div className="titre">Actualités du SAE 2025</div>
+    <motion.section initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.4 }} variants={containerVariants} className="actualites">
+      <motion.div variants={apparition} className="titre">Actualités du SAE 2025</motion.div>
       <div className="actualites-container">
         <div className="actualites-range">
-            <div className="actus-box">
+            <motion.div variants={left} className="actus-box">
               <div className="actus-img"></div>
               <div className="actus-description">
                 <div className="actus-texte">
@@ -115,8 +114,8 @@ const [menu, setMenu] = useState(false);
                   et connecter les participants en vue de projets concrets.
                 </div>
               </div>
-            </div>
-            <div className="actus-box">
+            </motion.div>
+            <motion.div variants={right} className="actus-box">
               <div className="actus-img"></div>
               <div className="actus-description">
                 <div className="actus-texte">
@@ -127,10 +126,10 @@ const [menu, setMenu] = useState(false);
                   et connecter les participants en vue de projets concrets.
                 </div>
               </div>
-            </div>
+            </motion.div>
         </div>
         <div className="actualites-range">
-            <div className="actus-box">
+            <motion.div variants={left} className="actus-box">
               <div className="actus-img"></div>
               <div className="actus-description">
                 <div className="actus-texte">
@@ -141,8 +140,8 @@ const [menu, setMenu] = useState(false);
                   et connecter les participants en vue de projets concrets.
                 </div>
               </div>
-            </div>
-            <div className="actus-box">
+            </motion.div>
+            <motion.div variants={right} className="actus-box">
               <div className="actus-img"></div>
               <div className="actus-description">
                 <div className="actus-texte">
@@ -153,10 +152,10 @@ const [menu, setMenu] = useState(false);
                   et connecter les participants en vue de projets concrets.
                 </div>
               </div>
-            </div>
+            </motion.div>
         </div>
         <div className="actualites-range">
-            <div className="actus-box">
+            <motion.div variants={left} className="actus-box">
               <div className="actus-img"></div>
               <div className="actus-description">
                 <div className="actus-texte">
@@ -167,8 +166,8 @@ const [menu, setMenu] = useState(false);
                   et connecter les participants en vue de projets concrets.
                 </div>
               </div>
-            </div>
-            <div className="actus-box">
+            </motion.div>
+            <motion.div variants={right} className="actus-box">
               <div className="actus-img"></div>
               <div className="actus-description">
                 <div className="actus-texte">
@@ -179,10 +178,10 @@ const [menu, setMenu] = useState(false);
                   et connecter les participants en vue de projets concrets.
                 </div>
               </div>
-            </div>
+            </motion.div>
         </div>
         <div className="actualites-range">
-            <div className="actus-box">
+            <motion.div variants={left} className="actus-box">
               <div className="actus-img"></div>
               <div className="actus-description">
                 <div className="actus-texte">
@@ -193,8 +192,8 @@ const [menu, setMenu] = useState(false);
                   et connecter les participants en vue de projets concrets.
                 </div>
               </div>
-            </div>
-            <div className="actus-box">
+            </motion.div>
+            <motion.div variants={right} className="actus-box">
               <div className="actus-img"></div>
               <div className="actus-description">
                 <div className="actus-texte">
@@ -205,27 +204,43 @@ const [menu, setMenu] = useState(false);
                   et connecter les participants en vue de projets concrets.
                 </div>
               </div>
-            </div>
+            </motion.div>
         </div>
       </div>
-    </section>
+    </motion.section>
 
-    <section className="newsletter">
-      <div className="newsletter-container">
+      <motion.section initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.4 }} variants={containerVariants} className="newsletter">
+      <motion.div variants={zoom} className="newsletter-container">
         <h3 className="newsletter-title">Newsletters</h3>
         <div className="newsletter-text">
           Abonnez-vous à notre newsletter pour être parmi les premiers à recevoir
           toutes les informations sur le SAE.
         </div>
+        <div className="champnewsletter">
+        <div className="newsletter-input">
+          <input
+            type="nom"
+            placeholder="Nom & prénoms"
+          />
+        </div>
+                <div className="newsletter-input">
+          <input
+            type="tel"
+            placeholder="Numéro de téléphone"
+          />
+        </div>
         <div className="newsletter-input">
           <input
             type="email"
-            placeholder="Veuillez entrer votre adresse email"
+            placeholder="Adresse email"
           />
-          <button className="newsletter-btn">&#8594;</button>
         </div>
-      </div>
-      </section>
+        </div>
+        <button className="newsletter-btn">Envoyer</button>
+
+
+      </motion.div>
+      </motion.section>
       <section className="footer">
         <div className="footer-container">
           <div className="footer-left">
@@ -242,8 +257,8 @@ const [menu, setMenu] = useState(false);
               </div>
             </div>
           </div>
-          <div className="footer-right">
-            <div className="footer-right-top">
+          <div className="footer-centre">
+            <div className="footer-centre-box">
               <div className="footer-titres">Liens utiles</div>
               <nav className="footer-liens">
                   <ul>
@@ -254,12 +269,14 @@ const [menu, setMenu] = useState(false);
                   </ul>
               </nav>
             </div>
+          </div>
+                    <div className="footer-right">
             <div className="footer-right-center">
               <div className="footer-titres">Coordonnées</div>
               <div className="coordonees">
                 <div className="tel">
                   <img className="phone-icon" src={Phone} alt="tel" />
-                  <div>+225 07 02 04 07 <br/>+225 07 02 04 07</div>
+                  <div>+225 07 02 04 07 <br />+225 07 02 04 07</div>
                 </div>
                 <div className="email">
                   <img className="email-icon" src={Email} alt="email" />
@@ -272,6 +289,7 @@ const [menu, setMenu] = useState(false);
               <div>Esplanade du stade de Bouaké</div>
             </div>
           </div>
+
         </div>
       </section>
     </>
@@ -280,3 +298,35 @@ const [menu, setMenu] = useState(false);
 
 }
 export default Actu
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.3,
+    },
+  },
+};
+const left = {
+  hidden: { opacity: 0, x: -100 },
+  visible: { opacity: 1, x: 0, transition: { duration: 1, ease: "easeOut" } },
+};
+const right = {
+  hidden: { opacity: 0, x: 100 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
+const apparition = {
+  hidden: { opacity: 0,},
+  visible: { opacity: 1, transition: { duration: 2, ease: "easeOut" } },
+};
+const zoom = {
+  hidden: { opacity: 0, scale: 0.5 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+};

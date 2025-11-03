@@ -1,0 +1,72 @@
+/* PAGE EXPOSANTS */
+
+.Exposant{
+  width: 100%;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+.Exposant-titre{
+  font-size: 40px;
+  color: #ffcc00;
+  font-family: 'MaPoliceBlack', sans-serif;
+}
+.Pourquoi-exposer{
+  width: 100%;
+  height: 70%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  gap: 20px;
+}
+.exposer-box{
+  width: 25%;
+  min-height: 35%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 10px;
+  border: solid 1px #ffcc00 ;
+
+}
+.exposer-box-top{
+  width: 100%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  gap: 10px;
+
+}
+.exposer-box-top-cercle{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  border: solid 1px #ffcc00 ;
+  margin-left: -190px;
+}
+.exposer-box-titre{
+  font-size: 15px;
+  color: green;
+  font-family: 'MaPoliceBlack', sans-serif;
+}
+.exposer-box-bottom{
+  color: rgb(0, 0, 0);
+  font-family: 'MaPoliceRegular', sans-serif;
+  font-size: 13px;
+  flex-wrap: wrap;
+  text-align: start;
+}
+

@@ -1,5 +1,6 @@
 import { useState, useEffect,useRef } from "react";
 import "../App.css"
+import "../Styles/Accueil.css"
 import LogoSAE from "../Images/logoSAE.png"
 import LogoSAE2 from "../Images/logoSAEFooter.png"
 import Sae from "../Images/sae.png"
@@ -12,7 +13,6 @@ import In from "../Images/linkedin.png"
 import Doc from "../Images/doc.jpg"
 import Plante from "../Images/plante.png"
 import Courbes1 from "../Images/courbes.png"
-import Courbes2 from "../Images/courbes2.png"
 import Carte from "../Images/carte.png"
 import Camera from "../Images/camera.png"
 import Ampoule from "../Images/ampoule.png"
@@ -94,6 +94,21 @@ const slides = [
   }
 ];
 
+
+const speaker= [
+  { id: 1, nom: "JEAN1", prenoms: "MICHEL DOYIRI", fonction: "Ingénieur agronome", images: [Speaker1] },
+  { id: 2, nom: "JEAN2", prenoms: "EMILY SORO", fonction: "Ingénieur agronome", images: [Speaker2] },
+  { id: 3, nom: "JEAN3", prenoms: "SARAH ADJE", fonction: "Ingénieur agronome", images: [Speaker3] },
+  { id: 4, nom: "JEAN4", prenoms: "MICHEL DOYIRI", fonction: "Ingénieur agronome", images: [Speaker1] },
+  { id: 5, nom: "JEAN5", prenoms: "EMILY SORO", fonction: "Ingénieur agronome", images: [Speaker2] },
+  { id: 6, nom: "JEAN6", prenoms: "SARAH ADJE", fonction: "Ingénieur agronome", images: [Speaker3] },
+  { id: 7, nom: "JEAN7", prenoms: "EMILY SORO", fonction: "Ingénieur agronome", images: [Speaker2] },
+  { id: 8, nom: "JEAN8", prenoms: "SARAH ADJE", fonction: "Ingénieur agronome", images: [Speaker3] },
+];
+
+
+
+
 const sponsorsMobile = [
   {
     id: 1,
@@ -128,16 +143,28 @@ export default function Accueil() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+
+  
     const [index, setIndex] = useState(0);
   
     const nextSlide = () => setIndex((prev) => (prev + 1) % slides.length);
     const prevSlide = () => setIndex((prev) => (prev - 1 + slides.length) % slides.length);
+
+ useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 7000); // 7000 ms = 7 secondes
+
+    // Nettoyage à chaque changement d’index ou à la destruction du composant
+    return () => clearInterval(interval);
+  }, [index]); // dépendance sur index pour redémarrer à chaque fois
 
     const [index2, setIndex2] = useState(0);
 
     const nextSlide2 = () => setIndex2((prev) => (prev + 1) % sponsorsMobile.length);
     const prevSlide2 = () => setIndex2((prev) => (prev - 1 + sponsorsMobile.length) % sponsorsMobile.length);
     
+
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const itemsPerSlide = 6;
@@ -150,6 +177,16 @@ export default function Accueil() {
   const precSlide = () => {
     setCurrentIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
   };
+
+ useEffect(() => {
+    const interval = setInterval(() => {
+      svtSlide();
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [index2]); // redémarre le timer à chaque changement
+
+
 
   const startIndex = currentIndex * itemsPerSlide;
   const visibleSponsors = sponsors.slice(startIndex, startIndex + itemsPerSlide);
@@ -189,13 +226,46 @@ const [menu, setMenu] = useState(false);
   const visibleSponsorsMobile = sponsors.slice(startIndexMobile, startIndexMobile + itemsPerSlideMobile);
 
 
+  const [index3, setIndex3] = useState(0); // index du 1er speaker affiché
+  const groupSize = 4; // nombre de speakers affichés simultanément
+  const totalGroups = Math.ceil(speaker.length / groupSize);
+  const len = speaker.length;
+
+  // navigation groupes
+  const nextSlide3= () => setIndex3(prev => (prev + groupSize) % len);
+  const prevSlide3 = () => setIndex3(prev => (prev - groupSize + len) % len);
+
+
+
+ useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide3();
+    }, 5000); // 5000 ms = 5 secondes
+
+    // Nettoyage à chaque changement d’index ou à la destruction du composant
+    return () => clearInterval(interval);
+  }, [index3]); // dépendance sur index pour redémarrer à chaque fois
+
+
+  // groupe courant (0-based)
+  const currentGroup = Math.floor(index3 / groupSize) % totalGroups;
+
+  // groupe d'éléments à afficher (avec wrapping si nécessaire)
+  const currentSpeakers = speaker.slice(index3, index3 + groupSize);
+  const displayedSpeakers =
+    currentSpeakers.length < groupSize
+      ? [...currentSpeakers, ...speaker.slice(0, groupSize - currentSpeakers.length)]
+      : currentSpeakers;
+
+
+
 
 
   return (
     <>
     <BagbePopup/>
-      {/* Navbar */}
-      <nav className={`navbar-container ${scrolled ? "scrolled" : ""}`}>
+    {/* Navbar */}
+    <nav className={`navbar-container ${scrolled ? "scrolled" : ""}`}>
         <div className="navbar" ref={menuRef}>
             <img onClick={()=>navigate('/')} className="logo" src={LogoSAE} alt="SAE Logo" />
 
@@ -225,7 +295,9 @@ const [menu, setMenu] = useState(false);
             <Link to= "/" className="lien-actif">Accueil</Link>
             <Link to= "/Sponsoring" className="liens-header">Sponsoring & Partenariat</Link>
             <Link to= "/Programme" className="liens-header">Programme</Link>
+            <Link to= "/Exposant" className="liens-header">Exposants</Link>
             <Link to= "/Actualites"className="liens-header">Actualités</Link>
+            <Link to= "/Info" className="liens-header">Plus d'infos</Link>
           </ul>
           <button className="btn-ticket"  onClick={() => setAffichermenu(!affichermenu)}>Rejoingnez nous</button>
           {affichermenu && (
@@ -238,22 +310,17 @@ const [menu, setMenu] = useState(false);
       )}
 
         </div>
-      </nav>
-
-    <section className="header-bg">
+    </nav>
+    <section className="accueil-bg">
       <div className="overlay">
-        <div className="baniere-accueil">
-          <div className="titre-baniere-accueil">THEME</div>
-          <div className="description-baniere-accueil">Innover pour une Souveraineté Durable : <br /> Agriculture, Élevage et Énergie en Synergie </div>
-        </div>
       </div>
     </section>
-    <section className="presentation">
-      <div className="sae-presentation">
-        <img className="sae-img" src={Sae} alt="" />
+    <motion.section initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.4 }} variants={containerVariants} className="presentation">
+      <div  className="sae-presentation">
+        <motion.img variants={vershaut} className="sae-img" src={Sae} alt="" />
         <div className="sae-description">
-          <div className="titre">Le SAE , qu’est ce que c’est ?</div>
-          <div className="sae-description-texte">
+          <motion.div variants={left} className="titre">Le SAE , qu’est ce que c’est ?</motion.div>
+          <motion.div variants={apparition} className="sae-description-texte">
           Le <span className="gras">Salon de l’Agriculture, de l’Élevage et de l’Énergie</span>
           (SAE) s’impose comme la
           plateforme  incontournable pour tous les acteurs engagés dans le développement des
@@ -262,10 +329,10 @@ const [menu, setMenu] = useState(false);
           comme un catalyseur  d’innovations et de synergies.  Cette année, l’événement prend
           une dimension encore plus ambitieuse en se déroulant à  Bouaké, cœur économique et agricole de la Côte d’Ivoire, et en accueillant l’Égypte comme  pays hôte, renforçant
           ainsi les échanges interafricains
-          </div>
+          </motion.div>
         </div>
       </div>
-      <div className="document-container">
+      <motion.div variants={zoom} className="document-container">
           <img className="doc-img" src={Doc} alt="" />
           <div className="doc-description">
             <div className="doc-description-top">Document <br /> téléchargeable</div>
@@ -274,7 +341,7 @@ const [menu, setMenu] = useState(false);
               <button className="download">Télécharger</button>
             </div>
           </div>
-      </div>
+      </motion.div>
       <div className="chiffres">
         <div className="chiffres-plante">
           <img className="plante-chiffre" src={Plante} alt="" />
@@ -320,70 +387,70 @@ const [menu, setMenu] = useState(false);
           </div>
         </div>
       </div>
-    </section>
-    <section className="pourquoi">
+    </motion.section>
+    <motion.section initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.4 }} variants={containerVariants} className="pourquoi">
       <div className="pourquoi-container">
-      <div className="titre">Pourquoi ne pas manquer le SAE 2025</div>
+      <motion.div variants={apparition} className="titre">Pourquoi ne pas manquer le SAE 2025</motion.div>
       <div className="pourquoi-details">
         <div className="pourquoi-range">
           <div className="pourquoi-range-box">
-            <img className="carte-icon" src={Carte} alt="" />
-            <div className="pourquoi-description">
+            <motion.img variants={left2} className="carte-icon" src={Carte} alt="" />
+            <motion.div variants={zoom2} className="pourquoi-description">
               <span className="pourquoi-description-titre">Un Hub d’Opportunités Unique</span>
                 Le SAE 2026 à Bouaké accueillera 50 000 visiteurs et favorisera des
                 partenariats Afrique de l’Ouest–Égypte dans les secteurs agricole,
                 agro-pastoral et énergétique, grâce à la position stratégique de
                 la ville et à son fort potentiel économique.
-            </div>
+            </motion.div>
           </div>
           <div className="pourquoi-range-box">
-            <img className="ampoule-icon" src={Ampoule} alt="" />
-            <div className="pourquoi-description">
+            <motion.img variants={right} className="ampoule-icon" src={Ampoule} alt="" />
+            <motion.div variants={zoom2} className="pourquoi-description">
               <span className="pourquoi-description-titre">Des Contenus Exclusifs et Innovants</span>
               Le SAE 2026 propose panels, ateliers et un espace startups autour
               du financement vert, de l’agrotechnologie et des énergies
               renouvelables, réunissant experts et dirigeants pour inspirer, former
               et connecter les participants en vue de projets concrets.
-            </div>
+            </motion.div>
           </div>
         </div>
         <div className="pourquoi-range">
           <div className="pourquoi-range-box">
-            <img className="camera-icon" src={Camera} alt="" />
-            <div className="pourquoi-description">
+            <motion.img variants={left2} className="camera-icon" src={Camera} alt="" />
+            <motion.div variants={zoom2} className="pourquoi-description">
               <span className="pourquoi-description-titre">Visibilité Maximale pour les Participants</span>
               Le SAE 2026 propose panels, ateliers et un espace startups autour
               du financement vert, de l’agrotechnologie et des énergies
               renouvelables, réunissant experts et dirigeants pour inspirer, former
               et connecter les participants en vue de projets concrets.
-            </div>
+            </motion.div>
           </div>
           <div className="pourquoi-range-box">
-            <img className="fleche-icon" src={Fleche} alt="" />
-            <div className="pourquoi-description">
+            <motion.img variants={right} className="fleche-icon" src={Fleche} alt="" />
+            <motion.div variants={zoom2} className="pourquoi-description">
               <span className="pourquoi-description-titre">Impact Socio-Économique Majeur</span>
               Le SAE 2026 propose panels, ateliers et un espace startups autour
               du financement vert, de l’agrotechnologie et des énergies
               renouvelables, réunissant experts et dirigeants pour inspirer, former
               et connecter les participants en vue de projets concrets.
-            </div>
+            </motion.div>
           </div>
         </div>
         <div className="pourquoi-range2">
           <div className="pourquoi-range-box2">
-            <img className="carte-icon" src={Carte} alt="" />
-            <div className="pourquoi-description">
+            <motion.img variants={left2} className="carte-icon" src={Carte} alt="" />
+            <motion.div variants={zoom2} className="pourquoi-description">
               <span className="pourquoi-description-titre">Une opportunité unique de</span>
               Le SAE 2026 propose panels, ateliers et un espace startups autour
               du financement vert, de l’agrotechnologie et des énergies
               renouvelables, réunissant experts et dirigeants pour inspirer, former
               et connecter les participants en vue de projets concrets.
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
       </div>
-    </section>
+    </motion.section>
     <section className="slider">
       <div className="gauche">
       <div className="slider-text">
@@ -408,19 +475,17 @@ const [menu, setMenu] = useState(false);
       </div>
     </section>
 
-      <div className="ticket-container">
+    <div className="ticket-container">
         <div className="ticket">Ticket maquis géant</div>
-      </div>
+    </div>
 
-
-
-    <section className="actus">
+    <motion.section initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.4 }} variants={containerVariants} className="actus">
       <div className="actus-container">
-        <div className="actus-top">
+        <motion.div variants={apparition} className="actus-top">
           <div className="titre">Actualités</div>
           <Link to="./Actualites" className="actu-btn">TOUTES LES ACTUALITES</Link>
-        </div>
-        <div className="actus-actualites-container">
+        </motion.div>
+        <motion.div variants={versbas} className="actus-actualites-container">
           <div className="actualites-range">
             <div className="actus-box">
               <div className="actus-img"></div>
@@ -473,90 +538,51 @@ const [menu, setMenu] = useState(false);
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
-    </section>
-    <section className="speakers-container">
-      <div className="speakers-container-left">
-        <img className="speakers-courbes-left" src={Courbes2} alt="" />
-      </div>
-      <div className="speakers">
-        <div className="speakers-titre">Speakers</div>
-        <div className="speakers-range">
-          <div className="speaker-box">
-            <img className="speaker1" src={Speaker1} alt="" />
-            <div className="speaker-box-description">
-              <div className="nom1">JEAN</div>
-              <div className="prenom1">MICHEL DOYIRI</div>
-              <div className="fonction1">Ingénieur agronomme</div>
-            </div>
-          </div>
-          <div className="speaker-box">
-            <img className="speaker2" src={Speaker2} alt="" />
-            <div className="speaker-box-description">
-              <div className="nom2">JEAN</div>
-              <div className="prenom2">MICHEL DOYIRI</div>
-              <div className="fonction3">Ingénieur agronomme</div>
-            </div>
-          </div>
-          <div className="speaker-box">
-            <img className="speaker3" src={Speaker3} alt="" />
-            <div className="speaker-box-description">
-              <div className="nom3">JEAN</div>
-              <div className="prenom3">MICHEL DOYIRI</div>
-              <div className="fonction3">Ingénieur agronomme</div>
-            </div>
-          </div>
-          <div className="speaker-box">
-            <img className="speaker1" src={Speaker1} alt="" />
-            <div className="speaker-box-description">
-              <div className="nom1">JEAN</div>
-              <div className="prenom1">MICHEL DOYIRI</div>
-              <div className="fonction1">Ingénieur agronomme</div>
-            </div>
-          </div>
-        </div>
-        <div className="speakers-range">
-          <div className="speaker-box">
-            <img className="speaker1" src={Speaker1} alt="" />
-            <div className="speaker-box-description">
-              <div className="nom1">JEAN</div>
-              <div className="prenom1">MICHEL DOYIRI</div>
-              <div className="fonction1">Ingénieur agronomme</div>
-            </div>
-          </div>
-          <div className="speaker-box">
-            <img className="speaker1" src={Speaker1} alt="" />
-            <div className="speaker-box-description">
-              <div className="nom1">JEAN</div>
-              <div className="prenom1">MICHEL DOYIRI</div>
-              <div className="fonction1">Ingénieur agronomme</div>
-            </div>
-          </div>
-          <div className="speaker-box">
-            <img className="speaker1" src={Speaker1} alt="" />
-            <div className="speaker-box-description">
-              <div className="nom1">JEAN</div>
-              <div className="prenom1">MICHEL DOYIRI</div>
-              <div className="fonction1">Ingénieur agronomme</div>
-            </div>
-          </div>
-          <div className="speaker-box">
-            <img className="speaker1" src={Speaker1} alt="" />
-            <div className="speaker-box-description">
-              <div className="nom1">JEAN</div>
-              <div className="prenom1">MICHEL DOYIRI</div>
-              <div className="fonction1">Ingénieur agronomme</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="speakers-container-right">
-        <img className="speakers-courbes-right" src={Courbes1} alt="" />
-      </div>
-    </section>
+    </motion.section>
+    <div className="speakers2">
+      <div className="speakers-title2">Speakers</div>
 
-      <div className="speakers-mobile">
+      <div className="speakers-bottom2">
+        <div className="speakers-arrow2" onClick={prevSlide3}>&#8249;</div>
+
+        <div className="speakers-box2">
+          {displayedSpeakers.map((speaker) => (
+            <motion.div
+              key={speaker.id}
+              className="speaker-item2"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="speaker-photo2">
+                <img src={speaker.images[0]} alt={speaker.nom} />
+              </div>
+              <div className="speaker-description2">
+                <div className="nomspeaker2">{speaker.nom}</div>
+                <div className="prenomspeaker2">{speaker.prenoms}</div>
+                <div className="fonctionspeaker2">{speaker.fonction}</div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="speakers-arrow2" onClick={nextSlide3}>&#8250;</div>
+      </div>
+
+      <div className="position">
+        {Array.from({ length: totalGroups }).map((_, gIndex) => (
+          <div
+            key={gIndex}
+            className={`cercle ${gIndex === currentGroup ? "active" : ""}`}
+            // quand on clique sur un cercle, on positionne index au début du groupe gIndex
+            onClick={() => setIndex3((gIndex * groupSize) % len)}
+          />
+        ))}
+      </div>
+    </div>
+      <section className="speakers-mobile">
         <div className="speakers-title">Speakers</div>
         <div className="speakers-bottom">
           <div className="speakers-arrow" onClick={prevSlide2}>&#8249;</div>
@@ -574,10 +600,9 @@ const [menu, setMenu] = useState(false);
           </div>
           <div className="speakers-arrow" onClick={nextSlide2}>&#8250;</div>
         </div>
-      </div>
-
-    <section className="sponsors-section">
-      <div className="titre">Sponsors & Partenaires</div>
+      </section>
+    <motion.section initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.4 }} variants={containerVariants} className="sponsors-section">
+      <motion.div variants={apparition} className="titre">Sponsors & Partenaires</motion.div>
       <div className="sponsors-slider">
         <button className="arrow" onClick={precSlide}>&#8249;</button>
         <div className="sponsors-track-wrapper">
@@ -602,7 +627,7 @@ const [menu, setMenu] = useState(false);
       ></div>
     ))}
   </div>
-  </section>
+  </motion.section>
             <section className="mobile-sponsors-section">
       <div className="titre">Sponsors & Partenaires</div>
       <div className="mobile-sponsors-slider">
@@ -630,22 +655,38 @@ const [menu, setMenu] = useState(false);
     ))}
   </div>
   </section>
-      <section className="newsletter">
-      <div className="newsletter-container">
+      <motion.section initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.4 }} variants={containerVariants} className="newsletter">
+      <motion.div variants={zoom} className="newsletter-container">
         <h3 className="newsletter-title">Newsletters</h3>
         <div className="newsletter-text">
           Abonnez-vous à notre newsletter pour être parmi les premiers à recevoir
           toutes les informations sur le SAE.
         </div>
+        <div className="champnewsletter">
+        <div className="newsletter-input">
+          <input
+            type="nom"
+            placeholder="Nom & prénoms"
+          />
+        </div>
+                <div className="newsletter-input">
+          <input
+            type="tel"
+            placeholder="Numéro de téléphone"
+          />
+        </div>
         <div className="newsletter-input">
           <input
             type="email"
-            placeholder="Veuillez entrer votre adresse email"
+            placeholder="Adresse email"
           />
-          <button className="newsletter-btn">&#8594;</button>
         </div>
-      </div>
-      </section>
+        </div>
+        <button className="newsletter-btn">Envoyer</button>
+
+
+      </motion.div>
+      </motion.section>
       <section className="footer">
         <div className="footer-container">
           <div className="footer-left">
@@ -662,8 +703,8 @@ const [menu, setMenu] = useState(false);
               </div>
             </div>
           </div>
-          <div className="footer-right">
-            <div className="footer-right-top">
+          <div className="footer-centre">
+            <div className="footer-centre-box">
               <div className="footer-titres">Liens utiles</div>
               <nav className="footer-liens">
                   <ul>
@@ -674,6 +715,8 @@ const [menu, setMenu] = useState(false);
                   </ul>
               </nav>
             </div>
+          </div>
+                    <div className="footer-right">
             <div className="footer-right-center">
               <div className="footer-titres">Coordonnées</div>
               <div className="coordonees">
@@ -692,8 +735,67 @@ const [menu, setMenu] = useState(false);
               <div>Esplanade du stade de Bouaké</div>
             </div>
           </div>
+
         </div>
       </section>
     </>
   );
 }
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.3,
+    },
+  },
+};
+const left = {
+  hidden: { opacity: 0, x: -100 },
+  visible: { opacity: 1, x: 0, transition: { duration: 1, ease: "easeOut" } },
+};
+const left2 = {
+  hidden: { opacity: 0, x: -100 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
+
+const right = {
+  hidden: { opacity: 0, x: 100 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
+const apparition = {
+  hidden: { opacity: 0,},
+  visible: { opacity: 1, transition: { duration: 2, ease: "easeOut" } },
+};
+
+const vershaut = {
+  hidden: { opacity: 0, y: 150 },
+  visible: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeOut" } },
+};
+const versbas = {
+  hidden: { opacity: 0, y: -100 },
+  visible: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeOut" } },
+};
+const zoom = {
+  hidden: { opacity: 0, scale: 0.5 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+};
+const zoom2 = {
+  hidden: { opacity: 0, scale: 0.5 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 1,
+      ease: "easeOut",
+    },
+  },
+};
+

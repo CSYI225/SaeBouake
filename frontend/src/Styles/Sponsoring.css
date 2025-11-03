@@ -1,0 +1,520 @@
+/* PAGE SPONSORING */
+
+.sponsoring-bg {
+  height: 89vh;
+  width: 100%;
+  background: url('../Images/Bannieresponsor.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: 'MaPoliceBlack', sans-serif;
+}
+
+.propositions{
+  width: 100%;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+.propositions-container{
+  width: 80%;
+  height: 70%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+.propositions-titre{
+  font-size: 40px;
+  color: #ffcc00;
+  font-family: 'MaPoliceBlack', sans-serif;
+}
+.pourquoi-sponsor{
+  width: 32%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+.pourquoi-sponsor-description{
+  width: 75%;
+  height: 95%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content:center;
+  font-family: 'MaPoliceRegular', sans-serif;
+  font-size: 10.5px;
+  flex-wrap: wrap;
+
+}
+.pourquoi-sponsor-description-titre{
+  font-family: 'MaPoliceBlack', sans-serif;
+  font-size: 14px;
+  color: green;
+  margin-bottom: 2px;
+}
+.pourquoi-sponsor-description-text{
+  font-family: 'MaPoliceBlack', sans-serif;
+  color: rgb(0, 0, 0);
+  font-family: 'MaPoliceRegular', sans-serif;
+  font-size: 10.5px;
+  flex-wrap: wrap;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.pourquoi-icon{
+  width: 30%;
+  height: 85%;
+}
+.btn-doc-sponsoring{
+  background: #ffcc00;
+  border: none;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 15px;
+  color: rgb(0, 0, 0);
+  font-family: 'MaPoliceBlack', sans-serif;
+}
+
+.sponsors{
+  width: 100%;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+.sponsors-container{
+  width: 80%;
+  min-height: 300px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* 2 colonnes de taille égale */
+  gap: 10px; 
+  justify-content: space-around;
+}
+.sponsor{
+  width: 100%;
+  height:65px  ;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+.sponsor img {
+  max-width: 100%;
+  max-height: 60px;
+  object-fit: contain;
+}
+.btn-sponsors{
+  background: #ffcc00;
+  border: none;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 15px;
+  color: rgb(0, 0, 0);
+  font-family: 'MaPoliceBlack', sans-serif;
+}
+
+
+@media only screen and (max-width:767px){
+
+/* PAGE SPONSORING */
+
+.propositions{
+  width: 100%;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+.propositions-container{
+  width: 90%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+.proposition-header{
+  width: 100%;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: flex-start;
+  gap: 5px;
+}
+.onglet{
+  width: 19%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  background-color: #ffcc00;
+  gap: 2px;
+}
+.onglet2{
+  width: 23%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: flex-start;
+  background-color: #ffcc00;
+  padding-left: 5px;
+}
+
+.img-box{
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  margin-left: 2px;
+}
+.icon-diamond{
+  width: 75%;
+  height: 75%;
+  margin-top: 4px;
+}
+.icon-pieces{
+  width: 90%;
+  height: 90%;
+  margin-left: 0.75px;
+}
+
+.icon-piece-bronze{
+  width: 90%;
+  height: 90%;
+}
+
+.onglet-title{
+  width: 75%;
+  font-family: 'MaPoliceBlack';
+  font-size: 7px;
+  color: #fff;
+  flex-wrap: wrap;
+}
+.propositions-body{
+  width: 90%;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  position: absolute;
+  margin-top: 629px;
+}
+.proposition-box1{
+  width: 100%;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  background-color: #8B4614;
+}
+.proposition-box2{
+  width: 100%;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  background-color: #ffcc00;
+}
+.propositions-title{
+  width: 100%;
+  font-family: 'MaPoliceBlack';
+  font-size: 15px;
+  color: #fff;
+  text-align: left;
+  padding-left: 100px;
+  padding-top: 10px;
+}
+.propositions-content{
+  width: 100%;
+  min-height: 170px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-around;
+}
+.propositions-content-box{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+.item{
+  width: 100%;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  gap: 5px;
+}
+.plante-sponsoring{
+  width: 10px;
+  height: 95%;
+}
+.decript-sponsoring{
+  width: 75%;
+  font-family: 'MaPoliceRegular';
+  font-size: 7.5px;
+  color: #fff;
+  text-align: left;
+}
+.onglet-active,
+.onglet2-active {
+  background-color: #8B4614;
+  color: #fff;
+}
+
+.titre-baniere-sponsoring {
+  display: inline-block;
+  background: #ffcc00;
+  color: #5a3a00;
+  padding: 2px 10px;
+  font-size:100%;
+  z-index: 1000;
+  transform: rotate(-1deg);
+}
+.description-baniere-sponsoring {
+  width: 95%;
+  font-size:80%;
+  background: #ff4c1e;
+  display: inline-block;
+  padding: 12px;
+  color: #fff;
+  text-align: center;
+  transform: rotate(-1deg);
+  margin-top: -10px;
+}
+.propositions-range{
+  width: 100%;
+  height: 19%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-around;
+}
+.propositions-range-left{
+  width: 25%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+.diamant-img{
+  width: 70%;
+  height: 70%;
+}
+.pieces-img{
+  width: 60%;
+  height: 75%;
+}
+
+.packs{
+  font-family: 'MaPoliceRegular';
+  font-size: 20px;
+}
+.tarifs{
+  font-family: 'MaPoliceBlack';
+  font-size: 15px;
+  background-color: #F05127;
+  color: #fff;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+.institutionnel-img{
+  width: 90%;
+  height: 100%;
+}
+
+.propositions-range-right{
+  width: 70%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+.propositions ul{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  gap: 5px;
+  font-family: 'MaPoliceRegular';
+  font-size: 18px;
+}
+.propositions li{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: flex-start;
+  gap: 5px;
+}
+.propositions-gras{
+  font-family: 'MaPoliceBlack';
+}
+.packs-institutionnel{
+  width: 100%;
+  height: 19%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+.packs-institutionnel-top{
+  width: 100%;
+  height: 70%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-around;
+}
+.packs-institutionnel-bottom{
+  width: 100%;
+  height: 27%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+.packs-texte{
+  width: 86%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: flex-start;
+  font-family: 'MaPoliceRegular';
+  font-size: 20px;
+}
+.contreparties{
+  width: 86%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  justify-content: flex-start;
+  background-color: #F05127;
+  color: #fff;
+  gap: 20px;
+  padding-left: 15px;
+  margin-left: 15px;
+}
+.contreparties-content{
+  width: 100%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+.contreparties-texte{
+  font-family: 'MaPoliceBlaclk',sans-serif;
+  font-size: 12px;
+}
+.propositions-titre{
+  text-align: center;
+  font-size: 30px;
+  color: #ffcc00;
+  font-family: 'MaPoliceBlack', sans-serif;
+
+}
+.sponsors{
+  width: 100%;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  margin-top: 650px;
+  margin-bottom: 20px;
+}
+.sponsors-container{
+  width: 80%;
+  min-height: 300px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 2 colonnes de taille égale */
+  gap: 10px; /* espace entre les éléments */  
+  align-content: center;
+  justify-content: space-around;
+}
+.sponsor{
+  width: 100%;
+  height:45px  ;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+.sponsor img {
+  max-width: 100%;
+  max-height: 60px;
+  object-fit: contain;
+}
+.btn-sponsors{
+  width: 45%;
+  font-family: 'MaPoliceBlack';
+  font-size: 10px;
+  background-color: #ffcc00;
+  color: #fff;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+}

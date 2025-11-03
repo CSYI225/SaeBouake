@@ -15,6 +15,8 @@ import Visiteur from "./Pages/Visiteur.jsx"
 import MediaPresse from "./Pages/MediaPresse.jsx"
 import ScrollToTop from "./ScrollToTop.js";
 import SponsorPartenaire from "./Pages/SponsorsPartenaire.jsx";
+import Exposant from "./Pages/Exposant.jsx";
+import Info from "./Pages/Info.jsx";
 
 
 const Layout=()=>{
@@ -41,6 +43,14 @@ const router = createBrowserRouter([
       {
         path: "/Sponsoring",
         element: <Sponsoring />
+      },
+      {
+        path: "/Exposant",
+        element: <Exposant />
+      },
+      {
+        path: "/Info",
+        element: <Info />
       },
       {
         path: "/Actualites",
