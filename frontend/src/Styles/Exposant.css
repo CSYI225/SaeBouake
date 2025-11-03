@@ -70,3 +70,45 @@
   text-align: start;
 }
 
+
+@media only screen and (max-width:767px){
+
+  .Exposant{
+  width: 100%;
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+.Exposant-titre{
+  font-size: 30px;
+  color: #ffcc00;
+  font-family: 'MaPoliceBlack', sans-serif;
+  text-align: center;
+}
+.Pourquoi-exposer{
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  gap: 20px;
+}
+.exposer-box{
+  width: 70%;
+  min-height: 20%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 10px;
+  border: solid 1px #ffcc00 ;
+
+}
+}

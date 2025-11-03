@@ -127,6 +127,19 @@
 @media only screen and (max-width:767px){
 
 /* PROGRAMME */
+.programme-bg {
+  height: 40vh;
+  width: 100%;
+  background: url('../Images/Banniereprogramme.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: 'MaPoliceBlack', sans-serif;
+}
 
 .titre-baniere-programme {
   display: inline-block;

@@ -98,12 +98,10 @@ const [affichermenurejoindre, setAffichermenurejoindre] = useState(false);
 
         </div>
     </nav>
-
     <section className="sponsoring-bg">
       <div className="overlay">
       </div>
     </section>
-
 <motion.section initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.4 }} variants={containerVariants} className="propositions">
     <motion.div variants={apparition} className="propositions-titre">Pourquoi devenir sponsor et Partenaire du SAE</motion.div>
     <div className="propositions-container">
@@ -139,7 +137,6 @@ const [affichermenurejoindre, setAffichermenurejoindre] = useState(false);
                 </div>        
     </div>
     <motion.button variants={zoom} className="btn-doc-sponsoring">Télécharger le document de sponsoring</motion.button>
-
 </motion.section>
 <motion.section initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.4 }} variants={containerVariants} className="sponsors">
       <motion.div variants={apparition} className="titre">Sponsors & Partenaires</motion.div>
@@ -201,7 +198,6 @@ const [affichermenurejoindre, setAffichermenurejoindre] = useState(false);
       </div>
       <motion.button variants={zoom} className="btn-sponsors" onClick={()=>navigate('/SponsorPartenaire')}>Devenir Sponsor / Partenaire</motion.button>
 </motion.section>
-
 <motion.section initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.4 }} variants={containerVariants} className="newsletter">
       <motion.div variants={zoom} className="newsletter-container">
         <h3 className="newsletter-title">Newsletters</h3>

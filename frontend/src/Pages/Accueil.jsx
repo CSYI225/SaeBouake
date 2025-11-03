@@ -109,6 +109,9 @@ const speaker= [
 
 
 
+
+
+
 const sponsorsMobile = [
   {
     id: 1,
@@ -217,20 +220,26 @@ const [menu, setMenu] = useState(false);
   const svtSlideMobile = () => {
     setCurrentIndexMobile((prev) => (prev + 1) % totalSlidesMobile);
   };
-
   const precSlideMobile = () => {
     setCurrentIndexMobile((prev) => (prev - 1 + totalSlidesMobile) % totalSlidesMobile);
   };
 
   const startIndexMobile = currentIndexMobile * itemsPerSlideMobile;
   const visibleSponsorsMobile = sponsors.slice(startIndexMobile, startIndexMobile + itemsPerSlideMobile);
+ useEffect(() => {
+    const interval = setInterval(() => {
+      svtSlideMobile();
+    }, 5000); // 5000 ms = 5 secondes
+
+    // Nettoyage à chaque changement d’index ou à la destruction du composant
+    return () => clearInterval(interval);
+  }, [index]); // dépendance sur index pour redémarrer à chaque fois
 
 
   const [index3, setIndex3] = useState(0); // index du 1er speaker affiché
   const groupSize = 4; // nombre de speakers affichés simultanément
   const totalGroups = Math.ceil(speaker.length / groupSize);
   const len = speaker.length;
-
   // navigation groupes
   const nextSlide3= () => setIndex3(prev => (prev + groupSize) % len);
   const prevSlide3 = () => setIndex3(prev => (prev - groupSize + len) % len);
@@ -474,7 +483,6 @@ const [menu, setMenu] = useState(false);
         ))}
       </div>
     </section>
-
     <div className="ticket-container">
         <div className="ticket">Ticket maquis géant</div>
     </div>
@@ -541,21 +549,13 @@ const [menu, setMenu] = useState(false);
         </motion.div>
       </div>
     </motion.section>
-    <div className="speakers2">
+    <section className="speakers2">
       <div className="speakers-title2">Speakers</div>
-
       <div className="speakers-bottom2">
         <div className="speakers-arrow2" onClick={prevSlide3}>&#8249;</div>
-
         <div className="speakers-box2">
           {displayedSpeakers.map((speaker) => (
-            <motion.div
-              key={speaker.id}
-              className="speaker-item2"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
+            <motion.div key={speaker.id} className="speaker-item2" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
               <div className="speaker-photo2">
                 <img src={speaker.images[0]} alt={speaker.nom} />
               </div>
@@ -567,10 +567,8 @@ const [menu, setMenu] = useState(false);
             </motion.div>
           ))}
         </div>
-
         <div className="speakers-arrow2" onClick={nextSlide3}>&#8250;</div>
       </div>
-
       <div className="position">
         {Array.from({ length: totalGroups }).map((_, gIndex) => (
           <div
@@ -581,8 +579,9 @@ const [menu, setMenu] = useState(false);
           />
         ))}
       </div>
-    </div>
-      <section className="speakers-mobile">
+    </section>
+
+      {/* <section className="speakers-mobile">
         <div className="speakers-title">Speakers</div>
         <div className="speakers-bottom">
           <div className="speakers-arrow" onClick={prevSlide2}>&#8249;</div>
@@ -600,7 +599,8 @@ const [menu, setMenu] = useState(false);
           </div>
           <div className="speakers-arrow" onClick={nextSlide2}>&#8250;</div>
         </div>
-      </section>
+      </section> */}
+
     <motion.section initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.4 }} variants={containerVariants} className="sponsors-section">
       <motion.div variants={apparition} className="titre">Sponsors & Partenaires</motion.div>
       <div className="sponsors-slider">
@@ -628,8 +628,8 @@ const [menu, setMenu] = useState(false);
     ))}
   </div>
   </motion.section>
-            <section className="mobile-sponsors-section">
-      <div className="titre">Sponsors & Partenaires</div>
+  <section className="mobile-sponsors-section">
+    <div className="titre">Sponsors & Partenaires</div>
       <div className="mobile-sponsors-slider">
         <button className="mobile-arrow-left" onClick={precSlideMobile}>&#8249;</button>
         <div className="mobile-sponsors-track-wrapper">
@@ -645,7 +645,7 @@ const [menu, setMenu] = useState(false);
         </div>
         <button className="mobile-arrow-right" onClick={svtSlideMobile}>&#8250;</button>
       </div>
-<div className="position">
+      <div className="position">
     {Array.from({ length: totalSlidesMobile }).map((_, index) => (
       <div
         key={index}
@@ -653,23 +653,23 @@ const [menu, setMenu] = useState(false);
         onClick={() => setCurrentIndexMobile(index)}
       ></div>
     ))}
-  </div>
+    </div>
   </section>
-      <motion.section initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.4 }} variants={containerVariants} className="newsletter">
-      <motion.div variants={zoom} className="newsletter-container">
-        <h3 className="newsletter-title">Newsletters</h3>
-        <div className="newsletter-text">
-          Abonnez-vous à notre newsletter pour être parmi les premiers à recevoir
-          toutes les informations sur le SAE.
+  <motion.section initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.4 }} variants={containerVariants} className="newsletter">
+    <motion.div variants={zoom} className="newsletter-container">
+      <h3 className="newsletter-title">Newsletters</h3>
+      <div className="newsletter-text">
+        Abonnez-vous à notre newsletter pour être parmi les premiers à recevoir
+        toutes les informations sur le SAE.
+      </div>
+      <div className="champnewsletter">
+      <div className="newsletter-input">
+        <input
+          type="nom"
+          placeholder="Nom & prénoms"
+        />
         </div>
-        <div className="champnewsletter">
-        <div className="newsletter-input">
-          <input
-            type="nom"
-            placeholder="Nom & prénoms"
-          />
-        </div>
-                <div className="newsletter-input">
+          <div className="newsletter-input">
           <input
             type="tel"
             placeholder="Numéro de téléphone"
@@ -683,11 +683,9 @@ const [menu, setMenu] = useState(false);
         </div>
         </div>
         <button className="newsletter-btn">Envoyer</button>
-
-
-      </motion.div>
-      </motion.section>
-      <section className="footer">
+    </motion.div>
+  </motion.section>
+    <section className="footer">
         <div className="footer-container">
           <div className="footer-left">
             <div className="footer-left-top">
@@ -737,7 +735,7 @@ const [menu, setMenu] = useState(false);
           </div>
 
         </div>
-      </section>
+    </section>
     </>
   );
 }
