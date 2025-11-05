@@ -103,37 +103,33 @@ const [menu, setMenu] = useState(false);
             <motion.div variants={vershaut} className="exposer-box">
                 <div className="exposer-box-top">
                     <div className="exposer-box-top-cercle"><img src="" alt="" /></div>
-                    <motion.div variants={left} className="exposer-box-titre">Raison 1</motion.div>
+                    <motion.div variants={left} className="exposer-box-titre">Un hub d’opportunités unique pour développer son réseau et ses affaires</motion.div>
                 </div>
                 <motion.div variants={vershaut} className="exposer-box-bottom">
-                    Le SAE 2026 à Bouaké accueillera 50 000 visiteurs et favorisera des
-                    partenariats Afrique de l’Ouest–Égypte dans les secteurs agricole,
-                    agro-pastoral et énergétique, grâce à la position stratégique de
-                    la ville et à son fort potentiel économique.
+                  Le SAE 2026 attend plus de 50 000 visiteurs et plus de 100 exposants, dont 20 % internationaux.
+                  C’est une vitrine exceptionnelle pour les entreprises des secteurs agricole, agro-pastoral et énergétique, permettant de rencontrer des décideurs, investisseurs et partenaires institutionnels.
+                  En exposant, tu accèdes à un réseau qualifié et à des opportunités concrètes de collaboration interafricaine (notamment avec l’Égypte, pays hôte de cette édition).
                 </motion.div>
             </motion.div>
             <motion.div variants={vershaut} className="exposer-box">
                 <div className="exposer-box-top">
                     <div className="exposer-box-top-cercle"><img src="" alt="" /></div>
-                    <motion.div variants={left} className="exposer-box-titre">Raison 2</motion.div>
+                    <motion.div variants={left} className="exposer-box-titre">Une visibilité nationale et internationale renforcée</motion.div>
                 </div>
                 <motion.div variants={vershaut} className="exposer-box-bottom">
-                    Le SAE 2026 à Bouaké accueillera 50 000 visiteurs et favorisera des
-                    partenariats Afrique de l’Ouest–Égypte dans les secteurs agricole,
-                    agro-pastoral et énergétique, grâce à la position stratégique de
-                    la ville et à son fort potentiel économique.
+                  Le salon bénéficie d’une large couverture médiatique (TV, radios, presse, réseaux sociaux) et offre aux exposants une visibilité sur tous les supports de communication.
+                  En participant, tu renforces l’image de ta marque auprès d’un public professionnel et grand public, tout en valorisant ton engagement pour un développement durable.
                 </motion.div>
             </motion.div>
             <motion.div variants={vershaut} className="exposer-box">
                 <div className="exposer-box-top">
                     <div className="exposer-box-top-cercle"><img src="" alt="" /></div>
-                    <motion.div variants={left} className="exposer-box-titre">Raison 3</motion.div>
+                    <motion.div variants={left} className="exposer-box-titre">Un événement innovant et fédérateur pour valoriser ton savoir-faire</motion.div>
                 </div>
                 <motion.div variants={vershaut} className="exposer-box-bottom">
-                    Le SAE 2026 à Bouaké accueillera 50 000 visiteurs et favorisera des
-                    partenariats Afrique de l’Ouest–Égypte dans les secteurs agricole,
-                    agro-pastoral et énergétique, grâce à la position stratégique de
-                    la ville et à son fort potentiel économique.
+                  Le SAE 2026 propose une programmation riche : panels de haut niveau, ateliers sur les énergies renouvelables, hackathon, concours de pitch agricole, et un maquis géant pour les rencontres informelles.
+                  Ces formats favorisent l’échange, la découverte et la mise en avant des innovations des exposants.
+                  C’est une occasion unique de présenter tes produits, services et solutions dans un cadre attractif, convivial et porteur d’impact socio-économique.
                 </motion.div>
             </motion.div>
         </div>
