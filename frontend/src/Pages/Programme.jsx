@@ -60,7 +60,9 @@ const [menu, setMenu] = useState(false);
               <Link to= "/" className="liens-tel-header">Accueil</Link>
               <Link to= "/Sponsoring" className="liens-tel-header">Sponsoring & Partenariat</Link>
               <Link to= "/Programme" className="lien-tel-actif">Programme</Link>
+              <Link to= "/Exposant"className="liens-tel-header">Exposants</Link>
               <Link to= "/Actualites"className="liens-tel-header">Actualités</Link>
+              <Link to= "/Info"className="liens-tel-header">Plus d'infos</Link>
             </div>
             <button className="btn-rejoindre"  onClick={() => setAffichermenurejoindre(!affichermenurejoindre)}>Rejoingnez nous</button>
               {affichermenurejoindre && (

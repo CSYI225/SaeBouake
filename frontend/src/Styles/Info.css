@@ -1,0 +1,434 @@
+.info-bg {
+  height: 89vh;
+  width: 100%;
+  background: url('../Images/Banierreinfo.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: 'MaPoliceBlack', sans-serif;
+}
+.hackathon{
+ width: 100vw;
+ height: 350px;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ align-content: center;
+ justify-content: center;
+ margin-top: 30px;
+}
+.info-titre{
+  font-size: 40px;
+  color: #ffcc00;
+  font-family: 'MaPoliceBlack', sans-serif;
+  margin-bottom: 20px;
+}
+.hackathon-container{
+    width: 90%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: space-around;
+}
+.hackathon-img{
+    width: 40%;
+    height: 90%;
+}
+.hackaton-description{
+    width: 55%;
+    min-height:40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: space-around;
+    margin-top: -50px;
+}
+.hackathon-description-texte{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content:center;
+  font-family: 'MaPoliceRegular', sans-serif;
+  font-size: 18px;
+  flex-wrap: wrap;
+}
+.hackathon-description-texte span{
+  margin-top: 10px;
+}
+ samp{
+  font-size: 18px;
+  color: #ffcc00;
+  font-family: 'MaPoliceBlack', sans-serif;
+  margin-right: 5px;
+}
+
+.hackathon-description-btn{
+  width: 50%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+  margin-left: -285px;
+  margin-top: 10px;
+}
+.hackathon-btns{
+  background: #ffcc00;
+  border: none;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 15px;
+  color: rgb(0, 0, 0);
+  font-family: 'MaPoliceBlack', sans-serif;
+}
+.visiteurs{
+ width: 100vw;
+ height: 650px;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ align-content: center;
+ justify-content: center;
+ margin-top: 50px;
+}
+.visiteurs-mobile{
+ width: 100vw;
+ height: 800px;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ align-content: center;
+ justify-content: center;
+ margin-top: 50px;
+ display: none;
+}
+
+.visiteurs-titre{
+  font-size: 40px;
+  color: #ffcc00;
+  font-family: 'MaPoliceBlack', sans-serif;
+  margin-bottom: 20px;
+}
+.visiteurs-container{
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: space-around;
+    background-color: green;
+}
+.visiteurs-box{
+    width: 100%;
+    height: 47%;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    gap: 10px;
+}
+.vaccin{
+    width: 20%;
+    height: 80%;
+}
+.vaccin-description{
+    width: 60%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: start;
+    font-family: 'MaPoliceRegular', sans-serif;
+    font-size: 18px;
+    color: #fff;
+}
+.vaccin-description span{
+    margin-top: 10px;
+}
+.visa{
+    width: 20%;
+    height: 80%;
+}
+.visa-description{
+    width: 60%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: end;
+    font-family: 'MaPoliceRegular', sans-serif;
+    font-size: 18px;
+    color: #fff;
+}
+.visa-description span{
+    margin-top: 10px;
+}
+.hebergement{
+ width: 100vw;
+ height: 400px;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ align-content: center;
+ justify-content: center;
+ margin-top: 50px;
+}
+.hebergement-mobile{
+display: none;
+}
+
+.hebergement-titre{
+  font-size: 40px;
+  color: #ffcc00;
+  font-family: 'MaPoliceBlack', sans-serif;
+  margin-bottom: 20px;
+}
+.hebergement-description{
+ width: 85%;
+ height: 90%;
+ display: flex;
+ align-items: center;
+ align-content: center;
+ justify-content: center;
+ gap: 15px;
+}
+.hebergement-description-texte{
+    width: 65%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    text-align: end;
+    font-family: 'MaPoliceRegular', sans-serif;
+    font-size: 18px;
+}
+.hebergement-img{
+  width: 30%;
+  height: 70%;
+}
+
+@media only screen and (max-width:767px){
+  .info-bg {
+  height: 40vh;
+  width: 100%;
+  background: url('../Images/Banierreinfo.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: 'MaPoliceBlack', sans-serif;
+}
+.hackathon{
+ width: 100vw;
+ height: 500px;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ align-content: center;
+ justify-content: center;
+ margin-top: 30px;
+}
+
+.hackathon-container{
+    width: 90%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: space-around;
+}
+.info-titre{
+  font-size: 30px;
+  color: #ffcc00;
+  font-family: 'MaPoliceBlack', sans-serif;
+  margin-bottom: 20px;
+}
+.hackathon-img{
+  width: 80%;
+  height: 45%;
+}
+.hackaton-description{
+    width: 80%;
+    min-height:45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: space-around;
+    margin-top: -50px;
+}
+.hackathon-description-texte{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content:center;
+  font-family: 'MaPoliceRegular', sans-serif;
+  font-size: 10.5px;
+  flex-wrap: wrap;
+}
+ samp{
+  font-size: 10.5px;
+  color: #ffcc00;
+  font-family: 'MaPoliceBlack', sans-serif;
+  margin-right: 5px;
+}
+
+.hackathon-description-btn{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+  margin-left: 0px;
+  margin-top: 10px;
+}
+.hackathon-btns{
+  background: #ffcc00;
+  border: none;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 15px;
+  color: rgb(0, 0, 0);
+  font-family: 'MaPoliceBlack', sans-serif;
+}
+
+.visiteurs{
+ display: none;
+}
+.visiteurs-mobile{
+   height: 900px;
+  display: flex;
+}
+
+.visiteurs-titre{
+  font-size: 30px;
+  color: #ffcc00;
+  font-family: 'MaPoliceBlack', sans-serif;
+  margin-bottom: 20px;
+}
+.visiteurs-container{
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: space-around;
+    background-color: green;
+}
+.visiteurs-box{
+    width: 100%;
+    height: 47%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    gap: 10px;
+}
+.vaccin{
+    width: 30%;
+    height: 45%;
+}
+.vaccin-description{
+    width: 90%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+    font-family: 'MaPoliceRegular', sans-serif;
+    font-size: 14px;
+    color: #fff;
+}
+.vaccin-description span{
+    margin-top: 10px;
+}
+.visa{
+    width: 20%;
+    height: 80%;
+}
+.visa-description{
+    width: 90%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+    font-family: 'MaPoliceRegular', sans-serif;
+    font-size: 14px;
+    color: #fff;
+}
+.visa-description span{
+    margin-top: 10px;
+}
+
+.hebergement{
+  display: none;
+}
+.hebergement-mobile{
+ width: 100vw;
+ height: 400px;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ align-content: center;
+ justify-content: center;
+ margin-top: 50px;
+}
+
+.hebergement-titre{
+  font-size: 30px;
+  color: #ffcc00;
+  font-family: 'MaPoliceBlack', sans-serif;
+  margin-bottom: 20px;
+}
+.hebergement-description{
+ width: 90%;
+ height: 90%;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ align-content: center;
+ justify-content: center;
+ gap: 15px;
+}
+.hebergement-description-texte{
+    width: 90%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    font-family: 'MaPoliceRegular', sans-serif;
+    font-size: 14px;
+}
+.hebergement-img{
+  width: 70%;
+  height: 80%;
+}
+
+}

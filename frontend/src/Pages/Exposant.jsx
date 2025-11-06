@@ -55,10 +55,12 @@ const [menu, setMenu] = useState(false);
         <div className="menu-deroulant-tel">
             <div className="tel-close" onClick={() => setMenu(false)}>✕</div>
             <div className="tel-links">
-              <Link to= "/" className="lien-tel-actif">Accueil</Link>
+              <Link to= "/" className="liens-tel-header">Accueil</Link>
               <Link to= "/Sponsoring" className="liens-tel-header">Sponsoring & Partenariat</Link>
               <Link to= "/Programme" className="liens-tel-header">Programme</Link>
+              <Link to= "/Exposant"className="lien-tel-actif">Exposants</Link>
               <Link to= "/Actualites"className="liens-tel-header">Actualités</Link>
+              <Link to= "/Info"className="liens-tel-header">Plus d'infos</Link>
             </div>
             <button className="btn-rejoindre"  onClick={() => setAffichermenurejoindre(!affichermenurejoindre)}>Rejoingnez nous</button>
               {affichermenurejoindre && (

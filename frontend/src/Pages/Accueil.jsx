@@ -35,6 +35,10 @@ import Cemoi from "../Images/cemoi.png"
 import { Link } from "react-router-dom"
 import BagbePopup from "./BagbePopup";
 import { useNavigate } from "react-router-dom"
+import Actus1 from "../Images/ACTUSAE1.jpg"
+import Actus2 from "../Images/ACTUSAE2.jpg"
+import Actus3 from "../Images/ACTUSAE3.jpg"
+import Actus4 from "../Images/ACTUSAE4.jpg"
 
 
 
@@ -286,7 +290,9 @@ const [menu, setMenu] = useState(false);
               <Link to= "/" className="lien-tel-actif">Accueil</Link>
               <Link to= "/Sponsoring" className="liens-tel-header">Sponsoring & Partenariat</Link>
               <Link to= "/Programme" className="liens-tel-header">Programme</Link>
+              <Link to= "/Exposant"className="liens-tel-header">Exposants</Link>
               <Link to= "/Actualites"className="liens-tel-header">Actualités</Link>
+              <Link to= "/Info"className="liens-tel-header">Plus d'infos</Link>
             </div>
             <button className="btn-rejoindre"  onClick={() => setAffichermenurejoindre(!affichermenurejoindre)}>Rejoingnez nous</button>
               {affichermenurejoindre && (
@@ -496,52 +502,48 @@ const [menu, setMenu] = useState(false);
         <motion.div variants={versbas} className="actus-actualites-container">
           <div className="actualites-range">
             <div className="actus-box">
-              <div className="actus-img"></div>
+              <img className="actus-img" src={Actus1} alt="" />
               <div className="actus-description">
                 <div className="actus-texte">
-                  <span className="actus-texte-titre">Actualités</span>
-                  Le SAE 2026 propose panels, ateliers et un espace startups autour
-                  du financement vert, de l’agrotechnologie et des énergies
-                  renouvelables, réunissant experts et dirigeants pour inspirer, former
-                  et connecter les participants en vue de projets concrets.
+                  Nous avons eu le plaisir de rencontrer les équipes de Coq Ivoire, 
+                  Vitalac et Sofacope dans le cadre des préparatifs de leur 
+                  participation au Salon de l’Agriculture et des Élevages (SAE) de 
+                  Bouaké.                
                 </div>
               </div>
             </div>
             <div className="actus-box">
-              <div className="actus-img"></div>
+              <img className="actus-img" src={Actus2} alt="" />
               <div className="actus-description">
                 <div className="actus-texte">
-                  <span className="actus-texte-titre">Actualités</span>
-                  Le SAE 2026 propose panels, ateliers et un espace startups autour
-                  du financement vert, de l’agrotechnologie et des énergies
-                  renouvelables, réunissant experts et dirigeants pour inspirer, former
-                  et connecter les participants en vue de projets concrets.
+                 Lors de notre visite, nous avons eu l’honneur 
+                 d’être reçus par M. Koné, Directeur de Cabinet 
+                 du Ministre des Transports et Maire de Bouaké, 
+                 ainsi que par le Conseiller Régional de Bouaké.
+                 <br />Cette rencontre a été l’occasion de leur présenter 
+                 en détail le projet SAE Bouaké et de leur offrir 
+                 un présent en signe de reconnaissance et de 
+                 remerciement pour leur accueil chaleureux.
                 </div>
               </div>
             </div>
           </div>
           <div className="actualites-range">
             <div className="actus-box">
-              <div className="actus-img"></div>
+              <img className="actus-img" src={Actus3} alt="" />
               <div className="actus-description">
                 <div className="actus-texte">
-                  <span className="actus-texte-titre">Actualités</span>
-                  Le SAE 2026 propose panels, ateliers et un espace startups autour
-                  du financement vert, de l’agrotechnologie et des énergies
-                  renouvelables, réunissant experts et dirigeants pour inspirer, former
-                  et connecter les participants en vue de projets concrets.
+                  Nous avons eu le plaisir de visiter les installations 
+                  de l’usine de fabrication d’aliments, un moment riche 
+                  en échanges et en découvertes.
                 </div>
               </div>
             </div>
             <div className="actus-box">
-              <div className="actus-img"></div>
+              <img className="actus-img" src={Actus4} alt="" />
               <div className="actus-description">
                 <div className="actus-texte">
-                  <span className="actus-texte-titre">Actualités</span>
-                  Le SAE 2026 propose panels, ateliers et un espace startups autour
-                  du financement vert, de l’agrotechnologie et des énergies
-                  renouvelables, réunissant experts et dirigeants pour inspirer, former
-                  et connecter les participants en vue de projets concrets.
+                 Nous avons également, effectué une visite à la SAP de la ME
                 </div>
               </div>
             </div>

@@ -63,7 +63,10 @@ const [affichermenurejoindre, setAffichermenurejoindre] = useState(false);
               <Link to= "/" className="liens-tel-header">Accueil</Link>
               <Link to= "/Sponsoring" className="lien-tel-actif">Sponsoring & Partenariat</Link>
               <Link to= "/Programme" className="liens-tel-header">Programme</Link>
+              <Link to= "/Exposant"className="liens-tel-header">Exposants</Link>
               <Link to= "/Actualites"className="liens-tel-header">Actualités</Link>
+              <Link to= "/Info"className="liens-tel-header">Plus d'infos</Link>
+
             </div>
             <button className="btn-rejoindre"  onClick={() => setAffichermenurejoindre(!affichermenurejoindre)}>Rejoingnez nous</button>
               {affichermenurejoindre && (
@@ -109,7 +112,11 @@ const [affichermenurejoindre, setAffichermenurejoindre] = useState(false);
                     <motion.img variants={apparition} className="pourquoi-icon" src={Carte} alt="" />
                     <motion.div variants={versbas} className="pourquoi-sponsor-description">
                       <span className="pourquoi-sponsor-description-titre">Une visibilité exceptionnelle et une notoriété renforcée</span>
-                      <span className="pourquoi-sponsor-description-text">Le SAE 2026 bénéficie d’une large couverture médiatique nationale (télévisions, radios, presse et réseaux sociaux) et attend plus de 50 000 visiteurs sur trois jours. En devenant sponsor, vous associez votre marque à un événement d’envergure nationale et internationale, tout en profitant d’une visibilité sur tous les supports de communication (stands, affiches, maquis géant, hackathon, cérémonies, etc.).
+                      <span className="pourquoi-sponsor-description-text">Le SAE 2026 bénéficie d’une large couverture médiatique 
+                      nationale (télévisions, radios, presse et réseaux sociaux) et attend plus de 50 000 visiteurs sur trois jours.
+                      En devenant sponsor, vous associez votre marque à un événement d’envergure nationale et internationale, tout 
+                      en profitant d’une visibilité sur tous les supports de communication (stands, affiches, maquis géant, hackathon,
+                      cérémonies, etc.).
                       </span>
                     </motion.div>
                 </div>
@@ -117,14 +124,23 @@ const [affichermenurejoindre, setAffichermenurejoindre] = useState(false);
                     <motion.img variants={apparition} className="pourquoi-icon" src={Carte} alt="" />
                     <motion.div variants={versbas} className="pourquoi-sponsor-description">
                       <span className="pourquoi-sponsor-description-titre">Un réseau stratégique et des opportunités d’affaires</span>
-                      <span className="pourquoi-sponsor-description-text">Le salon rassemble décideurs, investisseurs, entreprises et institutions publiques autour des thématiques de l’agriculture, de l’élevage et de l’énergie. Être sponsor du SAE, c’est accéder à un réseau qualifié de partenaires et clients potentiels, générer des leads commerciaux et tisser des collaborations durables dans un environnement propice aux affaires.</span>
+                      <span className="pourquoi-sponsor-description-text">Le salon rassemble décideurs, investisseurs, entreprises 
+                      et institutions publiques autour des thématiques de l’agriculture, de l’élevage et de l’énergie. Être sponsor 
+                      du SAE, c’est accéder à un réseau qualifié de partenaires et clients potentiels, générer des leads commerciaux 
+                      et tisser des collaborations durables dans un environnement propice aux affaires.
+                      </span>
                     </motion.div>
                 </div>
                 <div className="pourquoi-sponsor">
                     <motion.img variants={apparition} className="pourquoi-icon" src={Carte} alt="" />
                     <motion.div variants={versbas} className="pourquoi-sponsor-description">
                       <span className="pourquoi-sponsor-description-titre">Un engagement à fort impact socio-économique</span>
-                        <span className="pourquoi-sponsor-description-text">Soutenir le SAE, c’est aussi valoriser votre engagement RSE. L’événement contribue à la promotion de l’auto-entrepreneuriat agricole, à la lutte contre le chômage des jeunes et au développement durable des filières locales. En devenant partenaire, vous participez activement à une initiative porteuse de sens, alignée avec les priorités nationales et africaines.</span>
+                        <span className="pourquoi-sponsor-description-text">Soutenir le SAE, c’est aussi valoriser votre
+                        engagement RSE. L’événement contribue à la promotion de l’auto-entrepreneuriat agricole, à la lutte 
+                        contre le chômage des jeunes et au développement durable des filières locales. En devenant partenaire, 
+                        vous participez activement à une initiative porteuse de sens, alignée avec les priorités nationales et 
+                        africaines.
+                        </span>
                     </motion.div>
                 </div>        
     </div>
