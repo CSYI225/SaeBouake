@@ -88,6 +88,9 @@
   color: rgb(0, 0, 0);
   font-family: 'MaPoliceBlack', sans-serif;
 }
+.btn-doc-sponsoring:hover{
+  background-color: #f6b400;
+}
 
 .sponsors{
   width: 100%;
@@ -134,6 +137,10 @@
   color: rgb(0, 0, 0);
   font-family: 'MaPoliceBlack', sans-serif;
 }
+.btn-sponsors:hover{
+  background-color: #f6b400;
+}
+
 
 
 @media only screen and (max-width:767px){
@@ -189,7 +196,7 @@
   justify-content: center;
 }
 .pourquoi-sponsor-description{
-  width: 75%;
+  width: 100%;
   height: 95%;
   display: flex;
   flex-direction: column;
@@ -274,5 +281,4 @@
   color: rgb(0, 0, 0);
   font-family: 'MaPoliceBlack', sans-serif;
 }
-
 }

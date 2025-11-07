@@ -81,6 +81,7 @@
   align-items: center;
   align-content: center;
   justify-content: center;
+
 }
 .Exposant-titre{
   font-size: 30px;
@@ -97,6 +98,7 @@
   align-content: center;
   justify-content: center;
   gap: 20px;
+  margin-bottom: 15px;
 }
 .exposer-box{
   width: 75%;
