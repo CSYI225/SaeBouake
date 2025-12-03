@@ -17,6 +17,7 @@ import Carte from "../Images/carte.png"
 import Camera from "../Images/camera.png"
 import Ampoule from "../Images/ampoule.png"
 import Fleche from "../Images/fleche.png"
+import Opport from "../Images/opport.png"
 import { motion, AnimatePresence } from "framer-motion";
 import Maquis from "../Images/maquis.jpg"
 import Balade from "../Images/balade.png"
@@ -243,7 +244,6 @@ const nextSlide3 = () => {
     return next >= len ? 0 : next;
   });
 };
-
 const prevSlide3 = () => {
   setIndex3(prev => {
     const prevIndex = prev - groupSize;
@@ -251,8 +251,6 @@ const prevSlide3 = () => {
     return prevIndex < 0 ? lastGroupStart : prevIndex;
   });
 };
-
-
 useEffect(() => {
   const interval = setInterval(() => {
     nextSlide3();
@@ -260,17 +258,37 @@ useEffect(() => {
     // Nettoyage à chaque changement d’index ou à la destruction du composant
     return () => clearInterval(interval);
   }, [index3]); // dépendance sur index pour redémarrer à chaque fois
-
-
   // groupe courant (0-based)
   const currentGroup = Math.floor(index3 / groupSize) % totalGroups;
-
   // groupe d'éléments à afficher (avec wrapping si nécessaire)
   const currentSpeakers = speakers.slice(index3, index3 + groupSize);
   const displayedSpeakers =
     currentSpeakers.length < groupSize
       ? [...currentSpeakers, ...speakers.slice(0, groupSize - currentSpeakers.length)]
       : currentSpeakers;
+
+// ----- VERSION MOBILE -----
+const [mobileIndex, setMobileIndex] = useState(0);
+const totalMobile = speakers.length;
+
+const nextspeakersMobile = () => {
+  setMobileIndex((prev) => (prev + 1) % totalMobile);
+};
+
+const prevspeakersMobile = () => {
+  setMobileIndex((prev) => (prev - 1 + totalMobile) % totalMobile);
+};
+
+useEffect(() => {
+  const interval = setInterval(nextspeakersMobile, 5000);
+  return () => clearInterval(interval);
+}, [mobileIndex]);
+
+const displayedMobile = speakers[mobileIndex];
+
+
+
+
 
   const { t } = useTranslation();
 
@@ -347,7 +365,7 @@ useEffect(() => {
             <div className="doc-description-top">{t("doc-description-top")}</div>
             <div className="doc-description-bottom">
               <div className="doc-weight">PDF - 3,3Mo</div>
-              <button className="download">{t("download")}</button>
+              <button className="download">{t("download")} <div>&#11123;</div></button>
             </div>
           </div>
       </motion.div>
@@ -427,7 +445,7 @@ useEffect(() => {
         </div>
         <div className="pourquoi-range2">
           <div className="pourquoi-range-box2">
-            <motion.img variants={left2} className="carte-icon" src={Carte} alt="" />
+            <motion.img variants={left2} className="opport-icon" src={Opport} alt="" />
             <motion.div variants={zoom2} className="pourquoi-description">
               <span className="pourquoi-description-titre">{t("pourquoi-description-titre5")}</span>{t("pourquoi-description5-1")} <br />{t("pourquoi-description5-2")} <br />{t("pourquoi-description5-3")}</motion.div>
           </div>
@@ -532,26 +550,50 @@ useEffect(() => {
       </div>
     </section>
 
-      {/* <section className="speakers-mobile">
-        <div className="speakers-title">Speakers</div>
-        <div className="speakers-bottom">
-          <div className="speakers-arrow" onClick={prevSlide2}>&#8249;</div>
-          <div className="speakers-box-mobile">
-            <div className="speaker-photo">
-              {sponsorsMobile[index2].images.map((src, i) => (
-                <motion.img key={i} src={src} alt={`slide-${i}`} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: i * 0.1 }}/>
-              ))}
-            </div>
-          <motion.div className="speaker-description-mobile" key={sponsorsMobile[index2].id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.8 }}>
-              <div className="nompeaker">{sponsorsMobile[index2].nom}</div>
-              <div className="prenomspeaker">{sponsorsMobile[index2].prenoms}</div>
-              <div className="fonctionspeaker">{sponsorsMobile[index2].fonction}</div>
-          </motion.div>
-          </div>
-          <div className="speakers-arrow" onClick={nextSlide2}>&#8250;</div>
-        </div>
-      </section> */}
+{/* --- VERSION MOBILE --- */}
+<section className="speakers-mobile">
+  <div className="speakers-title2">Speakers</div>
 
+  <div className="speakers-bottom2">
+    <div className="speakers-arrow2" onClick={prevspeakersMobile}>
+      &#8249;
+    </div>
+
+    <div className="speakers-box2">
+      <motion.div
+        key={displayedMobile.id}
+        className="speaker-item2"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="speaker-photo2">
+          <img src={displayedMobile.images[0]} alt={displayedMobile.nom} />
+        </div>
+
+        <div className="speaker-description2">
+          <div className="nomspeaker2">{t(displayedMobile.nom)}</div>
+          <div className="prenomspeaker2">{t(displayedMobile.prenoms)}</div>
+          <div className="fonctionspeaker2">{t(displayedMobile.fonction)}</div>
+        </div>
+      </motion.div>
+    </div>
+
+    <div className="speakers-arrow2" onClick={nextspeakersMobile}>
+      &#8250;
+    </div>
+  </div>
+
+  <div className="position">
+    {speakers.map((_, i) => (
+      <div
+        key={i}
+        className={`cercle ${i === mobileIndex ? "active" : ""}`}
+        onClick={() => setMobileIndex(i)}
+      />
+    ))}
+  </div>
+</section>
     <motion.section initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.4 }} variants={containerVariants} className="sponsors-section">
       <motion.div variants={apparition} className="titre">{t("titre-sponsors")}</motion.div>
       <div className="sponsors-slider">

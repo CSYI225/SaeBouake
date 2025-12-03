@@ -697,6 +697,26 @@ h2 {
 
 
 
+.lang-btn {
+  width: 30px;
+  height: 20px;
+  margin-left: -80px;
+  position: absolute;
+  margin-top: -5px;
+}
+
+.flag-icon {
+  width: 80%;
+  height: 70%;
+  object-fit: cover;
+}
+
+.lang-dropdown {
+  width: 25px;
+  height: 15px;
+  margin-left: -80px;
+  top: 20px;
+}
 
 
 

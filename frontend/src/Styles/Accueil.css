@@ -109,11 +109,21 @@
   color: #fff;
 }
 .download{
-  width: 40%;
+  width: 35%;
   height: 50%;
   background-color: rgb(186, 180, 180);
   border: none;
   margin-right: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  gap: 5px;
+  transition: 0.4s;
+}
+.download:hover{
+  background-color: #ffcc00;
 }
 
 .chiffres{
@@ -334,6 +344,12 @@
   width: 27%;
   height: 90%;
 }
+.opport-icon{
+  width: 30%;
+  height: 60%;
+  margin-left: -10px;
+}
+
 .slider {
   width: 100%;
   height: 400px;
@@ -544,6 +560,9 @@
   border-radius: 30px;
 }
 
+.speakers-mobile{
+display: none;}
+
 
 .speakers2{
   width: 100%;
@@ -555,6 +574,7 @@
   align-content: center;
   justify-content: space-around;
 }
+
 .speakers-title2{
   font-family: 'MaPoliceBlack';
   font-size: 40px;
@@ -1216,13 +1236,18 @@
   color: #fff;
 }
 .download{
-  width: 40%;
+  width: 35%;
   height: 50%;
   background-color: rgb(186, 180, 180);
   border: none;
   margin-right: 15px;
   font-family: 'MaPoliceRegular';
   font-size: 60%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  gap: 5px;
 }
 .chiffres{
   width: 90%;
@@ -1649,7 +1674,7 @@
   font-size: 150%;
   margin-bottom: 5px;
 }
-.speakers-container{
+.speakers2{
 display: none;
 }
 
@@ -1663,6 +1688,17 @@ display: none;
   align-content: center;
   justify-content: space-around;
 }
+.speaker-item2{
+  width:50% ;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  background-color: #ffcc00;
+}
+
 
 .sponsors-section {
   display: none !important ;
@@ -1807,6 +1843,7 @@ display: none;
   font-family: 'MapoliceRegular',sans-serif;
   font-size: 14px;
   text-align: center;
+  margin-bottom: -10px;
 }
 .footer-left-bottom{
   width: 50%;
