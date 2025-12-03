@@ -1,39 +1,43 @@
 import Baniere from "../Images/baniere.png"
+import { useTranslation } from "react-i18next";
 
 
 const Visiteur=()=>{
+    const { t } = useTranslation();
+
+
     return (
     <>
     <div className="formulaires">
     <div className="container-formulaires">
         <div className="form-header">
-            <div className="form-title">FORMULAIRE VISITEUR</div>
+            <div className="form-title">{t("form-visiteur")}</div>
             <img className="baniere" src={Baniere} alt="" />
         </div>
         <form className="form-body">
             <div className="row">
-              <input type="text" placeholder="Nom & Prénoms" />
+              <input type="text" placeholder={t("newsletter-nom")} />
             </div>
             <div className="row">
             <select>
-              <option value="">Status</option>
-              <option value="Etudiant">Etudiant</option>
-              <option value="Professionel">Professionel</option>
-              <option value="SimpleVisiteur">Simple visiteur</option>
+              <option value="">{t("status")}</option>
+              <option value="Etudiant">{t("etudiant")}</option>
+              <option value="Professionel">{t("pro")}</option>
+              <option value="SimpleVisiteur">{t("svisiteur")}</option>
             </select>
             <select>
-              <option value="">Centre d'intérêt</option>
-              <option value="Agriculture">Agriculture</option>
-              <option value="Elevage">Elevage</option>
-              <option value="Energie">Energie</option>
+              <option value="">{t("interet")}</option>
+              <option value="Agriculture">{t("agriculture")}</option>
+              <option value="Elevage">{t("elevage")}</option>
+              <option value="Energie">{t("energie")}</option>
             </select>
             </div>
             <div className="row2">
-              <input type="text" placeholder="Téléphone" />
-              <input type="text" placeholder="Email" />
+              <input type="text" placeholder={t("tel")} />
+              <input type="text" placeholder={t("email")} />
             </div>
         </form>
-        <button type="submit" className="btn-valider">Valider</button>
+        <button type="submit" className="btn-valider">{t("valider")}</button>
     </div>
     </div>
     </>

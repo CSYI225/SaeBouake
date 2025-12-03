@@ -15,6 +15,9 @@ import Actus2 from "../Images/ACTUSAE2.jpg"
 import Actus3 from "../Images/ACTUSAE3.jpg"
 import Actus4 from "../Images/ACTUSAE4.jpg"
 import { useNavigate } from "react-router-dom"
+import { useTranslation } from "react-i18next";
+import LangSwitcher  from "../BtnTraduction";
+
 
 
 
@@ -47,11 +50,13 @@ const Actu=()=>{
 const [menu, setMenu] = useState(false);    
   const [affichermenurejoindre, setAffichermenurejoindre] = useState(false);
 
+
+    const { t } = useTranslation();
+
     return (
       <>
-
       {/* Navbar */}
-      <nav className={`navbar-container ${scrolled ? "scrolled" : ""}`}>
+    <nav className={`navbar-container ${scrolled ? "scrolled" : ""}`}>
         <div className="navbar" ref={menuRef}>
             <img onClick={()=>navigate('/')} className="logo" src={LogoSAE} alt="SAE Logo" />
 
@@ -60,46 +65,46 @@ const [menu, setMenu] = useState(false);
         <div className="menu-deroulant-tel">
             <div className="tel-close" onClick={() => setMenu(false)}>✕</div>
             <div className="tel-links">
-              <Link to= "/" className="liens-tel-header">Accueil</Link>
-              <Link to= "/Sponsoring" className="liens-tel-header">Sponsoring & Partenariat</Link>
-              <Link to= "/Programme" className="liens-tel-header">Programme</Link>
-              <Link to= "/Exposant"className="liens-tel-header">Exposants</Link>
-              <Link to= "/Actualites"className="lien-tel-actif">Actualités</Link>
-              <Link to= "/Info"className="liens-tel-header">Plus d'infos</Link>
+              <Link to= "/" className="liens-tel-header">{t("link1")}</Link>
+              <Link to= "/Sponsoring" className="liens-tel-header">{t("link2")}</Link>
+              <Link to= "/Programme" className="liens-tel-header">{t("link3")}</Link>
+              <Link to= "/Exposant"className="liens-tel-header">{t("link4")}</Link>
+              <Link to= "/Actualites"className="lien-tel-actif">{t("link5")}</Link>
+              <Link to= "/Info"className="liens-tel-header">{t("link6")}</Link>
             </div>
-            <button className="btn-rejoindre"  onClick={() => setAffichermenurejoindre(!affichermenurejoindre)}>Rejoingnez nous</button>
+            <button className="btn-rejoindre"  onClick={() => setAffichermenurejoindre(!affichermenurejoindre)}>{t("rejoindre")}</button>
               {affichermenurejoindre && (
                 <div className="menu-rejoindre-tel">
-                  <div className="menu-rejoindre-tel-item">Exposant</div>
-                  <div onClick={()=>navigate('/Visiteur')} className="menu-rejoindre-tel-item">Visiteur</div>
-                  <div onClick={()=>navigate('/Delegation')} className="menu-rejoindre-tel-item">Délégation</div>
-                  <div onClick={()=>navigate('/MediaPresse')}className="menu-rejoindre-tel-item">Média/Presse</div>
+                  <div className="menu-rejoindre-tel-item">{t("link7")}</div>
+                  <div onClick={()=>navigate('/Visiteur')} className="menu-rejoindre-tel-item">{t("link8")}</div>
+                  <div onClick={()=>navigate('/Delegation')} className="menu-rejoindre-tel-item">{t("link9")}</div>
+                  <div onClick={()=>navigate('/MediaPresse')}className="menu-rejoindre-tel-item">{t("link10")}</div>
                 </div>
               )}
         </div>
       )}
-
-
+            
           <ul className="nav-links">
-            <Link to= "/" className="liens-header">Accueil</Link>
-            <Link to= "/Sponsoring" className="liens-header">Sponsoring & Partenariat</Link>
-            <Link to= "/Programme" className="liens-header">Programme</Link>
-            <Link to= "/Exposant" className="liens-header">Exposants</Link>
-            <Link to= "/Actualites"className="lien-actif">Actualités</Link>
-            <Link to= "/Info" className="liens-header">Plus d'infos</Link>
+            <Link to= "/" className="liens-header">{t("link1")}</Link>
+            <Link to= "/Sponsoring" className="liens-header">{t("link2")}</Link>
+            <Link to= "/Programme" className="liens-header">{t("link3")}</Link>
+            <Link to= "/Exposant" className="liens-header">{t("link4")}</Link>
+            <Link to= "/Actualites"className="lien-actif">{t("link5")}</Link>
+            <Link to= "/Info" className="liens-header">{t("link6")}</Link>
           </ul>
-          <button className="btn-ticket"  onClick={() => setAffichermenu(!affichermenu)}>Rejoingnez nous</button>
+          <button className="btn-ticket"  onClick={() => setAffichermenu(!affichermenu)}>{t("rejoindre")}</button>
+          <LangSwitcher />
           {affichermenu && (
         <div className="menu-deroulant">
-          <div className="menu-item">Exposant</div>
-          <div onClick={()=>navigate('/Visiteur')} className="menu-item">Visiteur</div>
-          <div onClick={()=>navigate('/Delegation')} className="menu-item">Délégation</div>
-          <div onClick={()=>navigate('/MediaPresse')}className="menu-item">Média/Presse</div>
+          <div className="menu-item">{t("link7")}</div>
+          <div onClick={()=>navigate('/Visiteur')} className="menu-item">{t("link8")}</div>
+          <div onClick={()=>navigate('/Delegation')} className="menu-item">{t("link9")}</div>
+          <div onClick={()=>navigate('/MediaPresse')}className="menu-item">{t("link10")}</div>
         </div>
       )}
 
         </div>
-      </nav>
+    </nav>
 
     <section className="header-bg">
       <div className="overlay">
@@ -112,27 +117,13 @@ const [menu, setMenu] = useState(false);
             <motion.div variants={left} className="actus-box">
               <img className="actus-img" src={Actus1} alt="" />
               <div className="actus-description">
-                <div className="actus-texte">
-                  Nous avons eu le plaisir de rencontrer les équipes de Coq Ivoire, 
-                  Vitalac et Sofacope dans le cadre des préparatifs de leur 
-                  participation au Salon de l’Agriculture et des Élevages (SAE) de 
-                  Bouaké.                
-                </div>
+                <div className="actus-texte">{t("actus-texte1")}</div>
               </div>
             </motion.div>
             <motion.div variants={right} className="actus-box">
               <img className="actus-img" src={Actus2} alt="" />
               <div className="actus-description">
-                <div className="actus-texte">
-                 Lors de notre visite, nous avons eu l’honneur 
-                 d’être reçus par M. Koné, Directeur de Cabinet 
-                 du Ministre des Transports et Maire de Bouaké, 
-                 ainsi que par le Conseiller Régional de Bouaké.
-                 <br />Cette rencontre a été l’occasion de leur présenter 
-                 en détail le projet SAE Bouaké et de leur offrir 
-                 un présent en signe de reconnaissance et de 
-                 remerciement pour leur accueil chaleureux.
-                </div>
+                <div className="actus-texte">{t("actus-texte2-1")}<br />{t("actus-texte2-2")}</div>
               </div>
             </motion.div>
         </div>
@@ -140,19 +131,13 @@ const [menu, setMenu] = useState(false);
             <motion.div variants={left} className="actus-box">
               <img className="actus-img" src={Actus3} alt="" />
               <div className="actus-description">
-                <div className="actus-texte">
-                  Nous avons eu le plaisir de visiter les installations 
-                  de l’usine de fabrication d’aliments, un moment riche 
-                  en échanges et en découvertes.
-                </div>
+                <div className="actus-texte">{t("actus-texte3")}</div>
               </div>
             </motion.div>
             <motion.div variants={right} className="actus-box">
               <img className="actus-img" src={Actus4} alt="" />
               <div className="actus-description">
-                <div className="actus-texte">
-                 Nous avons également, effectué une visite à la SAP de la ME
-                </div>
+                <div className="actus-texte">{t("actus-texte4")}</div>
               </div>
             </motion.div>
         </div>
@@ -160,23 +145,13 @@ const [menu, setMenu] = useState(false);
             <motion.div variants={left} className="actus-box">
               <img className="actus-img" src={Actus1} alt="" />
               <div className="actus-description">
-                <div className="actus-texte">
-                  Nous avons eu le plaisir de rencontrer les équipes de Coq Ivoire, 
-                  Vitalac et Sofacope dans le cadre des préparatifs de leur 
-                  participation au Salon de l’Agriculture et des Élevages (SAE) de 
-                  Bouaké.                
-                </div>
+                <div className="actus-texte">{t("actus-texte1")}</div>
               </div>
             </motion.div>
             <motion.div variants={right} className="actus-box">
               <img className="actus-img" src={Actus1} alt="" />
               <div className="actus-description">
-                <div className="actus-texte">
-                  Nous avons eu le plaisir de rencontrer les équipes de Coq Ivoire, 
-                  Vitalac et Sofacope dans le cadre des préparatifs de leur 
-                  participation au Salon de l’Agriculture et des Élevages (SAE) de 
-                  Bouaké.                
-                </div>
+                <div className="actus-texte">{t("actus-texte1")}</div>
               </div>
             </motion.div>
         </div>
@@ -184,70 +159,55 @@ const [menu, setMenu] = useState(false);
             <motion.div variants={left} className="actus-box">
               <img className="actus-img" src={Actus1} alt="" />
               <div className="actus-description">
-                <div className="actus-texte">
-                  Nous avons eu le plaisir de rencontrer les équipes de Coq Ivoire, 
-                  Vitalac et Sofacope dans le cadre des préparatifs de leur 
-                  participation au Salon de l’Agriculture et des Élevages (SAE) de 
-                  Bouaké.                
-                </div>
+                <div className="actus-texte">{t("actus-texte1")}</div>
               </div>
             </motion.div>
             <motion.div variants={right} className="actus-box">
               <img className="actus-img" src={Actus1} alt="" />
               <div className="actus-description">
-                <div className="actus-texte">
-                  Nous avons eu le plaisir de rencontrer les équipes de Coq Ivoire, 
-                  Vitalac et Sofacope dans le cadre des préparatifs de leur 
-                  participation au Salon de l’Agriculture et des Élevages (SAE) de 
-                  Bouaké.                
-                </div>
+                <div className="actus-texte">{t("actus-texte1")}</div>
               </div>
             </motion.div>
         </div>
       </div>
     </motion.section>
 
-      <motion.section initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.4 }} variants={containerVariants} className="newsletter">
-      <motion.div variants={zoom} className="newsletter-container">
-        <h3 className="newsletter-title">Newsletters</h3>
-        <div className="newsletter-text">
-          Abonnez-vous à notre newsletter pour être parmi les premiers à recevoir
-          toutes les informations sur le SAE.
+  <motion.section initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.4 }} variants={containerVariants} className="newsletter">
+    <motion.div variants={zoom} className="newsletter-container">
+      <h3 className="newsletter-title">Newsletters</h3>
+      <div className="newsletter-text">{t("newsletter-text")}</div>
+      <div className="champnewsletter">
+      <div className="newsletter-input">
+        <input
+          type="nom"
+          placeholder={t("newsletter-nom")}
+        />
         </div>
-        <div className="champnewsletter">
-        <div className="newsletter-input">
-          <input
-            type="nom"
-            placeholder="Nom & prénoms"
-          />
-        </div>
-                <div className="newsletter-input">
+          <div className="newsletter-input">
           <input
             type="tel"
-            placeholder="Numéro de téléphone"
+            placeholder={t("newsletter-tel")}
           />
         </div>
         <div className="newsletter-input">
           <input
             type="email"
-            placeholder="Adresse email"
+            placeholder={t("newsletter-email")}
           />
         </div>
         </div>
-        <button className="newsletter-btn">Envoyer</button>
-
-
-      </motion.div>
-      </motion.section>
-      <section className="footer">
+        <button className="newsletter-btn">{t("newsletter-btn")}</button>
+    </motion.div>
+  </motion.section>
+    <section className="footer">
         <div className="footer-container">
           <div className="footer-left">
             <div className="footer-left-top">
               <img className="footer-logo" src={LogoSAE2} alt="" />
-              <div className="footer-texte">Abonnez-vous à notre newsletter pour être parmi les premiers à recevoir toutes les informations sur le SAE.</div>
+              <div className="footer-texte">{t("footer-texte")}</div>
             </div>
             <div className="footer-left-bottom">
-              <div className="footer-titres">Suivez-nous</div>
+              <div className="footer-titres">{t("footer-titre1")}</div>
               <div className="footer-left-bottom-bottom">
                 <img className="fb-icon" src={Fb} alt="fb" />
                 <img className="insta-icon" src={Insta} alt="insta" />
@@ -257,20 +217,22 @@ const [menu, setMenu] = useState(false);
           </div>
           <div className="footer-centre">
             <div className="footer-centre-box">
-              <div className="footer-titres">Liens utiles</div>
+              <div className="footer-titres">{t("footer-titre2")}</div>
               <nav className="footer-liens">
                   <ul>
-                    <Link to="/" className="link">Accueil</Link>
-                    <Link to="/Sponsoring"className="link">Sponsoring & Partenariat</Link>
-                    <Link to="/Programme" className="link">Programme</Link>
-                    <Link to="/Actualites"className="link">Actualités</Link>
+                    <Link to="/" className="link">{t("link1")}</Link>
+                    <Link to="/Sponsoring"className="link">{t("link2")}</Link>
+                    <Link to="/Programme" className="link">{t("link3")}</Link>
+                    <Link to="/Exposant"className="link">{t("link4")}</Link>
+                    <Link to="/Actualites"className="link">{t("link5")}</Link>
+                    <Link to="/Info" className="link">{t("link6")}</Link>
                   </ul>
               </nav>
             </div>
           </div>
                     <div className="footer-right">
             <div className="footer-right-center">
-              <div className="footer-titres">Coordonnées</div>
+              <div className="footer-titres">{t("footer-titre3")}</div>
               <div className="coordonees">
                 <div className="tel">
                   <img className="phone-icon" src={Phone} alt="tel" />
@@ -284,12 +246,12 @@ const [menu, setMenu] = useState(false);
             </div>
             <div className="footer-right-bottom">
               <img className="carte" src={Map} alt="map" />
-              <div>Esplanade du stade de Bouaké</div>
+              <div>{t("carte-texte")}</div>
             </div>
           </div>
 
         </div>
-      </section>
+    </section>
     </>
 
   );

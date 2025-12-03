@@ -55,6 +55,10 @@
   justify-content: center;
   border: solid 1px #ffcc00 ;
 }
+.globe{
+  width: 90%;
+  height: 90%;
+}
 .exposer-box-titre{
   width: 90%;
   font-size: 15px;

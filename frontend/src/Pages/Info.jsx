@@ -1,7 +1,6 @@
 import { useState, useEffect,useRef } from "react";
 import "../Styles/Info.css"
 import LogoSAE from "../Images/logoSAE.png"
-import Hackathon from "../Images/hackathon.png"
 import Vaccin from "../Images/vaccin.png"
 import Visa from "../Images/visa.png"
 import Hotel from "../Images/hotel.png"
@@ -15,6 +14,9 @@ import In from "../Images/linkedin.png"
 import { motion} from "framer-motion";
 import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
+import { useTranslation } from "react-i18next";
+import LangSwitcher  from "../BtnTraduction";
+import Vhackathon from "../Images/visuelhackaton.jpg"
 
 
 
@@ -46,6 +48,10 @@ const Info=()=>{
 const [menu, setMenu] = useState(false);    
 const [affichermenurejoindre, setAffichermenurejoindre] = useState(false);
 
+    const { t } = useTranslation();
+
+
+
   return (
     <>
     {/* Navbar */}
@@ -58,41 +64,41 @@ const [affichermenurejoindre, setAffichermenurejoindre] = useState(false);
         <div className="menu-deroulant-tel">
             <div className="tel-close" onClick={() => setMenu(false)}>✕</div>
             <div className="tel-links">
-              <Link to= "/" className="liens-tel-header">Accueil</Link>
-              <Link to= "/Sponsoring" className="liens-tel-header">Sponsoring & Partenariat</Link>
-              <Link to= "/Programme" className="liens-tel-header">Programme</Link>
-              <Link to= "/Exposant"className="liens-tel-header">Exposants</Link>
-              <Link to= "/Actualites"className="liens-tel-header">Actualités</Link>
-              <Link to= "/Info"className="lien-tel-actif">Plus d'infos</Link>
+              <Link to= "/" className="liens-tel-header">{t("link1")}</Link>
+              <Link to= "/Sponsoring" className="liens-tel-header">{t("link2")}</Link>
+              <Link to= "/Programme" className="liens-tel-header">{t("link3")}</Link>
+              <Link to= "/Exposant"className="liens-tel-header">{t("link4")}</Link>
+              <Link to= "/Actualites"className="liens-tel-header">{t("link5")}</Link>
+              <Link to= "/Info"className="lien-tel-actif">{t("link6")}</Link>
             </div>
-            <button className="btn-rejoindre"  onClick={() => setAffichermenurejoindre(!affichermenurejoindre)}>Rejoingnez nous</button>
+            <button className="btn-rejoindre"  onClick={() => setAffichermenurejoindre(!affichermenurejoindre)}>{t("rejoindre")}</button>
               {affichermenurejoindre && (
                 <div className="menu-rejoindre-tel">
-                  <div className="menu-rejoindre-tel-item">Exposant</div>
-                  <div onClick={()=>navigate('/Visiteur')} className="menu-rejoindre-tel-item">Visiteur</div>
-                  <div onClick={()=>navigate('/Delegation')} className="menu-rejoindre-tel-item">Délégation</div>
-                  <div onClick={()=>navigate('/MediaPresse')}className="menu-rejoindre-tel-item">Média/Presse</div>
+                  <div className="menu-rejoindre-tel-item">{t("link7")}</div>
+                  <div onClick={()=>navigate('/Visiteur')} className="menu-rejoindre-tel-item">{t("link8")}</div>
+                  <div onClick={()=>navigate('/Delegation')} className="menu-rejoindre-tel-item">{t("link9")}</div>
+                  <div onClick={()=>navigate('/MediaPresse')}className="menu-rejoindre-tel-item">{t("link10")}</div>
                 </div>
               )}
         </div>
       )}
-
-
+            
           <ul className="nav-links">
-            <Link to= "/" className="liens-header">Accueil</Link>
-            <Link to= "/Sponsoring" className="liens-header">Sponsoring & Partenariat</Link>
-            <Link to= "/Programme" className="liens-header">Programme</Link>
-            <Link to= "/Exposant" className="liens-header">Exposants</Link>
-            <Link to= "/Actualites"className="liens-header">Actualités</Link>
-            <Link to= "/Info" className="lien-actif">Plus d'infos</Link>
+            <Link to= "/" className="liens-header">{t("link1")}</Link>
+            <Link to= "/Sponsoring" className="liens-header">{t("link2")}</Link>
+            <Link to= "/Programme" className="liens-header">{t("link3")}</Link>
+            <Link to= "/Exposant" className="liens-header">{t("link4")}</Link>
+            <Link to= "/Actualites"className="liens-header">{t("link5")}</Link>
+            <Link to= "/Info" className="lien-actif">{t("link6")}</Link>
           </ul>
-          <button className="btn-ticket"  onClick={() => setAffichermenu(!affichermenu)}>Rejoingnez nous</button>
+          <button className="btn-ticket"  onClick={() => setAffichermenu(!affichermenu)}>{t("rejoindre")}</button>
+          <LangSwitcher />
           {affichermenu && (
         <div className="menu-deroulant">
-          <div className="menu-item">Exposant</div>
-          <div onClick={()=>navigate('/Visiteur')} className="menu-item">Visiteur</div>
-          <div onClick={()=>navigate('/Delegation')} className="menu-item">Délégation</div>
-          <div onClick={()=>navigate('/MediaPresse')}className="menu-item">Média/Presse</div>
+          <div className="menu-item">{t("link7")}</div>
+          <div onClick={()=>navigate('/Visiteur')} className="menu-item">{t("link8")}</div>
+          <div onClick={()=>navigate('/Delegation')} className="menu-item">{t("link9")}</div>
+          <div onClick={()=>navigate('/MediaPresse')}className="menu-item">{t("link10")}</div>
         </div>
       )}
 
@@ -105,67 +111,35 @@ const [affichermenurejoindre, setAffichermenurejoindre] = useState(false);
     <motion.section initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.4 }} variants={containerVariants} className="hackathon">
         <motion.div variants={apparition} className="info-titre">Hackaton</motion.div>
         <div className="hackathon-container">
-            <motion.img variants={apparition} className="hackathon-img" src={Hackathon} alt="" />
+            <motion.img variants={apparition} className="hackathon-img" src={Vhackathon} alt="" />
             <div className="hackaton-description">
                 <motion.div variants={left} className="hackathon-description-texte">
-                  <span>Un hackathon dédié à l’innovation agro-énergétique 
-                  réunira des étudiants développeurs, agronomes et 
-                  ingénieurs en énergie pour concevoir des solutions 
-                  innovantes dans ce domaine. Les meilleures idées 
-                  seront récompensées et bénéficieront d’un accompagnement 
-                  pour leur mise en œuvre concrète sur le terrain.
-                  </span>
-                  <span>
-                  <samp>Thème</samp>Un hackathon dédié à l’innovation agro-énergétique 
-                  réunira des étudiants développeurs, agronomes et 
-                  </span>
+                  <span>{t("hackathon-description-texte")}</span>
+                  <span><samp>{t("hackathon-description-theme")}</samp>{t("hackathon-description-theme-texte")}</span>
                 </motion.div>
                 <motion.div variants={vershaut} className="hackathon-description-btn">
-                    <button className="hackathon-btns">En savoir plus</button>
-                    <button className="hackathon-btns">S'inscrire</button>
+                    <button className="hackathon-btns">{t("hackathon-btns1")}</button>
+                    <button className="hackathon-btns">{t("hackathon-btns2")}</button>
                 </motion.div>
             </div>
         </div>
     </motion.section>
     <motion.section initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.4 }} variants={containerVariants} className="visiteurs">
-        <motion.div variants={apparition} className="visiteurs-titre">Visiteurs internationaux</motion.div>
+        <motion.div variants={apparition} className="visiteurs-titre">{t("visiteurs-titre")}</motion.div>
         <div className="visiteurs-container">
             <div className="visiteurs-box">
                 <motion.img variants={zoom} className="vaccin" src={Vaccin} alt="" />
                 <motion.div variants={left} className="vaccin-description">
-                  <span>Santé – Recommandations de l’OMS</span>
-                  <span>Le vaccin contre <samp>la fièvre jaune</samp> est obligatoire pour 
-                  entrer en Côte d’Ivoire. Un contrôle du carnet de vaccination 
-                  est effectué à l’arrivée. Consultez votre médecin ou un centre 
-                  de vaccination avant le départ.
-                  </span>
-                  <span>La Côte d’Ivoire étant une zone à risque de <samp>paludisme</samp> (zone 3), 
-                  un traitement préventif est conseillé, surtout pour les courts séjours. 
-                  Durant votre séjour, protégez-vous contre les piqûres de moustiques 
-                  (répulsifs, moustiquaires, diffuseurs, etc.).
-                  </span>
+                  <span>{t("vaccin-description1")}</span>
+                  <span>{t("vaccin-description2")}<samp>{t("vaccin1")}</samp>{t("vaccin-description3")}</span>
+                  <span>{t("vaccin-description4")}<samp>{t("vaccin2")}</samp>{t("vaccin-description5")}</span>
                 </motion.div>
             </div>
             <div className="visiteurs-box">
                 <motion.div variants={zoom2} className="visa-description">
-                    <span>Les ressortissants étrangers, titulaires de passeports 
-                    ordinaires ou officiels, doivent obtenir un visa biométrique 
-                    pour entrer en Côte d’Ivoire. La demande peut être effectuée 
-                    à l’ambassade ou en ligne sur <Link>www.snedai.ci</Link>, permettant la 
-                    délivrance d’un e-visa biométrique à l’aéroport d’Abidjan 
-                    après enregistrement et paiement en ligne. Tout étranger doit 
-                    pouvoir présenter un visa valide ou un titre de séjour en cas 
-                    de contrôle
-                    </span>
-                    <span>
-                    Le SAE peut fournir <Link>une lettre d’invitation</Link> facilitant vos 
-                    démarches de visa, mais celle-ci ne permet pas l’accès au salon.
-                    </span>
-                    <span>
-                    <samp>Important!!!</samp> Seule l’ambassade ou le consulat de Côte d’Ivoire 
-                    est habilité à statuer sur la délivrance du visa. L’organisateur du SARA 
-                    décline toute responsabilité en cas de non-respect de ces conditions.
-                    </span>
+                    <span>{t("visa-description1")}<Link className="links">www.snedai.ci</Link>{t("visa-description2")}</span>
+                    <span>{t("visa-description3")}<Link className="links">une lettre d’invitation</Link>{t("visa-description4")}</span>
+                    <span><samp>{t("visa-description5")}</samp>{t("visa-description6")}</span>
                 </motion.div>
                 <motion.img variants={right} className="visa" src={Visa} alt="" />
             </div>
@@ -177,40 +151,17 @@ const [affichermenurejoindre, setAffichermenurejoindre] = useState(false);
             <div className="visiteurs-box">
                 <motion.img variants={zoom} className="vaccin" src={Vaccin} alt="" />
                 <motion.div variants={left} className="vaccin-description">
-                  <span>Santé – Recommandations de l’OMS</span>
-                  <span>Le vaccin contre <samp>la fièvre jaune</samp> est obligatoire pour 
-                  entrer en Côte d’Ivoire. Un contrôle du carnet de vaccination 
-                  est effectué à l’arrivée. Consultez votre médecin ou un centre 
-                  de vaccination avant le départ.
-                  </span>
-                  <span>La Côte d’Ivoire étant une zone à risque de <samp>paludisme</samp> (zone 3), 
-                  un traitement préventif est conseillé, surtout pour les courts séjours. 
-                  Durant votre séjour, protégez-vous contre les piqûres de moustiques 
-                  (répulsifs, moustiquaires, diffuseurs, etc.).
-                  </span>
+                  <span>{t("vaccin-description1")}</span>
+                  <span>{t("vaccin-description2")}<samp>{t("vaccin1")}</samp>{t("vaccin-description3")}</span>
+                  <span>{t("vaccin-description4")}<samp>{t("vaccin2")}</samp>{t("vaccin-description5")}</span>
                 </motion.div>
             </div>
             <div className="visiteurs-box">
                 <motion.img variants={right} className="visa" src={Visa} alt="" />
                 <motion.div variants={zoom2} className="visa-description">
-                    <span>Les ressortissants étrangers, titulaires de passeports 
-                    ordinaires ou officiels, doivent obtenir un visa biométrique 
-                    pour entrer en Côte d’Ivoire. La demande peut être effectuée 
-                    à l’ambassade ou en ligne sur <Link>www.snedai.ci</Link>, permettant la 
-                    délivrance d’un e-visa biométrique à l’aéroport d’Abidjan 
-                    après enregistrement et paiement en ligne. Tout étranger doit 
-                    pouvoir présenter un visa valide ou un titre de séjour en cas 
-                    de contrôle
-                    </span>
-                    <span>
-                    Le SAE peut fournir <Link>une lettre d’invitation</Link> facilitant vos 
-                    démarches de visa, mais celle-ci ne permet pas l’accès au salon.
-                    </span>
-                    <span>
-                    <samp>Important!!!</samp> Seule l’ambassade ou le consulat de Côte d’Ivoire 
-                    est habilité à statuer sur la délivrance du visa. L’organisateur du SARA 
-                    décline toute responsabilité en cas de non-respect de ces conditions.
-                    </span>
+                    <span>{t("visa-description1")}<Link>www.snedai.ci</Link>{t("visa-description2")}</span>
+                    <span>{t("visa-description3")}<Link>une lettre d’invitation</Link>{t("visa-description4")}</span>
+                    <span><samp>{t("visa-description5")}</samp>{t("visa-description6")}</span>
                 </motion.div>
             </div>
         </div>
@@ -240,45 +191,42 @@ const [affichermenurejoindre, setAffichermenurejoindre] = useState(false);
         </div>
     </motion.section>
 
-<motion.section initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.4 }} variants={containerVariants} className="newsletter">
-      <motion.div variants={zoom} className="newsletter-container">
-        <h3 className="newsletter-title">Newsletters</h3>
-        <div className="newsletter-text">
-          Abonnez-vous à notre newsletter pour être parmi les premiers à recevoir
-          toutes les informations sur le SAE.
-        </div>
-        <div className="champnewsletter">
-        <div className="newsletter-input">
-          <input
-            type="nom"
-            placeholder="Nom & prénoms"
-          />
+  <motion.section initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.4 }} variants={containerVariants} className="newsletter">
+    <motion.div variants={zoom} className="newsletter-container">
+      <h3 className="newsletter-title">Newsletters</h3>
+      <div className="newsletter-text">{t("newsletter-text")}</div>
+      <div className="champnewsletter">
+      <div className="newsletter-input">
+        <input
+          type="nom"
+          placeholder={t("newsletter-nom")}
+        />
         </div>
           <div className="newsletter-input">
           <input
             type="tel"
-            placeholder="Numéro de téléphone"
+            placeholder={t("newsletter-tel")}
           />
         </div>
         <div className="newsletter-input">
           <input
             type="email"
-            placeholder="Adresse email"
+            placeholder={t("newsletter-email")}
           />
         </div>
         </div>
-        <button className="newsletter-btn">Envoyer</button>
-      </motion.div>
-</motion.section>
-      <section className="footer">
+        <button className="newsletter-btn">{t("newsletter-btn")}</button>
+    </motion.div>
+  </motion.section>
+    <section className="footer">
         <div className="footer-container">
           <div className="footer-left">
             <div className="footer-left-top">
               <img className="footer-logo" src={LogoSAE2} alt="" />
-              <div className="footer-texte">Abonnez-vous à notre newsletter pour être parmi les premiers à recevoir toutes les informations sur le SAE.</div>
+              <div className="footer-texte">{t("footer-texte")}</div>
             </div>
             <div className="footer-left-bottom">
-              <div className="footer-titres">Suivez-nous</div>
+              <div className="footer-titres">{t("footer-titre1")}</div>
               <div className="footer-left-bottom-bottom">
                 <img className="fb-icon" src={Fb} alt="fb" />
                 <img className="insta-icon" src={Insta} alt="insta" />
@@ -288,20 +236,22 @@ const [affichermenurejoindre, setAffichermenurejoindre] = useState(false);
           </div>
           <div className="footer-centre">
             <div className="footer-centre-box">
-              <div className="footer-titres">Liens utiles</div>
+              <div className="footer-titres">{t("footer-titre2")}</div>
               <nav className="footer-liens">
                   <ul>
-                    <Link to="/" className="link">Accueil</Link>
-                    <Link to="/Sponsoring"className="link">Sponsoring & Partenariat</Link>
-                    <Link to="/Programme" className="link">Programme</Link>
-                    <Link to="/Actualites"className="link">Actualités</Link>
+                    <Link to="/" className="link">{t("link1")}</Link>
+                    <Link to="/Sponsoring"className="link">{t("link2")}</Link>
+                    <Link to="/Programme" className="link">{t("link3")}</Link>
+                    <Link to="/Exposant"className="link">{t("link4")}</Link>
+                    <Link to="/Actualites"className="link">{t("link5")}</Link>
+                    <Link to="/Info" className="link">{t("link6")}</Link>
                   </ul>
               </nav>
             </div>
           </div>
                     <div className="footer-right">
             <div className="footer-right-center">
-              <div className="footer-titres">Coordonnées</div>
+              <div className="footer-titres">{t("footer-titre3")}</div>
               <div className="coordonees">
                 <div className="tel">
                   <img className="phone-icon" src={Phone} alt="tel" />
@@ -315,13 +265,12 @@ const [affichermenurejoindre, setAffichermenurejoindre] = useState(false);
             </div>
             <div className="footer-right-bottom">
               <img className="carte" src={Map} alt="map" />
-              <div>Esplanade du stade de Bouaké</div>
+              <div>{t("carte-texte")}</div>
             </div>
           </div>
 
         </div>
-      </section>
-
+    </section>
  </>
 
 );

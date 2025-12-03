@@ -11,6 +11,8 @@ import Fb from "../Images/facebook.png"
 import Insta from "../Images/insta.png"
 import In from "../Images/linkedin.png"
 import { useNavigate } from "react-router-dom"
+import { useTranslation } from "react-i18next";
+import LangSwitcher  from "../BtnTraduction";
 
 
 
@@ -45,6 +47,10 @@ const Programme=()=>{
 const [menu, setMenu] = useState(false);    
   const [affichermenurejoindre, setAffichermenurejoindre] = useState(false);
 
+    const { t } = useTranslation();
+
+
+
     return (
     <>
     {/* Navbar */}
@@ -57,41 +63,41 @@ const [menu, setMenu] = useState(false);
         <div className="menu-deroulant-tel">
             <div className="tel-close" onClick={() => setMenu(false)}>✕</div>
             <div className="tel-links">
-              <Link to= "/" className="liens-tel-header">Accueil</Link>
-              <Link to= "/Sponsoring" className="liens-tel-header">Sponsoring & Partenariat</Link>
-              <Link to= "/Programme" className="lien-tel-actif">Programme</Link>
-              <Link to= "/Exposant"className="liens-tel-header">Exposants</Link>
-              <Link to= "/Actualites"className="liens-tel-header">Actualités</Link>
-              <Link to= "/Info"className="liens-tel-header">Plus d'infos</Link>
+              <Link to= "/" className="liens-tel-header">{t("link1")}</Link>
+              <Link to= "/Sponsoring" className="liens-tel-header">{t("link2")}</Link>
+              <Link to= "/Programme" className="lien-tel-actif">{t("link3")}</Link>
+              <Link to= "/Exposant"className="liens-tel-header">{t("link4")}</Link>
+              <Link to= "/Actualites"className="liens-tel-header">{t("link5")}</Link>
+              <Link to= "/Info"className="liens-tel-header">{t("link6")}</Link>
             </div>
-            <button className="btn-rejoindre"  onClick={() => setAffichermenurejoindre(!affichermenurejoindre)}>Rejoingnez nous</button>
+            <button className="btn-rejoindre"  onClick={() => setAffichermenurejoindre(!affichermenurejoindre)}>{t("rejoindre")}</button>
               {affichermenurejoindre && (
                 <div className="menu-rejoindre-tel">
-                  <div className="menu-rejoindre-tel-item">Exposant</div>
-                  <div onClick={()=>navigate('/Visiteur')} className="menu-rejoindre-tel-item">Visiteur</div>
-                  <div onClick={()=>navigate('/Delegation')} className="menu-rejoindre-tel-item">Délégation</div>
-                  <div onClick={()=>navigate('/MediaPresse')}className="menu-rejoindre-tel-item">Média/Presse</div>
+                  <div className="menu-rejoindre-tel-item">{t("link7")}</div>
+                  <div onClick={()=>navigate('/Visiteur')} className="menu-rejoindre-tel-item">{t("link8")}</div>
+                  <div onClick={()=>navigate('/Delegation')} className="menu-rejoindre-tel-item">{t("link9")}</div>
+                  <div onClick={()=>navigate('/MediaPresse')}className="menu-rejoindre-tel-item">{t("link10")}</div>
                 </div>
               )}
         </div>
       )}
-
-
+            
           <ul className="nav-links">
-            <Link to= "/" className="liens-header">Accueil</Link>
-            <Link to= "/Sponsoring" className="liens-header">Sponsoring & Partenariat</Link>
-            <Link to= "/Programme" className="lien-actif">Programme</Link>
-            <Link to= "/Exposant" className="liens-header">Exposants</Link>
-            <Link to= "/Actualites"className="liens-header">Actualités</Link>
-            <Link to= "/Info" className="liens-header">Plus d'infos</Link>
+            <Link to= "/" className="liens-header">{t("link1")}</Link>
+            <Link to= "/Sponsoring" className="liens-header">{t("link2")}</Link>
+            <Link to= "/Programme" className="lien-actif">{t("link3")}</Link>
+            <Link to= "/Exposant" className="liens-header">{t("link4")}</Link>
+            <Link to= "/Actualites"className="liens-header">{t("link5")}</Link>
+            <Link to= "/Info" className="liens-header">{t("link6")}</Link>
           </ul>
-          <button className="btn-ticket"  onClick={() => setAffichermenu(!affichermenu)}>Rejoingnez nous</button>
+          <button className="btn-ticket"  onClick={() => setAffichermenu(!affichermenu)}>{t("rejoindre")}</button>
+          <LangSwitcher />
           {affichermenu && (
         <div className="menu-deroulant">
-          <div className="menu-item">Exposant</div>
-          <div onClick={()=>navigate('/Visiteur')} className="menu-item">Visiteur</div>
-          <div onClick={()=>navigate('/Delegation')} className="menu-item">Délégation</div>
-          <div onClick={()=>navigate('/MediaPresse')}className="menu-item">Média/Presse</div>
+          <div className="menu-item">{t("link7")}</div>
+          <div onClick={()=>navigate('/Visiteur')} className="menu-item">{t("link8")}</div>
+          <div onClick={()=>navigate('/Delegation')} className="menu-item">{t("link9")}</div>
+          <div onClick={()=>navigate('/MediaPresse')}className="menu-item">{t("link10")}</div>
         </div>
       )}
 

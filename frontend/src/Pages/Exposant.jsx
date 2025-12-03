@@ -8,9 +8,16 @@ import Map from "../Images/carte.jpg"
 import Fb from "../Images/facebook.png"
 import Insta from "../Images/insta.png"
 import In from "../Images/linkedin.png"
+import Globe from "../Images/globe.png"
+import Badge from "../Images/badget.png"
+import Radar from "../Images/radar.png"
+
 import { motion} from "framer-motion";
 import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
+import { useTranslation } from "react-i18next";
+import LangSwitcher  from "../BtnTraduction";
+
 
 
 
@@ -43,6 +50,8 @@ export default function Exposant() {
 const [menu, setMenu] = useState(false);    
   const [affichermenurejoindre, setAffichermenurejoindre] = useState(false);
 
+    const { t } = useTranslation();
+
 
   return(
     <>
@@ -55,40 +64,42 @@ const [menu, setMenu] = useState(false);
         <div className="menu-deroulant-tel">
             <div className="tel-close" onClick={() => setMenu(false)}>✕</div>
             <div className="tel-links">
-              <Link to= "/" className="liens-tel-header">Accueil</Link>
-              <Link to= "/Sponsoring" className="liens-tel-header">Sponsoring & Partenariat</Link>
-              <Link to= "/Programme" className="liens-tel-header">Programme</Link>
-              <Link to= "/Exposant"className="lien-tel-actif">Exposants</Link>
-              <Link to= "/Actualites"className="liens-tel-header">Actualités</Link>
-              <Link to= "/Info"className="liens-tel-header">Plus d'infos</Link>
+              <Link to= "/" className="liens-tel-header">{t("link1")}</Link>
+              <Link to= "/Sponsoring" className="liens-tel-header">{t("link2")}</Link>
+              <Link to= "/Programme" className="liens-tel-header">{t("link3")}</Link>
+              <Link to= "/Exposant"className="lien-tel-actif">{t("link4")}</Link>
+              <Link to= "/Actualites"className="liens-tel-header">{t("link5")}</Link>
+              <Link to= "/Info"className="liens-tel-header">{t("link6")}</Link>
             </div>
-            <button className="btn-rejoindre"  onClick={() => setAffichermenurejoindre(!affichermenurejoindre)}>Rejoingnez nous</button>
+            <button className="btn-rejoindre"  onClick={() => setAffichermenurejoindre(!affichermenurejoindre)}>{t("rejoindre")}</button>
               {affichermenurejoindre && (
                 <div className="menu-rejoindre-tel">
-                  <div className="menu-rejoindre-tel-item">Exposant</div>
-                  <div onClick={()=>navigate('/Visiteur')} className="menu-rejoindre-tel-item">Visiteur</div>
-                  <div onClick={()=>navigate('/Delegation')} className="menu-rejoindre-tel-item">Délégation</div>
-                  <div onClick={()=>navigate('/MediaPresse')}className="menu-rejoindre-tel-item">Média/Presse</div>
+                  <div className="menu-rejoindre-tel-item">{t("link7")}</div>
+                  <div onClick={()=>navigate('/Visiteur')} className="menu-rejoindre-tel-item">{t("link8")}</div>
+                  <div onClick={()=>navigate('/Delegation')} className="menu-rejoindre-tel-item">{t("link9")}</div>
+                  <div onClick={()=>navigate('/MediaPresse')}className="menu-rejoindre-tel-item">{t("link10")}</div>
                 </div>
               )}
         </div>
       )}
             
           <ul className="nav-links">
-            <Link to= "/" className="liens-header">Accueil</Link>
-            <Link to= "/Sponsoring" className="liens-header">Sponsoring & Partenariat</Link>
-            <Link to= "/Programme" className="liens-header">Programme</Link>
-            <Link to= "/Exposant" className="lien-actif">Exposants</Link>
-            <Link to= "/Actualites"className="liens-header">Actualités</Link>
-            <Link to= "/Info" className="liens-header">Plus d'infos</Link>
+            <Link to= "/" className="liens-header">{t("link1")}</Link>
+            <Link to= "/Sponsoring" className="liens-header">{t("link2")}</Link>
+            <Link to= "/Programme" className="liens-header">{t("link3")}</Link>
+            <Link to= "/Exposant" className="lien-actif">{t("link4")}</Link>
+            <Link to= "/Actualites"className="liens-header">{t("link5")}</Link>
+            <Link to= "/Info" className="liens-header">{t("link6")}</Link>
           </ul>
-          <button className="btn-ticket"  onClick={() => setAffichermenu(!affichermenu)}>Rejoingnez nous</button>
+          <button className="btn-ticket"  onClick={() => setAffichermenu(!affichermenu)}>{t("rejoindre")}</button>
+          <LangSwitcher />
+
           {affichermenu && (
         <div className="menu-deroulant">
-          <div className="menu-item">Exposant</div>
-          <div onClick={()=>navigate('/Visiteur')} className="menu-item">Visiteur</div>
-          <div onClick={()=>navigate('/Delegation')} className="menu-item">Délégation</div>
-          <div onClick={()=>navigate('/MediaPresse')}className="menu-item">Média/Presse</div>
+          <div className="menu-item">{t("link7")}</div>
+          <div onClick={()=>navigate('/Visiteur')} className="menu-item">{t("link8")}</div>
+          <div onClick={()=>navigate('/Delegation')} className="menu-item">{t("link9")}</div>
+          <div onClick={()=>navigate('/MediaPresse')}className="menu-item">{t("link10")}</div>
         </div>
       )}
 
@@ -100,84 +111,68 @@ const [menu, setMenu] = useState(false);
       </div>
     </section>
     <motion.section initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.4 }} variants={containerVariants} className="Exposant">
-        <motion.div variants={apparition} className="Exposant-titre">Pourquoi exposer au SAE</motion.div>
+        <motion.div variants={apparition} className="Exposant-titre">{t("Exposant-titre")}</motion.div>
         <div className="Pourquoi-exposer">
             <motion.div variants={vershaut} className="exposer-box">
                 <div className="exposer-box-top">
-                    <div className="exposer-box-top-cercle"><img src="" alt="" /></div>
-                    <motion.div variants={left} className="exposer-box-titre">Un hub d’opportunités unique pour développer son réseau et ses affaires</motion.div>
+                    <div className="exposer-box-top-cercle"><img className="globe" src={Radar} alt="" /></div>
+                    <motion.div variants={left} className="exposer-box-titre">{t("exposer-box-titre1")}</motion.div>
                 </div>
-                <motion.div variants={vershaut} className="exposer-box-bottom">
-                  Le SAE 2026 attend plus de 50 000 visiteurs et plus de 100 exposants, dont 20 % internationaux.
-                  C’est une vitrine exceptionnelle pour les entreprises des secteurs agricole, agro-pastoral et énergétique, permettant de rencontrer des décideurs, investisseurs et partenaires institutionnels.
-                  En exposant, tu accèdes à un réseau qualifié et à des opportunités concrètes de collaboration interafricaine (notamment avec l’Égypte, pays hôte de cette édition).
-                </motion.div>
+                <motion.div variants={vershaut} className="exposer-box-bottom">{t("exposer-box-texte1")}</motion.div>
             </motion.div>
             <motion.div variants={vershaut} className="exposer-box">
                 <div className="exposer-box-top">
-                    <div className="exposer-box-top-cercle"><img src="" alt="" /></div>
-                    <motion.div variants={left} className="exposer-box-titre">Une visibilité nationale et internationale renforcée</motion.div>
+                    <div className="exposer-box-top-cercle"><img className="globe" src={Globe} alt="" /></div>
+                    <motion.div variants={left} className="exposer-box-titre">{t("exposer-box-titre2")}</motion.div>
                 </div>
-                <motion.div variants={vershaut} className="exposer-box-bottom">
-                  Le salon bénéficie d’une large couverture médiatique (TV, radios, presse, réseaux sociaux) et offre aux exposants une visibilité sur tous les supports de communication.
-                  En participant, tu renforces l’image de ta marque auprès d’un public professionnel et grand public, tout en valorisant ton engagement pour un développement durable.
-                </motion.div>
+                <motion.div variants={vershaut} className="exposer-box-bottom">{t("exposer-box-texte2")}</motion.div>
             </motion.div>
             <motion.div variants={vershaut} className="exposer-box">
                 <div className="exposer-box-top">
-                    <div className="exposer-box-top-cercle"><img src="" alt="" /></div>
-                    <motion.div variants={left} className="exposer-box-titre">Un événement innovant et fédérateur pour valoriser ton savoir-faire</motion.div>
+                    <div className="exposer-box-top-cercle"><img className="globe"  src={Badge} alt="" /></div>
+                    <motion.div variants={left} className="exposer-box-titre">{t("exposer-box-titre3")}</motion.div>
                 </div>
-                <motion.div variants={vershaut} className="exposer-box-bottom">
-                  Le SAE 2026 propose une programmation riche : panels de haut niveau, ateliers sur les énergies renouvelables, hackathon, concours de pitch agricole, et un maquis géant pour les rencontres informelles.
-                  Ces formats favorisent l’échange, la découverte et la mise en avant des innovations des exposants.
-                  C’est une occasion unique de présenter tes produits, services et solutions dans un cadre attractif, convivial et porteur d’impact socio-économique.
-                </motion.div>
+                <motion.div variants={vershaut} className="exposer-box-bottom">{t("exposer-box-texte3")}</motion.div>
             </motion.div>
         </div>
-        <motion.button variants={zoom} className="btn-doc-sponsoring">Réservez votre stand</motion.button>
+        <motion.button variants={zoom} className="btn-doc-sponsoring">{t("btn-stand")}</motion.button>
     </motion.section>
-    <motion.section initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.4 }} variants={containerVariants} className="newsletter">
-      <motion.div variants={zoom} className="newsletter-container">
-        <h3 className="newsletter-title">Newsletters</h3>
-        <div className="newsletter-text">
-          Abonnez-vous à notre newsletter pour être parmi les premiers à recevoir
-          toutes les informations sur le SAE.
-        </div>
-        <div className="champnewsletter">
-        <div className="newsletter-input">
-          <input
-            type="nom"
-            placeholder="Nom & prénoms"
-          />
+  <motion.section initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.4 }} variants={containerVariants} className="newsletter">
+    <motion.div variants={zoom} className="newsletter-container">
+      <h3 className="newsletter-title">Newsletters</h3>
+      <div className="newsletter-text">{t("newsletter-text")}</div>
+      <div className="champnewsletter">
+      <div className="newsletter-input">
+        <input
+          type="nom"
+          placeholder={t("newsletter-nom")}
+        />
         </div>
           <div className="newsletter-input">
           <input
             type="tel"
-            placeholder="Numéro de téléphone"
+            placeholder={t("newsletter-tel")}
           />
         </div>
         <div className="newsletter-input">
           <input
             type="email"
-            placeholder="Adresse email"
+            placeholder={t("newsletter-email")}
           />
         </div>
         </div>
-        <button className="newsletter-btn">Envoyer</button>
-
-
-      </motion.div>
-    </motion.section>
+        <button className="newsletter-btn">{t("newsletter-btn")}</button>
+    </motion.div>
+  </motion.section>
     <section className="footer">
         <div className="footer-container">
           <div className="footer-left">
             <div className="footer-left-top">
               <img className="footer-logo" src={LogoSAE2} alt="" />
-              <div className="footer-texte">Abonnez-vous à notre newsletter pour être parmi les premiers à recevoir toutes les informations sur le SAE.</div>
+              <div className="footer-texte">{t("footer-texte")}</div>
             </div>
             <div className="footer-left-bottom">
-              <div className="footer-titres">Suivez-nous</div>
+              <div className="footer-titres">{t("footer-titre1")}</div>
               <div className="footer-left-bottom-bottom">
                 <img className="fb-icon" src={Fb} alt="fb" />
                 <img className="insta-icon" src={Insta} alt="insta" />
@@ -187,20 +182,22 @@ const [menu, setMenu] = useState(false);
           </div>
           <div className="footer-centre">
             <div className="footer-centre-box">
-              <div className="footer-titres">Liens utiles</div>
+              <div className="footer-titres">{t("footer-titre2")}</div>
               <nav className="footer-liens">
                   <ul>
-                    <Link to="/" className="link">Accueil</Link>
-                    <Link to="/Sponsoring"className="link">Sponsoring & Partenariat</Link>
-                    <Link to="/Programme" className="link">Programme</Link>
-                    <Link to="/Actualites"className="link">Actualités</Link>
+                    <Link to="/" className="link">{t("link1")}</Link>
+                    <Link to="/Sponsoring"className="link">{t("link2")}</Link>
+                    <Link to="/Programme" className="link">{t("link3")}</Link>
+                    <Link to="/Exposant"className="link">{t("link4")}</Link>
+                    <Link to="/Actualites"className="link">{t("link5")}</Link>
+                    <Link to="/Info" className="link">{t("link6")}</Link>
                   </ul>
               </nav>
             </div>
           </div>
                     <div className="footer-right">
             <div className="footer-right-center">
-              <div className="footer-titres">Coordonnées</div>
+              <div className="footer-titres">{t("footer-titre3")}</div>
               <div className="coordonees">
                 <div className="tel">
                   <img className="phone-icon" src={Phone} alt="tel" />
@@ -214,7 +211,7 @@ const [menu, setMenu] = useState(false);
             </div>
             <div className="footer-right-bottom">
               <img className="carte" src={Map} alt="map" />
-              <div>Esplanade du stade de Bouaké</div>
+              <div>{t("carte-texte")}</div>
             </div>
           </div>
 

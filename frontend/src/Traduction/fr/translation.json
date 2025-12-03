@@ -1,0 +1,231 @@
+{
+  "titre-badge1": "OBTENIR SON BADGE",
+  "titre-badge2": "GRATUITEMENT",
+  "nom":"Nom",
+  "prenoms":"Prénoms",
+  "selection1":"Selectionez le type de votre bagbe",
+  "tel":"Téléphone",
+  "email":"Email",
+  "valider":"Valider",
+  "delegation":"FORMULAIRE DELEGATION",
+  "nomdel":"Nom de la délégation",
+  "nominst":"Nom de l'institution représentée",
+  "goal":"Objectifs de participation",
+  "partenariat":"Partenariat",
+  "intervention":"Intervention",
+  "composition":"Composition de la délégation",
+  "media":"FORMULAIRE MEDIA / PRESSE",
+  "nom-media":"Nom du média",
+  "nom-reporter":"Nom & Prénoms du reporter",
+  "audiance":"Audiance du média",
+  "couverture":"Type de couverture",
+  "reportage":"Reportage",
+  "form-visiteur":"FORMULAIRE VISITEUR",
+  "status":"Status",
+  "etudiant":"Etudiant",
+  "pro":"Professionel",
+  "svisiteur":"Simple visiteur",
+  "interet":"Centre d'intérêt",
+  "agriculture":"Agriculture",
+  "elevage":"Elevage",
+  "energie":"Energie",
+  "titre-sae-accueil": "Le SAE , qu’est ce que c’est ?",
+  "description-le": "Le",
+  "description-gras-sae-accueil": "Salon de l’Agriculture, de l’Élevage et de l’Énergie",
+  "description-sae-accueil": "(SAE) s’impose comme la plateforme  incontournable pour tous les acteurs engagés dans le développement des filières agricoles,  agro-pastorales et énergétiques. En effet, face aux enjeux mondiaux tels que la sécurité  alimentaire et la transition énergétique, le SAE 2026 se positionne comme un catalyseur  d’innovations et de synergies.  Cette année, l’événement prend une dimension encore plus ambitieuse en se déroulant à  Bouaké, cœur économique et agricole de la Côte d’Ivoire, et en accueillant l’Égypte comme  pays hôte, renforçant ainsi les échanges interafricains",
+  "doc-description-top":"Document téléchargeable",
+  "download":"Télécharger",
+  "ticket":"Ticket maquis géant",
+  "titre-pourquoi":"Pourquoi ne pas manquer le SAE 2025 ?",
+  "pourquoi-description-titre1":"Un Hub d’Opportunités Unique",
+  "pourquoi-description1":"Le SAE 2026 à Bouaké accueillera 50 000 visiteurs et favorisera des partenariats Afrique de l’Ouest–Égypte dans les secteurs agricole, agro-pastoral et énergétique, grâce à la position stratégique de la ville et à son fort potentiel économique.",
+  "pourquoi-description-titre2":"Des Contenus Exclusifs et Innovants",
+  "pourquoi-description2":"Le SAE 2026 propose panels, ateliers et un espace startups autour du financement vert, de l’agrotechnologie et des énergies renouvelables, réunissant experts et dirigeants pour inspirer, former et connecter les participants en vue de projets concrets.",
+  "pourquoi-description-titre3":"Visibilité Maximale pour les Participants",
+  "pourquoi-description3":"Grâce à une couverture médiatique nationale, incluant télévisions, radios et réseaux  sociaux, le SAE 2026 offre une tribune assez large pour valoriser votre engagement.   Les sponsors bénéficient d’une visibilité accrue, avec des espaces dédiés dans tous  les supports de communication.",
+  "pourquoi-description-titre4":"Impact Socio-Économique Majeur",
+  "pourquoi-description4":"Le SAE 2026 vise un impact durable en soutenant l’auto-entrepreneuriat agricole, valorisant les filières locales et luttant contre le chômage des jeunes, tout en réduisant la dépendance aux importations pour renforcer l’économie des communautés locales",
+  "pourquoi-description-titre5":"Une opportunité unique de",
+  "pourquoi-description5-1":"Rencontrer les acteurs clés des filières agricoles, de l’élevage et de l’énergie;",
+  "pourquoi-description5-2":"Découvrir les dernières innovations et tendances du marché;",
+  "pourquoi-description5-3":"S’engager dans des projets à fort impact pour l’avenir de l’Afrique.",
+  "titre-actu":"Actualités",
+  "titre-btn-actu":"TOUTES LES ACTUALITES",
+  "actus-texte1":"Nous avons eu le plaisir de rencontrer les équipes de Coq Ivoire, Vitalac et Sofacope dans le cadre des préparatifs de leur participation au Salon de l’Agriculture et des Élevages (SAE) de Bouaké.",
+  "actus-texte2-1":"Lors de notre visite, nous avons eu l’honneur d’être reçus par M. Koné, Directeur de Cabinet du Ministre des Transports et Maire de Bouaké, ainsi que par le Conseiller Régional de Bouaké.",
+  "actus-texte2-2":"Cette rencontre a été l’occasion de leur présenter en détail le projet SAE Bouaké et de leur offrir un présent en signe de reconnaissance et de remerciement pour leur accueil chaleureux.",
+  "actus-texte3":"Nous avons eu le plaisir de visiter les installations de l’usine de fabrication d’aliments, un moment riche en échanges et en découvertes.",
+  "actus-texte4":"Nous avons également, effectué une visite à la SAP de la ME",
+  "titre-sponsors":"Sponsors & Partenaires",
+  "newsletter-text":"Abonnez-vous à notre newsletter pour être parmi les premiers à recevoir toutes les informations sur le SAE.",
+  "newsletter-nom":"Nom & Prénoms",
+  "newsletter-tel":"Numéro de téléphone",
+  "newsletter-email":"Adresse Email",
+  "newsletter-btn":"Envoyer",
+  "footer-texte":"Abonnez-vous à notre newsletter pour être parmi les premiers à recevoir toutes les informations sur le SAE.",
+  "footer-titre1":"Suivez-nous",
+  "footer-titre2":"Liens utiles",
+  "link1":"Accueil",
+  "link2":"Sponsoring & Partenariat",
+  "link3":"Programme",
+  "link4":"Exposants",
+  "link5":"Actualités",
+  "link6":"Plus d'infos",
+  "rejoindre":"Rejoingnez nous",
+  "link7":"Exposant",
+  "link8":"Visiteur",
+  "link9":"Délégation",
+  "link10":"Média/Presse",
+  "footer-titre3":"Coordonnées",
+  "carte-texte":"Esplanade du stade de Bouaké",
+  "propositions-titre":"Pourquoi devenir sponsor et Partenaire du SAE ?",
+  "pourquoi-sponsor-description-titre1":"Une visibilité exceptionnelle et une notoriété renforcée",
+  "pourquoi-sponsor-description-texte1":"Le SAE 2026 bénéficie d’une large couverture médiatique nationale (télévisions, radios, presse et réseaux sociaux) et attend plus de 50 000 visiteurs sur trois jours. En devenant sponsor, vous associez votre marque à un événement d’envergure nationale et internationale, tout en profitant d’une visibilité sur tous les supports de communication (stands, affiches, maquis géant, hackathon, cérémonies, etc.).",
+  "pourquoi-sponsor-description-titre2":"Un réseau stratégique et des opportunités d’affaires",
+  "pourquoi-sponsor-description-texte2":"Le salon rassemble décideurs, investisseurs, entreprises et institutions publiques autour des thématiques de l’agriculture, de l’élevage et de l’énergie. Être sponsor du SAE, c’est accéder à un réseau qualifié de partenaires et clients potentiels, générer des leads commerciaux et tisser des collaborations durables dans un environnement propice aux affaires.",
+  "pourquoi-sponsor-description-titre3":"Un engagement à fort impact socio-économique",
+  "pourquoi-sponsor-description-texte3":"Soutenir le SAE, c’est aussi valoriser votre engagement RSE. L’événement contribue à la promotion de l’auto-entrepreneuriat agricole, à la lutte contre le chômage des jeunes et au développement durable des filières locales. En devenant partenaire, vous participez activement à une initiative porteuse de sens, alignée avec les priorités nationales et africaines.",
+  "btn-doc-sponsoring":"Télécharger le document de sponsoring",
+  "Exposant-titre":"Pourquoi exposer au SAE ?",
+  "exposer-box-titre1":"Un hub d’opportunités unique pour développer son réseau et ses affaires",
+  "exposer-box-texte1":"Le SAE 2026 attend plus de 50 000 visiteurs et plus de 100 exposants, dont 20 % internationaux. C’est une vitrine exceptionnelle pour les entreprises des secteurs agricole, agro-pastoral et énergétique, permettant de rencontrer des décideurs, investisseurs et partenaires institutionnels. En exposant, tu accèdes à un réseau qualifié et à des opportunités concrètes de collaboration interafricaine (notamment avec l’Égypte, pays hôte de cette édition).",
+  "exposer-box-titre2":"Une visibilité nationale et internationale renforcée",
+  "exposer-box-texte2":"Le salon bénéficie d’une large couverture médiatique (TV, radios, presse, réseaux sociaux) et offre aux exposants une visibilité sur tous les supports de communication. En participant, tu renforces l’image de ta marque auprès d’un public professionnel et grand public, tout en valorisant ton engagement pour un développement durable.",
+  "exposer-box-titre3":"Un événement innovant et fédérateur pour valoriser ton savoir-faire",
+  "exposer-box-texte3":"Le SAE 2026 propose une programmation riche : panels de haut niveau, ateliers sur les énergies renouvelables, hackathon, concours de pitch agricole, et un maquis géant pour les rencontres informelles. Ces formats favorisent l’échange, la découverte et la mise en avant des innovations des exposants. C’est une occasion unique de présenter tes produits, services et solutions dans un cadre attractif, convivial et porteur d’impact socio-économique.",
+  "btn-stand":"Réservez votre stand",
+  "actualites-titre":"Actualités du SAE 2025",
+  "hackathon-description-texte":"Un hackathon dédié à l’innovation agro-énergétique réunira des étudiants développeurs, agronomes et ingénieurs en énergie pour concevoir des solutions innovantes dans ce domaine. Les meilleures idées seront récompensées et bénéficieront d’un accompagnement pour leur mise en œuvre concrète sur le terrain.",
+  "hackathon-description-theme":"Thème:",
+  "hackathon-description-theme-texte":"Innovation et impact pour une Côte d'Ivoire souveraine",
+  "hackathon-btns1":"En savoir plus",
+  "hackathon-btns2":"S'inscrire",
+  "visiteurs-titre":"Visiteurs internationaux",
+  "vaccin-description1":"Santé – Recommandations de l’OMS",
+  "vaccin-description2":"Le vaccin contre",
+  "vaccin-description3":"est obligatoire pour entrer en Côte d’Ivoire. Un contrôle du carnet de vaccination est effectué à l’arrivée. Consultez votre médecin ou un centre de vaccination avant le départ.",
+  "vaccin1":"la fièvre jaune",
+  "vaccin2":"paludisme",
+  "vaccin-description4":"La Côte d’Ivoire étant une zone à risque de",
+  "vaccin-description5":"(zone 3), un traitement préventif est conseillé, surtout pour les courts séjours. Durant votre séjour, protégez-vous contre les piqûres de moustiques (répulsifs, moustiquaires, diffuseurs, etc.).",
+  "visa-description1":"Les ressortissants étrangers, titulaires de passeports ordinaires ou officiels, doivent obtenir un visa biométrique pour entrer en Côte d’Ivoire. La demande peut être effectuée à l’ambassade ou en ligne sur ",
+  "visa-description2":", permettant la délivrance d’un e-visa biométrique à l’aéroport d’Abidjan après enregistrement et paiement en ligne. Tout étranger doit pouvoir présenter un visa valide ou un titre de séjour en cas de contrôle",
+  "visa-description3":"Le SAE peut fournir",
+  "visa-description4":"facilitant vos démarches de visa, mais celle-ci ne permet pas l’accès au salon.",
+  "visa-description5":"Important !!!",
+  "visa-description6":"Seule l’ambassade ou le consulat de Côte d’Ivoire est habilité à statuer sur la délivrance du visa. L’organisateur du SARA décline toute responsabilité en cas de non-respect de ces conditions.",
+  "form": {
+    "title": "FORMULAIRE SPONSORING / PARTENARIAT",
+    "step1": "INFORMATION SUR VOTRE PACK",
+    "step2": "INFORMATION SUR VOTRE ENTREPRISE",
+    "step3": "INFORMATION SUR VOTRE ENTREPRISE",
+
+    "choix": {
+      "label": "Devenir sponsor / partenaire",
+      "sponsor": "Sponsor",
+      "partenaire": "Partenaire"
+    },
+
+    "typeSponsoring": {
+      "label": "Type de sponsoring",
+      "financier": "Sponsor Financier",
+      "technique": "Sponsor Technique",
+      "communication": "Sponsor Communication",
+      "prestataire": "Sponsor Prestataire",
+      "autres": "Autres"
+    },
+
+    "typePartenariat": {
+      "label": "Type de partenariat",
+      "financier": "Partenaire Financier",
+      "technique": "Partenaire Technique",
+      "communication": "Partenaire Communication",
+      "prestataire": "Partenaire Prestataire",
+      "autres": "Autres"
+    },
+
+    "objectifsSponsor": "Vos objectifs en tant que sponsor",
+    "objectifsPartenaire": "Vos objectifs en tant que partenaire",
+    "contribution": "Votre contribution à l'évènement",
+
+    "pack": {
+      "label": "Sélectionnez votre pack",
+      "diamant": "Pack Diamant",
+      "or": "Pack Or",
+      "argent": "Pack Argent",
+      "bronze": "Pack Bronze",
+      "technique": "Pack Technique"
+    },
+
+    "entreprise": {
+      "nom": "Nom de l'entreprise",
+      "presentation": "Présentation de l'entreprise",
+      "representantNom": "Nom du représentant légal",
+      "representantFonction": "Fonction du représentant",
+      "statut": "Statut juridique",
+      "creation": "Date création",
+      "rccm": "Numéro RCCM",
+      "contribuable": "Numéro de contribuable"
+    },
+
+    "contact": {
+      "pays": "Pays",
+      "adresse": "Adresse du siège social",
+      "ville": "Ville",
+      "telephone": "Téléphone",
+      "courriel": "Email",
+      "web": "Site web"
+    },
+
+    "buttons": {
+      "next": "Suivant →",
+      "prev": "← Précédent",
+      "submit": "Soumettre"
+    }
+  },
+
+
+ "slides": {
+    "slide1": {
+      "title": "Maquis Géant ou soirée gastronomique",
+      "text": "Pour la première fois, le SAE intégrera un maquis géant, véritable lieu de vie où les participants pourront : Cette initiative vise à démocratiser l’accès à l’événement tout en mettant en valeur le patrimoine culinaire ivoirien"
+    },
+    "slide2": {
+      "title": "Hackathon",
+      "text": "Un hackathon dédié à l’innovation agro-énergétique réunira des étudiants développeurs, agronomes et ingénieurs en énergie pour concevoir des solutions innovantes dans ce domaine. Les meilleures idées seront récompensées et bénéficieront d’un accompagnement pour leur mise en œuvre concrète sur le terrain"
+    },
+    "slide3": {
+      "title": "Concours Pitch Agricole",
+      "text": "Le Concours Pitch Agricole offrira aux startups et jeunes entrepreneurs l’opportunité de présenter leurs innovations devant un jury d’experts, de gagner en visibilité médiatique, et de remporter des financements ainsi qu’un accompagnement pour développer leurs projets"
+    },
+    "slide4": {
+      "title": "Cérémonie de Clôture",
+      "text": "La cérémonie de clôture comprendra un discours de synthèse, la signature des partenariats établis durant le salon, et un spectacle culturel valorisant les traditions du Gbêkê"
+    },
+    "slide5": {
+      "title": "Balade Touristique dans le Gbêkê",
+      "text": "Une balade touristique à travers le Gbêkê offrira aux participants l’occasion de découvrir autrement la région de Bouaké, en visitant ses sites agricoles emblématiques, ses lieux culturels marquants, tout en profitant d’une dégustation de produits locaux"
+    }
+  },
+
+
+  "speakers": {
+    "speaker1": {
+      "nom": "JEAN",
+      "prenoms": "MICHEL DOYIRI",
+      "fonction": "Ingénieur agronome"
+    },
+    "speaker2": {
+      "nom": "KOUASSI",
+      "prenoms": "KAN ABEL",
+      "fonction": "Ingénieur social"
+    },
+    "speaker3": {
+      "nom": "COULIBALY",
+      "prenoms": "CEDRIC PAUL",
+      "fonction": "Ingénieur en IA"
+    }
+}
+  
+
+}

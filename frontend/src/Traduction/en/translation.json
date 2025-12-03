@@ -1,0 +1,228 @@
+{
+  "titre-badge1": "GET YOUR BADGE",
+  "titre-badge2": "FOR FREE",
+  "nom":"Surname",
+  "prenoms":"First names",
+  "selection1":"Select the type of your badge",
+  "tel":"Phone number",
+  "email":"E-mail",
+  "valider":"Validate",
+  "delegation":"DELEGATION FORM",
+  "nomdel":"Name of the delegation",
+  "nominst":"Name of the institution represented",
+  "goal":"Participation objectives",
+  "partenariat":"Partnership",
+  "composition":"Composition of the delegation",
+  "media":"MEDIA/PRESS FORM",
+  "nom-media":"Media Name",
+  "nom-reporter":"Reporter's Name and Surname",
+  "audiance":"Media audience",
+  "couverture":"Cover type",
+  "reportage":"Reporting",
+  "form-visiteur":"VISITOR FORM",
+  "status":"Status",
+  "etudiant":"Student",
+  "pro":"Professional",
+  "svisiteur":"Simple visitor",
+  "interet":"Area of ​​interest",
+  "agriculture":"Agriculture",
+  "elevage":"Livestock",
+  "energie":"Energy",
+  "titre-sae-accueil": "SAE , what is it ?",
+  "description-le": "The",
+  "description-gras-sae-accueil": "Agriculture, Livestock and Energy Fair",
+  "description-sae-accueil": "(SAE) has established itself as the essential platform for all stakeholders involved in the development of agricultural, agro-pastoral, and energy sectors. Indeed, in the face of global challenges such as food security and the energy transition, SAE 2026 positions itself as a catalyst for innovation and synergy. This year, the event takes on an even more ambitious dimension by taking place in Bouaké, the economic and agricultural heart of Côte d'Ivoire, and by welcoming Egypt as the host country, thus strengthening intra-African exchanges.",
+  "doc-description-top":"Downloadable document",
+  "download":"download",
+  "ticket":"Giant maquis ticket",
+  "titre-pourquoi":"Why not miss SAE 2025 ?",
+  "pourquoi-description-titre1":"A Unique Opportunity Hub",
+  "pourquoi-description1":"The SAE 2026 in Bouaké will welcome 50,000 visitors and promote West Africa-Egypt partnerships in the agricultural, agro-pastoral and energy sectors, thanks to the city's strategic position and strong economic potential.",
+  "pourquoi-description-titre2":"Exclusive and Innovative Content",
+  "pourquoi-description2":"SAE 2026 offers panels, workshops and a startup area focused on green finance, agritechnology and renewable energy, bringing together experts and leaders to inspire, train and connect participants for concrete projects.",
+  "pourquoi-description-titre3":"Maximum Visibility for Participants",
+  "pourquoi-description3":"Thanks to national media coverage, including television, radio, and social media, SAE 2026 offers a broad platform to showcase your commitment. Sponsors benefit from increased visibility, with dedicated spaces across all communication channels.",
+  "pourquoi-description-titre4":"Major Socio-Economic Impact",
+  "pourquoi-description4":"The SAE 2026 aims for a lasting impact by supporting agricultural self-employment, promoting local value chains and combating youth unemployment, while reducing dependence on imports to strengthen the local community economy.",
+  "pourquoi-description-titre5":"A unique opportunity to",
+  "pourquoi-description5-1":"Meet key players in the agricultural, livestock, and energy sectors;",
+  "pourquoi-description5-2":"Discover the latest innovations and market trends;",
+  "pourquoi-description5-3":"Engage in high-impact projects for the future of Africa.",
+  "titre-actu":"News",
+  "titre-btn-actu":"ALL THE NEWS",
+  "actus-texte1":"We had the pleasure of meeting the teams from Coq Ivoire, Vitalac and Sofacope as part of the preparations for their participation in the Bouaké Agriculture and Livestock Show (SAE).",
+  "actus-texte2-1":"During our visit, we had the honor of being received by Mr. Koné, Chief of Staff to the Minister of Transport and Mayor of Bouaké, as well as by the Regional Councillor of Bouaké.",
+  "actus-texte2-2":"This meeting was an opportunity to present the SAE Bouaké project to them in detail and to offer them a gift as a token of appreciation and thanks for their warm welcome.",
+  "actus-texte3":"We had the pleasure of visiting the food manufacturing plant facilities, a moment rich in exchanges and discoveries.",
+  "actus-texte4":"We also visited the SAP of the ME",
+  "titre-sponsors":"Sponsors & Partners",
+  "newsletter-text":"Subscribe to our newsletter to be among the first to receive all the information about the SAE.",
+  "newsletter-nom":"Name & Surname",
+  "newsletter-tel":"Phone number",
+  "newsletter-email":"E-mail address",
+  "newsletter-btn":"Send",
+  "footer-texte":"Subscribe to our newsletter to be among the first to receive all the information about the SAE.",
+  "footer-titre1":"Follow us",
+  "footer-titre2":"Useful links",
+  "link1":"Home",
+  "link2":"Sponsorship and Partnership",
+  "link3":"Program",
+  "link4":"Exhibitors",
+  "link5":"News",
+  "link6":"More information",
+  "rejoindre":"Join us",
+  "link7":"Exhibitor",
+  "link8":"Visitor",
+  "link9":"Delegation",
+  "link10":"Media/Press",
+  "footer-titre3":"Contact details",
+  "carte-texte":"Esplanade of the Bouaké stadium",
+  "propositions-titre":"Why become a sponsor and partner of SAE ?",
+  "pourquoi-sponsor-description-titre1":"Exceptional visibility and enhanced brand awareness",
+  "pourquoi-sponsor-description-texte1":"SAE 2026 benefits from extensive national media coverage (television, radio, press, and social media) and expects over 50,000 visitors over three days. By becoming a sponsor, you associate your brand with a major national and international event, while gaining visibility across all communication channels (booths, posters, large food tent, hackathon, ceremonies, etc.).",
+  "pourquoi-sponsor-description-titre2":"A strategic network and business opportunities",
+  "pourquoi-sponsor-description-texte2":"The trade show brings together decision-makers, investors, businesses, and public institutions around the themes of agriculture, livestock, and energy. Sponsoring the SAE means gaining access to a qualified network of potential partners and clients, generating sales leads, and building lasting collaborations in a business-friendly environment.",
+  "pourquoi-sponsor-description-titre3":"A commitment with a strong socio-economic impact",
+  "pourquoi-sponsor-description-texte3":"Supporting the SAE also enhances your CSR commitment. The event contributes to promoting agricultural self-employment, combating youth unemployment, and fostering the sustainable development of local supply chains. By becoming a partner, you actively participate in a meaningful initiative aligned with national and African priorities.",
+  "btn-doc-sponsoring":"Download the sponsorship document",
+  "Exposant-titre":"Why exhibit at the SAE ?",
+  "exposer-box-titre1":"A unique hub of opportunities to develop your network and your business",
+  "exposer-box-texte1":"SAE 2026 expects over 50,000 visitors and more than 100 exhibitors, 20% of whom are international. It's an exceptional showcase for companies in the agricultural, agro-pastoral, and energy sectors, providing an opportunity to meet decision-makers, investors, and institutional partners. By exhibiting, you gain access to a qualified network and concrete opportunities for intra-African collaboration (particularly with Egypt, the host country of this edition).",
+  "exposer-box-titre2":"Enhanced national and international visibility",
+  "exposer-box-texte2":"The trade show benefits from extensive media coverage (TV, radio, press, social media) and offers exhibitors visibility across all communication channels. By participating, you strengthen your brand image with both professional and general audiences, while highlighting your commitment to sustainable development.",
+  "exposer-box-titre3":"An innovative and unifying event to showcase your expertise",
+  "exposer-box-texte3":"SAE 2026 offers a rich program: high-level panels, renewable energy workshops, a hackathon, an agricultural pitch competition, and a giant open area for informal networking. These formats encourage exchange, discovery, and the showcasing of exhibitors' innovations. It's a unique opportunity to present your products, services, and solutions in an attractive, friendly, and impactful socio-economic environment.",
+  "btn-stand":"Book your stand",
+  "actualites-titre":"SAE 2025 News5",
+  "hackathon-description-texte":"A hackathon dedicated to agro-energy innovation will bring together student developers, agronomists, and energy engineers to design innovative solutions in this field. The best ideas will be rewarded and will receive support for their practical implementation.",
+  "hackathon-description-theme":"Theme:",
+  "hackathon-description-theme-texte":"Innovation and impact for a sovereign Ivory Coast",
+  "hackathon-btns1":"Learn more",
+  "hackathon-btns2":"Register",
+  "visiteurs-titre":"International visitors",
+  "vaccin-description1":"Health – WHO recommendations",
+  "vaccin-description2":"The vaccine against",
+  "vaccin-description3":"is mandatory to enter Ivory Coast. A check of the vaccination record is carried out on arrival. Consult your doctor or a vaccination center before departure.",
+  "vaccin1":"yellow fever",
+  "vaccin2":"malaria",
+  "vaccin-description4":"Ivory Coast being a high-risk area of",
+  "vaccin-description5":"(Zone 3), preventative treatment is recommended, especially for short stays. During your stay, protect yourself against mosquito bites (repellents, mosquito nets, diffusers, etc.).",
+  "visa-description1":"Foreign nationals holding ordinary or official passports must obtain a biometric visa to enter Côte d'Ivoire. Applications can be made at the embassy or online at",
+  "visa-description2":", allowing the issuance of a biometric e-visa at Abidjan airport after online registration and payment. All foreigners must be able to present a valid visa or residence permit upon request.",
+  "visa-description3":"The SAE can provide",
+  "visa-description4":"facilitating your visa application process, but this does not grant access to the lounge.",
+  "visa-description5":"Warning !!!",
+  "visa-description6":"Only the Ivorian embassy or consulate is authorized to decide on the issuance of visas. The SARA organizer accepts no responsibility in the event of non-compliance with these conditions.",
+  "form": {
+    "title": "SPONSORSHIP / PARTNERSHIP FORM",
+    "step1": "INFORMATION ABOUT YOUR PACK",
+    "step2": "INFORMATION ABOUT YOUR COMPANY",
+    "step3": "INFORMATION ABOUT YOUR COMPANY",
+
+    "choix": {
+      "label": "Become a sponsor / partner",
+      "sponsor": "Sponsor",
+      "partenaire": "Partner"
+    },
+
+    "typeSponsoring": {
+      "label": "Type of sponsorship",
+      "financier": "Financial Sponsor",
+      "technique": "Technical Sponsor",
+      "communication": "Communication Sponsor",
+      "prestataire": "Service Sponsor",
+      "autres": "Others"
+    },
+
+    "typePartenariat": {
+      "label": "Type of partnership",
+      "financier": "Financial Partner",
+      "technique": "Technical Partner",
+      "communication": "Communication Partner",
+      "prestataire": "Service Partner",
+      "autres": "Others"
+    },
+
+    "objectifsSponsor": "Your goals as a sponsor",
+    "objectifsPartenaire": "Your goals as a partner",
+    "contribution": "Your contribution to the event",
+
+    "pack": {
+      "label": "Select your pack",
+      "diamant": "Diamond Pack",
+      "or": "Gold Pack",
+      "argent": "Silver Pack",
+      "bronze": "Bronze Pack",
+      "technique": "Technical Pack"
+    },
+
+    "entreprise": {
+      "nom": "Company name",
+      "presentation": "Company presentation",
+      "representantNom": "Name of legal representative",
+      "representantFonction": "Representative's position",
+      "statut": "Legal status",
+      "creation": "Creation date",
+      "rccm": "RCCM number",
+      "contribuable": "Taxpayer number"
+    },
+
+    "contact": {
+      "pays": "Country",
+      "adresse": "Head office address",
+      "ville": "City",
+      "telephone": "Phone number",
+      "courriel": "Email",
+      "web": "Website"
+    },
+
+    "buttons": {
+      "next": "Next →",
+      "prev": "← Previous",
+      "submit": "Submit"
+    }
+  },
+
+
+"slides": {
+    "slide1": {
+      "title": "Giant Maquis or Culinary Evening",
+      "text": "For the first time, the SAE will incorporate a giant open-air restaurant, a true living space where participants can: This initiative aims to democratize access to the event while showcasing Ivorian culinary heritage"
+    },
+    "slide2": {
+      "title": "Hackathon",
+      "text": "A hackathon dedicated to agro-energy innovation will bring together student developers, agronomists, and energy engineers to design innovative solutions in this field. The best ideas will be rewarded and will receive support for their practical implementation."
+    },
+    "slide3": {
+      "title": "Agricultural Pitch Contest",
+      "text": "The Agricultural Pitch Competition will offer startups and young entrepreneurs the opportunity to present their innovations to a jury of experts, gain media visibility, and win funding and support to develop their projects."
+    },
+    "slide4": {
+      "title": "Closing Ceremony",
+      "text": "The closing ceremony will include a summary speech, the signing of partnerships established during the trade fair, and a cultural performance showcasing the traditions of Gbêkê"
+    },
+    "slide5": {
+      "title": "Touristic Ride in Gbêkê",
+      "text": "A tourist excursion through the Gbêkê will offer participants the opportunity to discover the Bouaké region in a different way, visiting its emblematic agricultural sites, its significant cultural landmarks, while enjoying a tasting of local products."
+    }
+  },
+
+
+  "speakers": {
+    "speaker1": {
+      "nom": "JEAN",
+      "prenoms": "MICHEL DOYIRI",
+      "fonction": "Agronomist Engineer"
+    },
+    "speaker2": {
+      "nom": "KOUASSI",
+      "prenoms": "KAN ABEL",
+      "fonction": "Social Engineer"
+    },
+    "speaker3": {
+      "nom": "COULIBALY",
+      "prenoms": "CEDRIC PAUL",
+      "fonction": "AI Engineer"
+    }
+  }  
+}

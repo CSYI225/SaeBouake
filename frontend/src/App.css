@@ -42,7 +42,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 90%;
+  width: 92%;
 }
 .liens-header{
   text-decoration: none;
@@ -620,6 +620,76 @@ h2 {
   font-size: 10px;
   color: #000;
 }
+
+
+
+
+.lang-switcher {
+  position: relative;
+  display: inline-block;
+  font-family: sans-serif;
+}
+
+.lang-btn {
+  width: 40px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  background-color: #fff;
+  border: none;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 2px 8px #00000020;
+  cursor: pointer;
+  padding: 0 3px 0 3px;
+}
+
+.flag-icon {
+  width: 80%;
+  height: 70%;
+  object-fit: cover;
+}
+
+.lang-dropdown {
+  width: 35px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 0px 2px 8px #00000020;
+  padding: 0 3px 0 3px;
+  top: 35px;
+}
+
+.lang-option {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.lang-option:hover {
+  background: #a19f9f;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

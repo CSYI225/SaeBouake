@@ -21,7 +21,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Maquis from "../Images/maquis.jpg"
 import Balade from "../Images/balade.png"
 import Cloture from "../Images/cloture.png"
-import Hackathon from "../Images/hackathon.png"
+import Hackathon from "../Images/visuelhackaton.jpg"
 import Pitch from "../Images/pitch.png"
 import Speaker1 from "../Images/speaker1.png"
 import Speaker2 from "../Images/speaker2.png"
@@ -39,6 +39,9 @@ import Actus1 from "../Images/ACTUSAE1.jpg"
 import Actus2 from "../Images/ACTUSAE2.jpg"
 import Actus3 from "../Images/ACTUSAE3.jpg"
 import Actus4 from "../Images/ACTUSAE4.jpg"
+import { useTranslation } from "react-i18next";
+import LangSwitcher  from "../BtnTraduction";
+
 
 
 
@@ -68,77 +71,67 @@ const sponsors = [
 const slides = [
   {
     id: 1,
-    title: "Maquis Géant ou soirée gastronomique",
-    text: "Pour la première fois, le SAE intégrera un maquis géant, véritable lieu de vie où les  participants pourront : Cette initiative vise à démocratiser l’accès à l’événement tout en mettant en valeur le  patrimoine culinaire ivoirien",
+    title: "slides.slide1.title",
+    text: "slides.slide1.text",
     images: [Maquis]
   },
   {
     id: 2,
-    title: "Hackathon",
-    text: "Un hackathon dédié à l’innovation agro-énergétique réunira des étudiants développeurs, agronomes et ingénieurs en énergie pour concevoir des solutions innovantes dans ce domaine. Les meilleures idées seront récompensées et bénéficieront d’un accompagnement pour leur mise en œuvre concrète sur le terrain.",
+    title: "slides.slide2.title",
+    text: "slides.slide2.text",
     images: [Hackathon]
   },
   {
     id: 3,
-    title: " Concours Pitch Agricole",
-    text: "Le Concours Pitch Agricole offrira aux startups et jeunes entrepreneurs l’opportunité de présenter leurs innovations devant un jury d’experts, de gagner en visibilité médiatique, et de remporter des financements ainsi qu’un accompagnement pour développer leurs projets.",
+    title: "slides.slide3.title",
+    text: "slides.slide3.text",
     images: [Pitch]
   },
   {
     id: 4,
-    title: "Cérémonie de Clôture",
-    text: "La cérémonie de clôture comprendra un discours de synthèse, la signature des partenariats établis durant le salon, et un spectacle culturel valorisant les traditions du Gbêkê.",
+    title: "slides.slide4.title",
+    text: "slides.slide4.text",
     images: [Cloture]
   },
   {
     id: 5,
-    title: "Balade Touristique dans le Gbêkê",
-    text: "Une balade touristique à travers le Gbêkê offrira aux participants l’occasion de découvrir autrement la région de Bouaké, en visitant ses sites agricoles emblématiques, ses lieux culturels marquants, tout en profitant d’une dégustation de produits locaux.",
+    title: "slides.slide5.title",
+    text: "slides.slide5.text",
     images: [Balade]
   }
 ];
 
 
-const speaker= [
-  { id: 1, nom: "JEAN1", prenoms: "MICHEL DOYIRI", fonction: "Ingénieur agronome", images: [Speaker1] },
-  { id: 2, nom: "JEAN2", prenoms: "EMILY SORO", fonction: "Ingénieur agronome", images: [Speaker2] },
-  { id: 3, nom: "JEAN3", prenoms: "SARAH ADJE", fonction: "Ingénieur agronome", images: [Speaker3] },
-  { id: 4, nom: "JEAN4", prenoms: "MICHEL DOYIRI", fonction: "Ingénieur agronome", images: [Speaker1] },
-  { id: 5, nom: "JEAN5", prenoms: "EMILY SORO", fonction: "Ingénieur agronome", images: [Speaker2] },
-  { id: 6, nom: "JEAN6", prenoms: "SARAH ADJE", fonction: "Ingénieur agronome", images: [Speaker3] },
-  { id: 7, nom: "JEAN7", prenoms: "EMILY SORO", fonction: "Ingénieur agronome", images: [Speaker2] },
-  { id: 8, nom: "JEAN8", prenoms: "SARAH ADJE", fonction: "Ingénieur agronome", images: [Speaker3] },
-];
-
-
-
-
-
-
-
-const sponsorsMobile = [
+const speakers = [
   {
     id: 1,
-    nom: "JEAN",
-    prenoms: "MICHEL DOYIRI",
-    fonction: "Ingénieur agronomme",
+    nom: "speakers.speaker1.nom",
+    prenoms: "speakers.speaker1.prenoms",
+    fonction: "speakers.speaker1.fonction",
     images: [Speaker1]
   },
   {
     id: 2,
-    nom: "JEAN",
-    prenoms: "MICHEL DOYIRI",
-    fonction: "Ingénieur agronomme",
+    nom: "speakers.speaker2.nom",
+    prenoms: "speakers.speaker2.prenoms",
+    fonction: "speakers.speaker2.fonction",
     images: [Speaker2]
   },
   {
     id: 3,
-    nom: "JEAN",
-    prenoms: "MICHEL DOYIRI",
-    fonction: "Ingénieur agronomme",
+    nom: "speakers.speaker3.nom",
+    prenoms: "speakers.speaker3.prenoms",
+    fonction: "speakers.speaker3.fonction",
     images: [Speaker3]
-  }
+  },
 ];
+
+
+
+
+
+
+
 
 
 export default function Accueil() {
@@ -168,8 +161,6 @@ export default function Accueil() {
 
     const [index2, setIndex2] = useState(0);
 
-    const nextSlide2 = () => setIndex2((prev) => (prev + 1) % sponsorsMobile.length);
-    const prevSlide2 = () => setIndex2((prev) => (prev - 1 + sponsorsMobile.length) % sponsorsMobile.length);
     
 
 
@@ -240,21 +231,32 @@ const [menu, setMenu] = useState(false);
   }, [index]); // dépendance sur index pour redémarrer à chaque fois
 
 
-  const [index3, setIndex3] = useState(0); // index du 1er speaker affiché
-  const groupSize = 4; // nombre de speakers affichés simultanément
-  const totalGroups = Math.ceil(speaker.length / groupSize);
-  const len = speaker.length;
-  // navigation groupes
-  const nextSlide3= () => setIndex3(prev => (prev + groupSize) % len);
-  const prevSlide3 = () => setIndex3(prev => (prev - groupSize + len) % len);
+const [index3, setIndex3] = useState(0); // index du 1er speaker affiché
+const groupSize = 4; // nombre de speakers affichés simultanément
+const totalGroups = Math.max(1, Math.ceil(speakers.length / groupSize));
+const len = speakers.length;  // navigation groupes
+const lastGroupStart = (totalGroups - 1) * groupSize
+const nextSlide3 = () => {
+  setIndex3(prev => {
+    const next = prev + groupSize;
+    // si on dépasse la longueur, on revient au début (0)
+    return next >= len ? 0 : next;
+  });
+};
+
+const prevSlide3 = () => {
+  setIndex3(prev => {
+    const prevIndex = prev - groupSize;
+    // si on devient négatif, on va au dernier groupe
+    return prevIndex < 0 ? lastGroupStart : prevIndex;
+  });
+};
 
 
-
- useEffect(() => {
-    const interval = setInterval(() => {
-      nextSlide3();
-    }, 5000); // 5000 ms = 5 secondes
-
+useEffect(() => {
+  const interval = setInterval(() => {
+    nextSlide3();
+  }, 5000);
     // Nettoyage à chaque changement d’index ou à la destruction du composant
     return () => clearInterval(interval);
   }, [index3]); // dépendance sur index pour redémarrer à chaque fois
@@ -264,13 +266,13 @@ const [menu, setMenu] = useState(false);
   const currentGroup = Math.floor(index3 / groupSize) % totalGroups;
 
   // groupe d'éléments à afficher (avec wrapping si nécessaire)
-  const currentSpeakers = speaker.slice(index3, index3 + groupSize);
+  const currentSpeakers = speakers.slice(index3, index3 + groupSize);
   const displayedSpeakers =
     currentSpeakers.length < groupSize
-      ? [...currentSpeakers, ...speaker.slice(0, groupSize - currentSpeakers.length)]
+      ? [...currentSpeakers, ...speakers.slice(0, groupSize - currentSpeakers.length)]
       : currentSpeakers;
 
-
+  const { t } = useTranslation();
 
 
 
@@ -287,40 +289,41 @@ const [menu, setMenu] = useState(false);
         <div className="menu-deroulant-tel">
             <div className="tel-close" onClick={() => setMenu(false)}>✕</div>
             <div className="tel-links">
-              <Link to= "/" className="lien-tel-actif">Accueil</Link>
-              <Link to= "/Sponsoring" className="liens-tel-header">Sponsoring & Partenariat</Link>
-              <Link to= "/Programme" className="liens-tel-header">Programme</Link>
-              <Link to= "/Exposant"className="liens-tel-header">Exposants</Link>
-              <Link to= "/Actualites"className="liens-tel-header">Actualités</Link>
-              <Link to= "/Info"className="liens-tel-header">Plus d'infos</Link>
+              <Link to= "/" className="lien-tel-actif">{t("link1")}</Link>
+              <Link to= "/Sponsoring" className="liens-tel-header">{t("link2")}</Link>
+              <Link to= "/Programme" className="liens-tel-header">{t("link3")}</Link>
+              <Link to= "/Exposant"className="liens-tel-header">{t("link4")}</Link>
+              <Link to= "/Actualites"className="liens-tel-header">{t("link5")}</Link>
+              <Link to= "/Info"className="liens-tel-header">{t("link6")}</Link>
             </div>
-            <button className="btn-rejoindre"  onClick={() => setAffichermenurejoindre(!affichermenurejoindre)}>Rejoingnez nous</button>
+            <button className="btn-rejoindre"  onClick={() => setAffichermenurejoindre(!affichermenurejoindre)}>{t("rejoindre")}</button>
               {affichermenurejoindre && (
                 <div className="menu-rejoindre-tel">
-                  <div className="menu-rejoindre-tel-item">Exposant</div>
-                  <div onClick={()=>navigate('/Visiteur')} className="menu-rejoindre-tel-item">Visiteur</div>
-                  <div onClick={()=>navigate('/Delegation')} className="menu-rejoindre-tel-item">Délégation</div>
-                  <div onClick={()=>navigate('/MediaPresse')}className="menu-rejoindre-tel-item">Média/Presse</div>
+                  <div className="menu-rejoindre-tel-item">{t("link7")}</div>
+                  <div onClick={()=>navigate('/Visiteur')} className="menu-rejoindre-tel-item">{t("link8")}</div>
+                  <div onClick={()=>navigate('/Delegation')} className="menu-rejoindre-tel-item">{t("link9")}</div>
+                  <div onClick={()=>navigate('/MediaPresse')}className="menu-rejoindre-tel-item">{t("link10")}</div>
                 </div>
               )}
         </div>
       )}
             
           <ul className="nav-links">
-            <Link to= "/" className="lien-actif">Accueil</Link>
-            <Link to= "/Sponsoring" className="liens-header">Sponsoring & Partenariat</Link>
-            <Link to= "/Programme" className="liens-header">Programme</Link>
-            <Link to= "/Exposant" className="liens-header">Exposants</Link>
-            <Link to= "/Actualites"className="liens-header">Actualités</Link>
-            <Link to= "/Info" className="liens-header">Plus d'infos</Link>
+            <Link to= "/" className="lien-actif">{t("link1")}</Link>
+            <Link to= "/Sponsoring" className="liens-header">{t("link2")}</Link>
+            <Link to= "/Programme" className="liens-header">{t("link3")}</Link>
+            <Link to= "/Exposant" className="liens-header">{t("link4")}</Link>
+            <Link to= "/Actualites"className="liens-header">{t("link5")}</Link>
+            <Link to= "/Info" className="liens-header">{t("link6")}</Link>
           </ul>
-          <button className="btn-ticket"  onClick={() => setAffichermenu(!affichermenu)}>Rejoingnez nous</button>
+          <button className="btn-ticket"  onClick={() => setAffichermenu(!affichermenu)}>{t("rejoindre")}</button>
+    <LangSwitcher />
           {affichermenu && (
         <div className="menu-deroulant">
-          <div className="menu-item">Exposant</div>
-          <div onClick={()=>navigate('/Visiteur')} className="menu-item">Visiteur</div>
-          <div onClick={()=>navigate('/Delegation')} className="menu-item">Délégation</div>
-          <div onClick={()=>navigate('/MediaPresse')}className="menu-item">Média/Presse</div>
+          <div className="menu-item">{t("link7")}</div>
+          <div onClick={()=>navigate('/Visiteur')} className="menu-item">{t("link8")}</div>
+          <div onClick={()=>navigate('/Delegation')} className="menu-item">{t("link9")}</div>
+          <div onClick={()=>navigate('/MediaPresse')}className="menu-item">{t("link10")}</div>
         </div>
       )}
 
@@ -334,26 +337,17 @@ const [menu, setMenu] = useState(false);
       <div  className="sae-presentation">
         <motion.img variants={vershaut} className="sae-img" src={Sae} alt="" />
         <div className="sae-description">
-          <motion.div variants={left} className="titre">Le SAE , qu’est ce que c’est ?</motion.div>
-          <motion.div variants={apparition} className="sae-description-texte">
-          Le <span className="gras">Salon de l’Agriculture, de l’Élevage et de l’Énergie</span>
-          (SAE) s’impose comme la
-          plateforme  incontournable pour tous les acteurs engagés dans le développement des
-          filières agricoles,  agro-pastorales et énergétiques. En effet, face aux enjeux mondiaux
-          tels que la sécurité  alimentaire et la transition énergétique, le SAE 2026 se positionne
-          comme un catalyseur  d’innovations et de synergies.  Cette année, l’événement prend
-          une dimension encore plus ambitieuse en se déroulant à  Bouaké, cœur économique et agricole de la Côte d’Ivoire, et en accueillant l’Égypte comme  pays hôte, renforçant
-          ainsi les échanges interafricains
-          </motion.div>
+          <motion.div variants={left} className="titre">{t("titre-sae-accueil")}</motion.div>
+          <motion.div variants={apparition} className="sae-description-texte">{t("description-le")} <span className="gras">{t("description-gras-sae-accueil")} </span>{t("description-sae-accueil")}</motion.div>
         </div>
       </div>
       <motion.div variants={zoom} className="document-container">
           <img className="doc-img" src={Doc} alt="" />
           <div className="doc-description">
-            <div className="doc-description-top">Document <br /> téléchargeable</div>
+            <div className="doc-description-top">{t("doc-description-top")}</div>
             <div className="doc-description-bottom">
               <div className="doc-weight">PDF - 3,3Mo</div>
-              <button className="download">Télécharger</button>
+              <button className="download">{t("download")}</button>
             </div>
           </div>
       </motion.div>
@@ -405,62 +399,37 @@ const [menu, setMenu] = useState(false);
     </motion.section>
     <motion.section initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.4 }} variants={containerVariants} className="pourquoi">
       <div className="pourquoi-container">
-      <motion.div variants={apparition} className="titre">Pourquoi ne pas manquer le SAE 2025</motion.div>
+      <motion.div variants={apparition} className="titre">{t("titre-pourquoi")} </motion.div>
       <div className="pourquoi-details">
         <div className="pourquoi-range">
           <div className="pourquoi-range-box">
             <motion.img variants={left2} className="carte-icon" src={Carte} alt="" />
             <motion.div variants={zoom2} className="pourquoi-description">
-              <span className="pourquoi-description-titre">Un Hub d’Opportunités Unique</span>
-                Le SAE 2026 à Bouaké accueillera 50 000 visiteurs et favorisera des
-                partenariats Afrique de l’Ouest–Égypte dans les secteurs agricole,
-                agro-pastoral et énergétique, grâce à la position stratégique de
-                la ville et à son fort potentiel économique.
-            </motion.div>
+              <span className="pourquoi-description-titre">{t("pourquoi-description-titre1")} </span>{t("pourquoi-description1")}</motion.div>
           </div>
           <div className="pourquoi-range-box">
             <motion.img variants={right} className="ampoule-icon" src={Ampoule} alt="" />
             <motion.div variants={zoom2} className="pourquoi-description">
-              <span className="pourquoi-description-titre">Des Contenus Exclusifs et Innovants</span>
-              Le SAE 2026 propose panels, ateliers et un espace startups autour
-              du financement vert, de l’agrotechnologie et des énergies
-              renouvelables, réunissant experts et dirigeants pour inspirer, former
-              et connecter les participants en vue de projets concrets.
-            </motion.div>
+              <span className="pourquoi-description-titre">{t("pourquoi-description-titre2")}</span>{t("pourquoi-description2")}</motion.div>
           </div>
         </div>
         <div className="pourquoi-range">
           <div className="pourquoi-range-box">
             <motion.img variants={left2} className="camera-icon" src={Camera} alt="" />
             <motion.div variants={zoom2} className="pourquoi-description">
-              <span className="pourquoi-description-titre">Visibilité Maximale pour les Participants</span>
-              Le SAE 2026 propose panels, ateliers et un espace startups autour
-              du financement vert, de l’agrotechnologie et des énergies
-              renouvelables, réunissant experts et dirigeants pour inspirer, former
-              et connecter les participants en vue de projets concrets.
-            </motion.div>
+              <span className="pourquoi-description-titre">{t("pourquoi-description-titre3")}</span>{t("pourquoi-description3")}</motion.div>
           </div>
           <div className="pourquoi-range-box">
             <motion.img variants={right} className="fleche-icon" src={Fleche} alt="" />
             <motion.div variants={zoom2} className="pourquoi-description">
-              <span className="pourquoi-description-titre">Impact Socio-Économique Majeur</span>
-              Le SAE 2026 propose panels, ateliers et un espace startups autour
-              du financement vert, de l’agrotechnologie et des énergies
-              renouvelables, réunissant experts et dirigeants pour inspirer, former
-              et connecter les participants en vue de projets concrets.
-            </motion.div>
+              <span className="pourquoi-description-titre">{t("pourquoi-description-titre4")}</span>{t("pourquoi-description4")}</motion.div>
           </div>
         </div>
         <div className="pourquoi-range2">
           <div className="pourquoi-range-box2">
             <motion.img variants={left2} className="carte-icon" src={Carte} alt="" />
             <motion.div variants={zoom2} className="pourquoi-description">
-              <span className="pourquoi-description-titre">Une opportunité unique de</span>
-              Le SAE 2026 propose panels, ateliers et un espace startups autour
-              du financement vert, de l’agrotechnologie et des énergies
-              renouvelables, réunissant experts et dirigeants pour inspirer, former
-              et connecter les participants en vue de projets concrets.
-            </motion.div>
+              <span className="pourquoi-description-titre">{t("pourquoi-description-titre5")}</span>{t("pourquoi-description5-1")} <br />{t("pourquoi-description5-2")} <br />{t("pourquoi-description5-3")}</motion.div>
           </div>
         </div>
       </div>
@@ -471,8 +440,8 @@ const [menu, setMenu] = useState(false);
       <div className="slider-text">
         <AnimatePresence mode="wait">
           <motion.div key={slides[index].id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.8 }}>
-            <div className="slider-title">{slides[index].title}</div>
-            <div className="slider-description">{slides[index].text}</div>
+            <div className="slider-title">{t(slides[index].title)}</div>
+            <div className="slider-description">{t(slides[index].text)}</div>
           </motion.div>
         </AnimatePresence>
       </div>
@@ -490,41 +459,27 @@ const [menu, setMenu] = useState(false);
       </div>
     </section>
     <div className="ticket-container">
-        <div className="ticket">Ticket maquis géant</div>
+        <div className="ticket">{t("ticket")}</div>
     </div>
 
     <motion.section initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.4 }} variants={containerVariants} className="actus">
       <div className="actus-container">
         <motion.div variants={apparition} className="actus-top">
-          <div className="titre">Actualités</div>
-          <Link to="./Actualites" className="actu-btn">TOUTES LES ACTUALITES</Link>
+          <div className="titre">{t("titre-actu")}</div>
+          <Link to="./Actualites" className="actu-btn">{t("titre-btn-actu")}</Link>
         </motion.div>
         <motion.div variants={versbas} className="actus-actualites-container">
           <div className="actualites-range">
             <div className="actus-box">
               <img className="actus-img" src={Actus1} alt="" />
               <div className="actus-description">
-                <div className="actus-texte">
-                  Nous avons eu le plaisir de rencontrer les équipes de Coq Ivoire, 
-                  Vitalac et Sofacope dans le cadre des préparatifs de leur 
-                  participation au Salon de l’Agriculture et des Élevages (SAE) de 
-                  Bouaké.                
-                </div>
+                <div className="actus-texte">{t("actus-texte1")}</div>
               </div>
             </div>
             <div className="actus-box">
               <img className="actus-img" src={Actus2} alt="" />
               <div className="actus-description">
-                <div className="actus-texte">
-                 Lors de notre visite, nous avons eu l’honneur 
-                 d’être reçus par M. Koné, Directeur de Cabinet 
-                 du Ministre des Transports et Maire de Bouaké, 
-                 ainsi que par le Conseiller Régional de Bouaké.
-                 <br />Cette rencontre a été l’occasion de leur présenter 
-                 en détail le projet SAE Bouaké et de leur offrir 
-                 un présent en signe de reconnaissance et de 
-                 remerciement pour leur accueil chaleureux.
-                </div>
+                <div className="actus-texte">{t("actus-texte2-1")}<br />{t("actus-texte2-2")}</div>
               </div>
             </div>
           </div>
@@ -532,19 +487,13 @@ const [menu, setMenu] = useState(false);
             <div className="actus-box">
               <img className="actus-img" src={Actus3} alt="" />
               <div className="actus-description">
-                <div className="actus-texte">
-                  Nous avons eu le plaisir de visiter les installations 
-                  de l’usine de fabrication d’aliments, un moment riche 
-                  en échanges et en découvertes.
-                </div>
+                <div className="actus-texte">{t("actus-texte3")}</div>
               </div>
             </div>
             <div className="actus-box">
               <img className="actus-img" src={Actus4} alt="" />
               <div className="actus-description">
-                <div className="actus-texte">
-                 Nous avons également, effectué une visite à la SAP de la ME
-                </div>
+                <div className="actus-texte">{t("actus-texte4")}</div>
               </div>
             </div>
           </div>
@@ -562,9 +511,9 @@ const [menu, setMenu] = useState(false);
                 <img src={speaker.images[0]} alt={speaker.nom} />
               </div>
               <div className="speaker-description2">
-                <div className="nomspeaker2">{speaker.nom}</div>
-                <div className="prenomspeaker2">{speaker.prenoms}</div>
-                <div className="fonctionspeaker2">{speaker.fonction}</div>
+                <div className="nomspeaker2">{t(speaker.nom)}</div>
+                <div className="prenomspeaker2">{t(speaker.prenoms)}</div>
+                <div className="fonctionspeaker2">{t(speaker.fonction)}</div>
               </div>
             </motion.div>
           ))}
@@ -604,7 +553,7 @@ const [menu, setMenu] = useState(false);
       </section> */}
 
     <motion.section initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.4 }} variants={containerVariants} className="sponsors-section">
-      <motion.div variants={apparition} className="titre">Sponsors & Partenaires</motion.div>
+      <motion.div variants={apparition} className="titre">{t("titre-sponsors")}</motion.div>
       <div className="sponsors-slider">
         <button className="arrow" onClick={precSlide}>&#8249;</button>
         <div className="sponsors-track-wrapper">
@@ -660,31 +609,28 @@ const [menu, setMenu] = useState(false);
   <motion.section initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.4 }} variants={containerVariants} className="newsletter">
     <motion.div variants={zoom} className="newsletter-container">
       <h3 className="newsletter-title">Newsletters</h3>
-      <div className="newsletter-text">
-        Abonnez-vous à notre newsletter pour être parmi les premiers à recevoir
-        toutes les informations sur le SAE.
-      </div>
+      <div className="newsletter-text">{t("newsletter-text")}</div>
       <div className="champnewsletter">
       <div className="newsletter-input">
         <input
           type="nom"
-          placeholder="Nom & prénoms"
+          placeholder={t("newsletter-nom")}
         />
         </div>
           <div className="newsletter-input">
           <input
             type="tel"
-            placeholder="Numéro de téléphone"
+            placeholder={t("newsletter-tel")}
           />
         </div>
         <div className="newsletter-input">
           <input
             type="email"
-            placeholder="Adresse email"
+            placeholder={t("newsletter-email")}
           />
         </div>
         </div>
-        <button className="newsletter-btn">Envoyer</button>
+        <button className="newsletter-btn">{t("newsletter-btn")}</button>
     </motion.div>
   </motion.section>
     <section className="footer">
@@ -692,10 +638,10 @@ const [menu, setMenu] = useState(false);
           <div className="footer-left">
             <div className="footer-left-top">
               <img className="footer-logo" src={LogoSAE2} alt="" />
-              <div className="footer-texte">Abonnez-vous à notre newsletter pour être parmi les premiers à recevoir toutes les informations sur le SAE.</div>
+              <div className="footer-texte">{t("footer-texte")}</div>
             </div>
             <div className="footer-left-bottom">
-              <div className="footer-titres">Suivez-nous</div>
+              <div className="footer-titres">{t("footer-titre1")}</div>
               <div className="footer-left-bottom-bottom">
                 <img className="fb-icon" src={Fb} alt="fb" />
                 <img className="insta-icon" src={Insta} alt="insta" />
@@ -705,20 +651,22 @@ const [menu, setMenu] = useState(false);
           </div>
           <div className="footer-centre">
             <div className="footer-centre-box">
-              <div className="footer-titres">Liens utiles</div>
+              <div className="footer-titres">{t("footer-titre2")}</div>
               <nav className="footer-liens">
                   <ul>
-                    <Link to="/" className="link">Accueil</Link>
-                    <Link to="/Sponsoring"className="link">Sponsoring & Partenariat</Link>
-                    <Link to="/Programme" className="link">Programme</Link>
-                    <Link to="/Actualites"className="link">Actualités</Link>
+                    <Link to="/" className="link">{t("link1")}</Link>
+                    <Link to="/Sponsoring"className="link">{t("link2")}</Link>
+                    <Link to="/Programme" className="link">{t("link3")}</Link>
+                    <Link to="/Exposant"className="link">{t("link4")}</Link>
+                    <Link to="/Actualites"className="link">{t("link5")}</Link>
+                    <Link to="/Info" className="link">{t("link6")}</Link>
                   </ul>
               </nav>
             </div>
           </div>
                     <div className="footer-right">
             <div className="footer-right-center">
-              <div className="footer-titres">Coordonnées</div>
+              <div className="footer-titres">{t("footer-titre3")}</div>
               <div className="coordonees">
                 <div className="tel">
                   <img className="phone-icon" src={Phone} alt="tel" />
@@ -732,7 +680,7 @@ const [menu, setMenu] = useState(false);
             </div>
             <div className="footer-right-bottom">
               <img className="carte" src={Map} alt="map" />
-              <div>Esplanade du stade de Bouaké</div>
+              <div>{t("carte-texte")}</div>
             </div>
           </div>
 
