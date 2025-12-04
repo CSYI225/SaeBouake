@@ -704,13 +704,6 @@ h2 {
   position: absolute;
   margin-top: -5px;
 }
-
-.flag-icon {
-  width: 80%;
-  height: 70%;
-  object-fit: cover;
-}
-
 .lang-dropdown {
   width: 25px;
   height: 15px;
