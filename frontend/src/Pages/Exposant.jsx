@@ -24,16 +24,14 @@ import LangSwitcher  from "../BtnTraduction";
 export default function Exposant() {
 
   const [scrolled, setScrolled] = useState(false);
-
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-    const [affichermenu, setAffichermenu] = useState(false);
+  const [affichermenu, setAffichermenu] = useState(false);
   const menuRef = useRef(null);
-
   // Fermer le menu quand on clique à l'extérieur
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -46,11 +44,13 @@ export default function Exposant() {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-    const navigate=useNavigate();
-const [menu, setMenu] = useState(false);    
+
+  const navigate=useNavigate();
+
+  const [menu, setMenu] = useState(false);    
   const [affichermenurejoindre, setAffichermenurejoindre] = useState(false);
 
-    const { t } = useTranslation();
+  const { t } = useTranslation();
 
 
   return(

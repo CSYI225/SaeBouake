@@ -136,8 +136,8 @@ const speakers = [
 
 
 export default function Accueil() {
-  const [scrolled, setScrolled] = useState(false);
 
+  const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
@@ -146,53 +146,38 @@ export default function Accueil() {
 
 
   
-    const [index, setIndex] = useState(0);
-  
-    const nextSlide = () => setIndex((prev) => (prev + 1) % slides.length);
-    const prevSlide = () => setIndex((prev) => (prev - 1 + slides.length) % slides.length);
-
- useEffect(() => {
+  const [index, setIndex] = useState(0);
+  const nextSlide = () => setIndex((prev) => (prev + 1) % slides.length);
+  const prevSlide = () => setIndex((prev) => (prev - 1 + slides.length) % slides.length);
+  useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
     }, 7000); // 7000 ms = 7 secondes
-
     // Nettoyage à chaque changement d’index ou à la destruction du composant
     return () => clearInterval(interval);
   }, [index]); // dépendance sur index pour redémarrer à chaque fois
 
-    const [index2, setIndex2] = useState(0);
-
-    
-
-
+  const [index2, setIndex2] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
   const itemsPerSlide = 6;
   const totalSlides = Math.ceil(sponsors.length / itemsPerSlide);
-
   const svtSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % totalSlides);
   };
-
   const precSlide = () => {
     setCurrentIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
   };
-
  useEffect(() => {
     const interval = setInterval(() => {
       svtSlide();
     }, 3000);
-
     return () => clearInterval(interval);
   }, [index2]); // redémarre le timer à chaque changement
-
-
-
   const startIndex = currentIndex * itemsPerSlide;
   const visibleSponsors = sponsors.slice(startIndex, startIndex + itemsPerSlide);
 
   const [affichermenu, setAffichermenu] = useState(false);
   const menuRef = useRef(null);
-
   // Fermer le menu quand on clique à l'extérieur
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -205,28 +190,28 @@ export default function Accueil() {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-    const navigate=useNavigate();
-const [menu, setMenu] = useState(false);    
+
+  const navigate=useNavigate();
+
+
+  const [menu, setMenu] = useState(false);    
   const [affichermenurejoindre, setAffichermenurejoindre] = useState(false);
 
   const [currentIndexMobile, setCurrentIndexMobile] = useState(0);
   const itemsPerSlideMobile = 3;
   const totalSlidesMobile = Math.ceil(sponsors.length / itemsPerSlideMobile);
-
   const svtSlideMobile = () => {
     setCurrentIndexMobile((prev) => (prev + 1) % totalSlidesMobile);
   };
   const precSlideMobile = () => {
     setCurrentIndexMobile((prev) => (prev - 1 + totalSlidesMobile) % totalSlidesMobile);
   };
-
   const startIndexMobile = currentIndexMobile * itemsPerSlideMobile;
   const visibleSponsorsMobile = sponsors.slice(startIndexMobile, startIndexMobile + itemsPerSlideMobile);
  useEffect(() => {
     const interval = setInterval(() => {
       svtSlideMobile();
     }, 5000); // 5000 ms = 5 secondes
-
     // Nettoyage à chaque changement d’index ou à la destruction du composant
     return () => clearInterval(interval);
   }, [index]); // dépendance sur index pour redémarrer à chaque fois
@@ -267,30 +252,22 @@ useEffect(() => {
       ? [...currentSpeakers, ...speakers.slice(0, groupSize - currentSpeakers.length)]
       : currentSpeakers;
 
-// ----- VERSION MOBILE -----
 const [mobileIndex, setMobileIndex] = useState(0);
 const totalMobile = speakers.length;
-
 const nextspeakersMobile = () => {
   setMobileIndex((prev) => (prev + 1) % totalMobile);
 };
-
 const prevspeakersMobile = () => {
   setMobileIndex((prev) => (prev - 1 + totalMobile) % totalMobile);
 };
-
 useEffect(() => {
   const interval = setInterval(nextspeakersMobile, 5000);
   return () => clearInterval(interval);
 }, [mobileIndex]);
-
 const displayedMobile = speakers[mobileIndex];
 
 
-
-
-
-  const { t } = useTranslation();
+const { t } = useTranslation();
 
 
 

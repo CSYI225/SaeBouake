@@ -20,7 +20,6 @@ import LangSwitcher  from "../BtnTraduction";
 const Programme=()=>{
 
     const [scrolled, setScrolled] = useState(false);
-  
     useEffect(() => {
       const handleScroll = () => setScrolled(window.scrollY > 50);
       window.addEventListener("scroll", handleScroll);
@@ -30,7 +29,6 @@ const Programme=()=>{
     
   const [affichermenu, setAffichermenu] = useState(false);
   const menuRef = useRef(null);
-
   // Fermer le menu quand on clique à l'extérieur
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -43,11 +41,13 @@ const Programme=()=>{
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-    const navigate=useNavigate();
-const [menu, setMenu] = useState(false);    
+
+  const navigate=useNavigate();
+
+  const [menu, setMenu] = useState(false);    
   const [affichermenurejoindre, setAffichermenurejoindre] = useState(false);
 
-    const { t } = useTranslation();
+  const { t } = useTranslation();
 
 
 

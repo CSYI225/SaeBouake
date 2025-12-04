@@ -26,14 +26,15 @@ import LangSwitcher  from "../BtnTraduction";
 
 
 const Sponsoring=()=>{
-    const [scrolled, setScrolled] = useState(false);
-  
+
+  const [scrolled, setScrolled] = useState(false);
     useEffect(() => {
       const handleScroll = () => setScrolled(window.scrollY > 50);
       window.addEventListener("scroll", handleScroll);
       return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
-    const navigate=useNavigate();
+  }, []);
+
+  const navigate=useNavigate();
   const [affichermenu, setAffichermenu] = useState(false);
   const menuRef = useRef(null);
 
@@ -50,8 +51,8 @@ const Sponsoring=()=>{
     };
   }, []);
 
-const [menu, setMenu] = useState(false);    
-const [affichermenurejoindre, setAffichermenurejoindre] = useState(false);
+  const [menu, setMenu] = useState(false);    
+  const [affichermenurejoindre, setAffichermenurejoindre] = useState(false);
   
   const { t } = useTranslation();
 

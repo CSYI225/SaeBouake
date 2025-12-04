@@ -7,16 +7,15 @@ import LangSwitcher  from "../BtnTraduction";
 
 
 const BagbePopup = () => {
-  const [isOpen, setIsOpen] = useState(false);
 
+  const [isOpen, setIsOpen] = useState(false);
   // Ouvre le popup dès que la page charge
   useEffect(() => {
     setIsOpen(true);
   }, []);
 
-    const { t } = useTranslation();
-
-
+  const { t } = useTranslation();
+  
   if (!isOpen) return null;
 
   return (
